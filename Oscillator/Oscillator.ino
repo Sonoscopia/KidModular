@@ -22,11 +22,11 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 
 /************************************ CLASS OBJECTS *********************************************************/
 // LCD
-UTFT myGLCD(CTE32HR,38,39,40,41);
+UTFT LCD(CTE32HR,38,39,40,41);
 
 /************************************ VARIABLES *************************************************************/
 // Audio
-byte bb;
+byte sig; // curent signal value
 double dfreq;
 // const double refclk=31372.549;  // =16MHz / 510
 const double refclk=31376.6;      // measured
@@ -37,11 +37,14 @@ volatile byte c4ms;              // counter incremented all 4ms
 volatile unsigned long phaccu;   // pahse accumulator
 volatile unsigned long tword_m;  // dds tuning word m
 
+// LCD
+unsigned int xPos = 0;
+byte scopeBuf[478]; 
 /************************************ SETUP *****************************************************************/
 void setup()
 {
   // LCD setup - uses delay() and therefore must go before any interrupts
-  myGLCD.InitLCD();
+  LCD.InitLCD();
   
   // Audio setup
   pinMode(AUDIOPIN, OUTPUT); // output / frequency output
@@ -56,12 +59,16 @@ void setup()
 /************************************ LOOP ******************************************************************/
 void loop()
 {
-  // LCD
-  myGLCD.fillScr(VGA_RED);
+  // LCD clear
+  //LCD.fillScr(VGA_RED);
+  
+  // LCD - Oscilloscope
+  oscilloscope();
+  
   
   // Audio
   while(1) {
-     if (c4ms > 250) {                 // timer / wait fou a full second
+     if (c4ms > 250) {                 // timer / wait for a full second
       c4ms=0;
       dfreq=analogRead(0);             // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
 
@@ -69,8 +76,11 @@ void loop()
       tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
       sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt 
     }
-  }  
- }
+  }
+
+
+  
+}
 
 /************************************ AUDIO FUNCTIONS *******************************************************/
 // timer2 setup
@@ -100,10 +110,27 @@ ISR(TIMER2_OVF_vect) {
   phaccu=phaccu+tword_m; // soft DDS, phase accu with 32 bits
   icnt=phaccu >> 24;     // use upper 8 bits for phase accu as frequency information
                          // read value fron ROM sine table and send to PWM DAC
-  OCR2A=pgm_read_byte_near(sine256 + icnt);    
-
+  sig = pgm_read_byte_near(sine256 + icnt);
+  OCR2A= sig;   
+  // fill scope buffer
+  scopeBuf[xPos] = sig - 160;
+  xPos++;
+  if (xPos > 478){ 
+    xPos = 0;
+  }
+  
   if(icnt1++ == 125) {  // increment variable c4ms all 4 milliseconds
     c4ms++;
     icnt1=0;
    }   
+}
+
+/************************************** LCD FUNCTIONS *******************************************************/
+void oscilloscope(){
+  LCD.fillScr(VGA_RED); // clear screen
+  LCD.setColor(VGA_WHITE); // set wave color
+  for(int i = 1; i < 478; i++){
+    //drawLine(x1, y1, x2, y2);
+    LCD.drawLine(i-1, scopeBuf[i-1], i, scopeBuf[i]);
+  }
 }
