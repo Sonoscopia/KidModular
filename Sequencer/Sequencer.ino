@@ -11,9 +11,10 @@ Sequencer code based on Rui Penha's "Polissonos" ()
 /************************************ INCLUDED LIBS & HEADERS ***********************************************/
 #include "avr/pgmspace.h"
 #include <UTFT.h>
-
+#include <Encoder.h>
 /************************************ DEFINITIONS ***********************************************************/
-#define DEBUG 0
+#define DEBUG 1
+
 #define WIDTH 480
 #define HEIGHT 320
 // SEQUENCER
@@ -22,26 +23,37 @@ Sequencer code based on Rui Penha's "Polissonos" ()
 // CONTROLS
 #define BPMPIN 0
 #define NSTEPSPIN 1
+#define ENCL 2 // encoder Left
+#define ENCR 3 // encoder Right
+#define ENCB 4 // encoder button
 /************************************ CLASS OBJECTS *********************************************************/
 // LCD
 UTFT lcd(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[];
 
+// Encoder
+Encoder encoder(ENCL, ENCR);
 /************************************ VARIABLES *************************************************************/
 // Sequencer
 byte bpm = 120, _bpm = 120; // beats-per-minute
-byte curStep; // current step 
+byte curStep; // current step
+byte stepEdit =1; // selected step for editing purposes
 byte numSteps, _numSteps; // selected number of steps
 byte pitch[MAXSTEPS]; // array with pitch of each step 
-byte dur[MAXSTEPS]; // array with duration of each step
+byte dur[] = {50, 50, 50, 50, 50, 50, 50, 50}; // array with duration of each step
+int playhead; // sequencer playhead in ms
 // LCD
 unsigned int center[2];
 String bpmText = String("BPM = 120"); 
-
+// Encoder
+byte button, _button; 
+long encVal, _encVal = -1; 
 /************************************ SETUP *****************************************************************/
 void setup()
 {
   if(DEBUG) Serial.begin(9600);
+  // manual pin setup
+  pinMode(ENCB, INPUT_PULLUP);
   // LCD setup - uses delay() and therefore must go before any interrupts
   lcd.InitLCD();
   lcd.setFont(BigFont);
@@ -65,7 +77,8 @@ void loop()
   // LCD 
   drawCircFrame();
   printBPM();
-  printSteps();
+  printSize();
+  printDur();
 }
 
 /************************************ SEQUENCER FUNCTIONS ***************************************************/
@@ -96,7 +109,7 @@ void printBPM(){
   }
 }
 
-void printSteps(){
+void printSize(){
   if(numSteps != _numSteps){
     lcd.setColor(VGA_BLUE);
     lcd.printNumI(numSteps, 80, HEIGHT/2-8);
@@ -105,10 +118,38 @@ void printSteps(){
 }
 
 void printDur(){
-
+  lcd.setColor(VGA_BLUE);
+  lcd.printNumI(stepEdit, 64, HEIGHT-18);
+  lcd.print("-", 80, HEIGHT-18);
+  lcd.printNumI(dur[stepEdit], 96, HEIGHT-18);
 }
 /************************************** UPDATE CONTROLS *****************************************************/
 void updateControls(){
+  // Potentiometers
   bpm = (analogRead(BPMPIN) >> 3) + 30; // from 30 to 157 bpm
   numSteps = (analogRead(NSTEPSPIN) >> 7) + 1; // from 1 to 8 steps 
+  
+  
+  // Encoder 
+  button = digitalRead(ENCB);
+  if(button < 1 && button != _button){
+    stepEdit++;
+    if(stepEdit > numSteps) stepEdit = 1; 
+  } 
+  _button = button;
+  
+  encVal = encoder.read() >> 2;
+  if (encVal > _encVal){ 
+    dur[stepEdit]+=2;
+    if(dur[stepEdit] > 99) dur[stepEdit] = 0;
+  }
+  if(encVal < _encVal){
+    dur[stepEdit]-=2;
+    if(dur[stepEdit] < 0) dur[stepEdit] = 99;
+  }
+  _encVal = encVal;
+
 }
+
+
+
