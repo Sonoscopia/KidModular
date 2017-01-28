@@ -6,13 +6,14 @@
 byte bpm = 120;
 int stepTime; 
 byte curStep = 0;
-int playhead = 1;
+int playhead = 0;
 byte dur[] = {50, 50, 50, 50};
 byte numSteps = 4;
 
 void setup(){
   pinMode(LED, OUTPUT);
   pinMode(13, OUTPUT);
+  stepTime = 60000.f / bpm;
 }
 
 void loop(){
@@ -23,20 +24,22 @@ void loop(){
 
 void runSequence(){
   playhead++;
-  if(playhead > numSteps * stepTime) playhead = 1; // reset playhead
-  curStep = playhead / stepTime; // increment current step
+  if(playhead > stepTime){
+    playhead = 0;
+    curStep++;
+    if(curStep == numSteps) {curStep = 0;}
+  }
   // Gate CV output 
- if(playhead % stepTime < stepTime * dur[curStep] / 100.f){
-   digitalWrite(GATEOUT, HIGH);
-   analogWrite(curStep+LED, 255-V);
- } 
- else{
-   digitalWrite(GATEOUT, LOW);
-   analogWrite(curStep+LED, 255-LOW);
+  if(playhead < stepTime * dur[curStep] / 100.f){
+    digitalWrite(GATEOUT, HIGH);
+    analogWrite(curStep+LED, 255-V);
+  } 
+  else{
+    digitalWrite(GATEOUT, LOW);
+    analogWrite(curStep+LED, 255-LOW);
  }
  
  dur[0] = analogRead(0) / 1024.f * 100;
  bpm = (analogRead(8) >> 3) + 30; // from 30 to 157 bpm
  stepTime = 60000.f / bpm;
-
 }
