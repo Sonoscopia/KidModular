@@ -11,7 +11,6 @@ byte dur[] = {50, 50, 50, 50};
 byte numSteps = 4;
 
 void setup(){
-  stepTime = 60000.f / bpm;
   pinMode(LED, OUTPUT);
   pinMode(13, OUTPUT);
 }
@@ -37,4 +36,7 @@ void runSequence(){
  }
  
  dur[0] = analogRead(0) / 1024.f * 100;
+ bpm = (analogRead(8) >> 3) + 30; // from 30 to 157 bpm
+ stepTime = 60000.f / bpm;
+
 }
