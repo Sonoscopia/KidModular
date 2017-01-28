@@ -5,17 +5,18 @@
  */
 
 #include <Encoder.h>
-#define BUTTONPIN 7
+#define BUTTONPIN 4
 // Change these two numbers to the pins connected to your encoder.
 //   Best Performance: both pins have interrupt capability
 //   Good Performance: only the first pin has interrupt capability
 //   Low Performance:  neither pin has interrupt capability
-Encoder myEnc(5, 6);
+Encoder myEnc(2, 3);
 //   avoid using pins with LEDs attached
 
 byte toggle = 0; 
 byte button, _button;
-
+int encVal, _encVal = -1;
+int val = 50;
 
 void setup() {
   Serial.begin(9600);
@@ -23,19 +24,25 @@ void setup() {
   pinMode(BUTTONPIN, INPUT_PULLUP);
 }
 
-long oldPosition  = -999;
-
 void loop() {
-  long newPosition = myEnc.read();
-  if (newPosition != oldPosition) {
-    oldPosition = newPosition;
-    Serial.println(newPosition);
-  }
-  
   button = digitalRead(BUTTONPIN);
   if(button < 1 && button != _button){
     toggle = !toggle;
     Serial.println(toggle);
   } 
   _button = button;
+  
+  encVal = myEnc.read() >> 2;
+  if (encVal > _encVal){ 
+    val++;
+    if(val > 99) val = 0;
+    Serial.println(val);
+  }
+  if(encVal < _encVal){
+    val--;
+    if(val < 0) val = 99;
+    Serial.println(val);
+  }
+  _encVal = encVal;
+  
 }
