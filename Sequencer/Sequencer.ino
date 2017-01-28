@@ -20,6 +20,7 @@ Sequencer code based on Rui Penha's "Polissonos" ()
 // SEQUENCER
 #define MAXSTEPS 8
 #define RADIUS 140 // gemetric shapes radius
+#define STEPRADIUS 8 // step circle radius
 // CONTROLS
 #define BPMPIN 0
 #define NSTEPSPIN 1
@@ -59,8 +60,8 @@ void setup()
   lcd.setFont(BigFont);
   lcd.fillScr(VGA_BLACK);
   // center position to draw geometric shapes (circFrame)
-  center[0] = WIDTH/2 + 40;
-  center[1] = HEIGHT-RADIUS-2;
+  center[0] = WIDTH/2 + 30;
+  center[1] = HEIGHT/2;
   drawLabels();
 }
 
@@ -75,6 +76,7 @@ void loop()
   updateControls();
   
   // LCD 
+  drawShape();
   drawCircFrame();
   printBPM();
   printSize();
@@ -92,9 +94,122 @@ void drawLabels(){
   lcd.print("Dur: ", 2, HEIGHT-18);
 }
 
-void drawCircFrame(){
+void drawCircFrame(){ 
   lcd.setColor(VGA_GRAY);
   lcd.drawCircle(center[0], center[1], RADIUS);
+}
+
+void drawShape(){
+  if(numSteps != _numSteps){
+    lcd.setColor(VGA_BLACK);
+    lcd.fillCircle(center[0], center[1], RADIUS-2);
+  }
+  switch(numSteps){
+    case 1:
+      lcd.setColor(VGA_BLUE);
+      lcd.fillCircle(center[0], center[1], STEPRADIUS);
+    break;
+    
+    case 2: 
+      lcd.setColor(VGA_BLUE);
+      lcd.drawLine(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5,center[0] + RADIUS*0.5, center[1]-RADIUS*0.5);
+      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
+      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]-RADIUS*0.5, STEPRADIUS); // top-right
+    break;
+      
+    case 3: 
+      lcd.setColor(VGA_BLUE);
+      lcd.drawLine(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, center[0] + RADIUS*0.5, center[1]+RADIUS*0.5);
+      lcd.drawLine(center[0] + RADIUS*0.5, center[1]+RADIUS*0.5, center[0], center[1]-RADIUS*0.5);
+      lcd.drawLine(center[0], center[1]-RADIUS*0.5, center[0] - RADIUS*0.5, center[1]+RADIUS*0.5);
+      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
+      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-right
+      lcd.fillCircle(center[0], center[1]-RADIUS*0.5, STEPRADIUS); // top-center
+    break;
+    
+    case 4: 
+      lcd.setColor(VGA_BLUE);
+      lcd.drawLine(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, center[0] + RADIUS*0.5, center[1]+RADIUS*0.5);
+      lcd.drawLine(center[0] - RADIUS*0.5, center[1]-RADIUS*0.5, center[0] + RADIUS*0.5, center[1]-RADIUS*0.5);
+      lcd.drawLine(center[0] - RADIUS*0.5, center[1]-RADIUS*0.5, center[0] - RADIUS*0.5, center[1]+RADIUS*0.5);
+      lcd.drawLine(center[0] + RADIUS*0.5, center[1]-RADIUS*0.5, center[0] + RADIUS*0.5, center[1]+RADIUS*0.5);
+      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
+      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-right
+      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]-RADIUS*0.5, STEPRADIUS); // top-left
+      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]-RADIUS*0.5, STEPRADIUS); // top-right
+    break;
+      
+    case 5:
+      lcd.setColor(VGA_BLUE);
+      lcd.drawLine(center[0] - RADIUS*0.4, center[1]+RADIUS*0.5, center[0] + RADIUS*0.4, center[1]+RADIUS*0.5);
+      lcd.drawLine(center[0] + RADIUS*0.4, center[1]+RADIUS*0.5, center[0] + RADIUS*0.65, center[1]-RADIUS*0.3);
+      lcd.drawLine(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, center[0], center[1]-RADIUS*0.7);
+      lcd.drawLine(center[0], center[1]-RADIUS*0.7, center[0] - RADIUS*0.65, center[1]-RADIUS*0.3);
+      lcd.drawLine(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, center[0] - RADIUS*0.4, center[1]+RADIUS*0.5);
+      lcd.fillCircle(center[0] - RADIUS*0.4, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
+      lcd.fillCircle(center[0] + RADIUS*0.4, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-right
+      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-right
+      lcd.fillCircle(center[0], center[1]-RADIUS*0.7, STEPRADIUS); // top-center
+      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-left 
+    break;
+    
+    case 6: 
+      lcd.setColor(VGA_BLUE);
+      lcd.drawLine(center[0] - RADIUS*0.65, center[1]+RADIUS*0.3, center[0], center[1]+RADIUS*0.7);
+      lcd.drawLine(center[0], center[1]+RADIUS*0.7, center[0] + RADIUS*0.65, center[1]+RADIUS*0.3);
+      lcd.drawLine(center[0] + RADIUS*0.65, center[1]+RADIUS*0.3, center[0] + RADIUS*0.65, center[1]-RADIUS*0.3);
+      lcd.drawLine(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, center[0], center[1]-RADIUS*0.7);
+      lcd.drawLine(center[0], center[1]-RADIUS*0.7, center[0] - RADIUS*0.65, center[1]-RADIUS*0.3);
+      lcd.drawLine(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, center[0] - RADIUS*0.65, center[1]+RADIUS*0.3);
+      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]+RADIUS*0.3, STEPRADIUS); // bottom-left
+      lcd.fillCircle(center[0], center[1]+RADIUS*0.7, STEPRADIUS); // bottom-center
+      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]+RADIUS*0.3, STEPRADIUS); // bottom-right
+      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-right
+      lcd.fillCircle(center[0], center[1]-RADIUS*0.7, STEPRADIUS); // top-center
+      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-left
+      break;
+     
+    case 7:
+      lcd.setColor(VGA_BLUE);
+      lcd.fillCircle(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-left
+      lcd.fillCircle(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-right
+      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middle-right
+      lcd.fillCircle(center[0] + RADIUS*0.55, center[1]-RADIUS*0.35, STEPRADIUS); // top-right
+      lcd.fillCircle(center[0], center[1]-RADIUS*0.7, STEPRADIUS); // top-center
+      lcd.fillCircle(center[0] - RADIUS*0.55, center[1]-RADIUS*0.35, STEPRADIUS); // top-left
+      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middle-left
+      lcd.drawLine(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.3, center[1]+RADIUS*0.7);
+      lcd.drawLine(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.65, center[1]+RADIUS*0.25);
+      lcd.drawLine(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, center[0] + RADIUS*0.55, center[1]-RADIUS*0.35);
+      lcd.drawLine(center[0] + RADIUS*0.55, center[1]-RADIUS*0.35, center[0], center[1]-RADIUS*0.7);
+      lcd.drawLine(center[0], center[1]-RADIUS*0.7, center[0] - RADIUS*0.55, center[1]-RADIUS*0.35);
+      lcd.drawLine(center[0] - RADIUS*0.55, center[1]-RADIUS*0.35, center[0] - RADIUS*0.65, center[1]+RADIUS*0.25);
+      lcd.drawLine(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, center[0] - RADIUS*0.3, center[1]+RADIUS*0.7);
+    break;
+    
+    case 8: 
+      lcd.setColor(VGA_BLUE);
+      lcd.fillCircle(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-left
+      lcd.fillCircle(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-right
+      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middleDown-right
+      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]-RADIUS*0.25, STEPRADIUS); // middleUp-right
+      lcd.fillCircle(center[0] + RADIUS*0.3, center[1]-RADIUS*0.7, STEPRADIUS); // top-right
+      lcd.fillCircle(center[0] - RADIUS*0.3, center[1]-RADIUS*0.7, STEPRADIUS); // top-left
+      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]-RADIUS*0.25, STEPRADIUS); // middleUp-left 
+      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middleDown-left
+      
+      lcd.drawLine(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.3, center[1]+RADIUS*0.7);
+      lcd.drawLine(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.65, center[1]+RADIUS*0.25);
+      lcd.drawLine(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, center[0] + RADIUS*0.65, center[1]-RADIUS*0.25);
+      lcd.drawLine(center[0] + RADIUS*0.65, center[1]-RADIUS*0.25, center[0] + RADIUS*0.3, center[1]-RADIUS*0.7);
+      lcd.drawLine(center[0] + RADIUS*0.3, center[1]-RADIUS*0.7, center[0] - RADIUS*0.3, center[1]-RADIUS*0.7);
+      lcd.drawLine(center[0] - RADIUS*0.3, center[1]-RADIUS*0.7, center[0] - RADIUS*0.65, center[1]-RADIUS*0.25);
+      lcd.drawLine(center[0] - RADIUS*0.65, center[1]-RADIUS*0.25, center[0] - RADIUS*0.65, center[1]+RADIUS*0.25);
+      lcd.drawLine(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, center[0] - RADIUS*0.3, center[1]+RADIUS*0.7);
+    
+    default:
+    break;
+  }
 }
 
 void printBPM(){
@@ -148,7 +263,6 @@ void updateControls(){
     if(dur[stepEdit] < 0) dur[stepEdit] = 99;
   }
   _encVal = encVal;
-
 }
 
 
