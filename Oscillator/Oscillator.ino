@@ -23,6 +23,12 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 
+/************************************ CLASS OBJECTS *********************************************************/
+// LCD Screen
+UTFT lcd(CTE32HR,38,39,40,41);
+extern uint8_t BigFont[];
+Screen screen(lcd, BigFont);
+
 /************************************ VARIABLES *************************************************************/
 // Audio 
 double dfreq, _dfreq=0; // freq must be a double!!!
@@ -41,7 +47,10 @@ volatile uint_fast32_t tword_m;  // dds tuning word m
 void setup()
 {
   pinMode(10, OUTPUT);     // pin11= PWM  output / frequency output (pin10 on MEGA)
-
+  // Init LCD
+  screen.init();
+  
+  // Setup Audio Timer
   Setup_timer2();
 
   // disable interrupts to avoid timing distortion
