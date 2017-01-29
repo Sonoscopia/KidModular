@@ -20,15 +20,17 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 //byte bb;
 
 //double dfreq;
-uint_fast16_t dfreq; 
+uint_fast16_t dfreq, _dfreq = 0;
+uint_fast16_t count;
 // const double refclk=31372.549;  // =16MHz / 510
-//const float refclk=31376.6;      // measured
-const float refclk=23529.412; // =12MHz / 510
+//const double refclk=41830.065; // same speed for 12MHz clock ????
+ const double refclk=31376.6;      // measured
+
 
 // variables used inside interrupt service declared as voilatile
 volatile uint_fast8_t icnt;              // var inside interrupt
 volatile uint_fast8_t icnt1;             // var inside interrupt
-volatile uint_fast8_t c4ms;              // counter incremented all 4ms
+volatile uint_fast8_t c4ms = 0;              // counter incremented all 4ms
 volatile uint_fast32_t phaccu;   // pahse accumulator
 volatile uint_fast32_t tword_m;  // dds tuning word m
 
@@ -43,24 +45,28 @@ void setup()
   sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
 
   dfreq=1000.0;                    // initial output frequency = 1000.o Hz
+  _dfreq = dfreq;
   tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word 
 
 }
 void loop()
 {
-//  dfreq_copy = analogRead(0);
   
   while(1) {
-     if (c4ms > 120) {                 // timer / wait fou a full second
+      if(count++ > 4191){
+        _dfreq = analogRead(0);
+        count = 0;
+       }
+     if (c4ms > 0 && dfreq != _dfreq) {                 // timer / wait fou a full second
+        
+        dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
+        
+        cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
+        tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
+        sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
+      } 
       c4ms=0;
-      dfreq = analogRead(0);
-//      dfreq=analogRead(0);             // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
-
-      cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
-      tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
-      sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt 
-    }
-  }
+   }
 }
 //******************************************************************
 // timer2 setup
@@ -93,8 +99,11 @@ ISR(TIMER2_OVF_vect) {
                          // read value fron ROM sine table and send to PWM DAC
   OCR2A=pgm_read_byte_near(sine256 + icnt);    
 
-  if(icnt1++ == 125) {  // increment variable c4ms all 4 milliseconds
+  if(icnt == 0){ // increment control variable at beginning of table read
     c4ms++;
-    icnt1=0;
-   }   
+  }
+//  if(icnt1++ == 125) {  // increment variable c4ms all 4 milliseconds
+//    c4ms++;
+//    icnt1=0;
+//   }   
 }
