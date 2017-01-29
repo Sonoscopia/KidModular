@@ -17,18 +17,19 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 
-byte bb;
+//byte bb;
 
-double dfreq;
+//double dfreq;
+uint_fast16_t dfreq; 
 // const double refclk=31372.549;  // =16MHz / 510
 const double refclk=31376.6;      // measured
 
 // variables used inside interrupt service declared as voilatile
-volatile byte icnt;              // var inside interrupt
-volatile byte icnt1;             // var inside interrupt
-volatile byte c4ms;              // counter incremented all 4ms
-volatile unsigned long phaccu;   // pahse accumulator
-volatile unsigned long tword_m;  // dds tuning word m
+volatile uint_fast8_t icnt;              // var inside interrupt
+volatile uint_fast8_t icnt1;             // var inside interrupt
+volatile uint_fast8_t c4ms;              // counter incremented all 4ms
+volatile uint_fast32_t phaccu;   // pahse accumulator
+volatile uint_fast32_t tword_m;  // dds tuning word m
 
 void setup()
 {
@@ -46,10 +47,13 @@ void setup()
 }
 void loop()
 {
+//  dfreq_copy = analogRead(0);
+  
   while(1) {
      if (c4ms > 250) {                 // timer / wait fou a full second
       c4ms=0;
-      dfreq=analogRead(0);             // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
+      dfreq = analogRead(0);
+//      dfreq=analogRead(0);             // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
 
       cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
       tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
