@@ -8,242 +8,154 @@ Stripped out version of UTFT Library v.2.82 (12 Jul 2016) by Henning Karlsen
 Sequencer code based on Rui Penha's "Polissonos" ()
 */
 
+/*
+  TO DO: 
+  ...to increase efficiency, performance and playability:
+  1) replace switch() by if elif 
+  2) on encoder button use bitwise operator ^1 for the toggle/switch button
+  3) move controls to a class and average potentiometer variables
+*/
+
 /************************************ INCLUDED LIBS & HEADERS ***********************************************/
+#include "TimerFive.h"
 #include "avr/pgmspace.h"
 #include <UTFT.h>
 #include <Encoder.h>
+#include "Screen.h"
+
+
 /************************************ DEFINITIONS ***********************************************************/
 #define DEBUG 1
 
-#define WIDTH 480
-#define HEIGHT 320
-// SEQUENCER
+// Sequencer
 #define MAXSTEPS 8
 #define RADIUS 140 // gemetric shapes radius
 #define STEPRADIUS 8 // step circle radius
-// CONTROLS
-#define BPMPIN 0
-#define NSTEPSPIN 1
+// Controls
+#define BPMPIN 8
+#define NSTEPSPIN 9
 #define ENCL 2 // encoder Left
 #define ENCR 3 // encoder Right
 #define ENCB 4 // encoder button
 /************************************ CLASS OBJECTS *********************************************************/
-// LCD
-UTFT lcd(CTE32HR,38,39,40,41);
-extern uint8_t BigFont[];
-
 // Encoder
 Encoder encoder(ENCL, ENCR);
+// LCD Screen
+UTFT lcd(CTE32HR,38,39,40,41);
+extern uint8_t BigFont[];
+Screen screen(lcd, BigFont);
 /************************************ VARIABLES *************************************************************/
 // Sequencer
-byte bpm = 120, _bpm = 120; // beats-per-minute
-byte curStep; // current step
-byte stepEdit =1; // selected step for editing purposes
-byte numSteps, _numSteps; // selected number of steps
-byte pitch[MAXSTEPS]; // array with pitch of each step 
-byte dur[] = {50, 50, 50, 50, 50, 50, 50, 50}; // array with duration of each step
-int playhead; // sequencer playhead in ms
-// LCD
-unsigned int center[2];
-String bpmText = String("BPM = 120"); 
+volatile uint16_t playhead = 0;
+uint16_t bpm = 120;
+float stepTime; 
+uint8_t numSteps = 1;
+uint8_t curStep = 0;
+uint8_t stepEdit = 0;
+uint8_t pitch[MAXSTEPS]; 
+uint8_t dur[] = {50, 50, 50, 50, 50, 50, 50, 50};
 // Encoder
 byte button, _button; 
 long encVal, _encVal = -1; 
-/************************************ SETUP *****************************************************************/
-void setup()
-{
+
+void setup(void){
   if(DEBUG) Serial.begin(9600);
-  // manual pin setup
-  pinMode(ENCB, INPUT_PULLUP);
-  // LCD setup - uses delay() and therefore must go before any interrupts
-  lcd.InitLCD();
-  lcd.setFont(BigFont);
-  lcd.fillScr(VGA_BLACK);
-  // center position to draw geometric shapes (circFrame)
-  center[0] = WIDTH/2 + 30;
-  center[1] = HEIGHT/2;
-  drawLabels();
+  
+  // set pins
+  for (int i = 5; i < 12; i++){
+    // LEDS pins 5~11
+    pinMode(i, OUTPUT);
+    digitalWrite(i, HIGH); // turn off
+  }
+  pinMode(44, OUTPUT); // LED 8 - pin44 ??
+  digitalWrite(44, HIGH); // turn off  
+  pinMode(12, OUTPUT); // PITCH CV OUT pin12
+  pinMode(13, OUTPUT); // GATE CV OUT pin13 
+  
+  // Init LCD
+//  lcd.InitLCD();
+//  lcd.setFont(BigFont);
+//  lcd.fillScr(VGA_BLACK);
+  screen.init();
+
+  // Init Variables
+  stepTime = 60000.f / bpm;
+  
+  // SET TIMER5 - Sequencer+LEDs
+  Timer5.initialize(750); // run every millisecond (in original Arduinos w/ 16MHz clock this value would be 1000)
+  // but since this is a fake Arduino w/ a 12MHz clock 0.75ms are equivalent to 1ms
+  Timer5.attachInterrupt(runSequence);
 }
 
-/************************************ LOOP ******************************************************************/
-void loop()
-{
-  if(DEBUG){
-    Serial.println();
-  }
+void loop(void){
+  noInterrupts();
+  // print stuff here
+    if(DEBUG) Serial.println(curStep);
+  interrupts();
   
-  // Controls
+  delayMicroseconds(6000); // latency = 8ms (remember 0.75ms is equivalent to 1ms)
   updateControls();
-  
-  // LCD 
-  drawShape();
-  drawCircFrame();
-  printBPM();
-  printSize();
-  printDur();
 }
 
 /************************************ SEQUENCER FUNCTIONS ***************************************************/
-
-
-/************************************** LCD FUNCTIONS *******************************************************/
-void drawLabels(){
-  lcd.setColor(VGA_BLUE);
-  lcd.print("BPM: ", 2, 2);
-  lcd.print("Size: ", 2, HEIGHT/2-8);
-  lcd.print("Dur: ", 2, HEIGHT-18);
-}
-
-void drawCircFrame(){ 
-  lcd.setColor(VGA_GRAY);
-  lcd.drawCircle(center[0], center[1], RADIUS);
-}
-
-void drawShape(){
-  if(numSteps != _numSteps){
-    lcd.setColor(VGA_BLACK);
-    lcd.fillCircle(center[0], center[1], RADIUS-2);
+void runSequence(void){
+  playhead++;
+  if(playhead > stepTime){
+    playhead = 0;
+    curStep++;
+    if(curStep == numSteps) {curStep = 0;}
   }
-  switch(numSteps){
-    case 1:
-      lcd.setColor(VGA_BLUE);
-      lcd.fillCircle(center[0], center[1], STEPRADIUS);
-    break;
-    
-    case 2: 
-      lcd.setColor(VGA_BLUE);
-      lcd.drawLine(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5,center[0] + RADIUS*0.5, center[1]-RADIUS*0.5);
-      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
-      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]-RADIUS*0.5, STEPRADIUS); // top-right
-    break;
-      
-    case 3: 
-      lcd.setColor(VGA_BLUE);
-      lcd.drawLine(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, center[0] + RADIUS*0.5, center[1]+RADIUS*0.5);
-      lcd.drawLine(center[0] + RADIUS*0.5, center[1]+RADIUS*0.5, center[0], center[1]-RADIUS*0.5);
-      lcd.drawLine(center[0], center[1]-RADIUS*0.5, center[0] - RADIUS*0.5, center[1]+RADIUS*0.5);
-      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
-      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-right
-      lcd.fillCircle(center[0], center[1]-RADIUS*0.5, STEPRADIUS); // top-center
-    break;
-    
-    case 4: 
-      lcd.setColor(VGA_BLUE);
-      lcd.drawLine(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, center[0] + RADIUS*0.5, center[1]+RADIUS*0.5);
-      lcd.drawLine(center[0] - RADIUS*0.5, center[1]-RADIUS*0.5, center[0] + RADIUS*0.5, center[1]-RADIUS*0.5);
-      lcd.drawLine(center[0] - RADIUS*0.5, center[1]-RADIUS*0.5, center[0] - RADIUS*0.5, center[1]+RADIUS*0.5);
-      lcd.drawLine(center[0] + RADIUS*0.5, center[1]-RADIUS*0.5, center[0] + RADIUS*0.5, center[1]+RADIUS*0.5);
-      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
-      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-right
-      lcd.fillCircle(center[0] - RADIUS*0.5, center[1]-RADIUS*0.5, STEPRADIUS); // top-left
-      lcd.fillCircle(center[0] + RADIUS*0.5, center[1]-RADIUS*0.5, STEPRADIUS); // top-right
-    break;
-      
-    case 5:
-      lcd.setColor(VGA_BLUE);
-      lcd.drawLine(center[0] - RADIUS*0.4, center[1]+RADIUS*0.5, center[0] + RADIUS*0.4, center[1]+RADIUS*0.5);
-      lcd.drawLine(center[0] + RADIUS*0.4, center[1]+RADIUS*0.5, center[0] + RADIUS*0.65, center[1]-RADIUS*0.3);
-      lcd.drawLine(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, center[0], center[1]-RADIUS*0.7);
-      lcd.drawLine(center[0], center[1]-RADIUS*0.7, center[0] - RADIUS*0.65, center[1]-RADIUS*0.3);
-      lcd.drawLine(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, center[0] - RADIUS*0.4, center[1]+RADIUS*0.5);
-      lcd.fillCircle(center[0] - RADIUS*0.4, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-left
-      lcd.fillCircle(center[0] + RADIUS*0.4, center[1]+RADIUS*0.5, STEPRADIUS); // bottom-right
-      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-right
-      lcd.fillCircle(center[0], center[1]-RADIUS*0.7, STEPRADIUS); // top-center
-      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-left 
-    break;
-    
-    case 6: 
-      lcd.setColor(VGA_BLUE);
-      lcd.drawLine(center[0] - RADIUS*0.65, center[1]+RADIUS*0.3, center[0], center[1]+RADIUS*0.7);
-      lcd.drawLine(center[0], center[1]+RADIUS*0.7, center[0] + RADIUS*0.65, center[1]+RADIUS*0.3);
-      lcd.drawLine(center[0] + RADIUS*0.65, center[1]+RADIUS*0.3, center[0] + RADIUS*0.65, center[1]-RADIUS*0.3);
-      lcd.drawLine(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, center[0], center[1]-RADIUS*0.7);
-      lcd.drawLine(center[0], center[1]-RADIUS*0.7, center[0] - RADIUS*0.65, center[1]-RADIUS*0.3);
-      lcd.drawLine(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, center[0] - RADIUS*0.65, center[1]+RADIUS*0.3);
-      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]+RADIUS*0.3, STEPRADIUS); // bottom-left
-      lcd.fillCircle(center[0], center[1]+RADIUS*0.7, STEPRADIUS); // bottom-center
-      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]+RADIUS*0.3, STEPRADIUS); // bottom-right
-      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-right
-      lcd.fillCircle(center[0], center[1]-RADIUS*0.7, STEPRADIUS); // top-center
-      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]-RADIUS*0.3, STEPRADIUS); // top-left
+  // Gate CV output 
+  if(playhead < stepTime * dur[curStep] / 100.f){
+    PORTB |= _BV(PB7); // pin13 HIGH
+    switch(curStep){
+      case 0:
+         PORTE &= ~_BV(PE3); // pin5 LOW (common anode, so it's a ON)
       break;
-     
-    case 7:
-      lcd.setColor(VGA_BLUE);
-      lcd.fillCircle(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-left
-      lcd.fillCircle(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-right
-      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middle-right
-      lcd.fillCircle(center[0] + RADIUS*0.55, center[1]-RADIUS*0.35, STEPRADIUS); // top-right
-      lcd.fillCircle(center[0], center[1]-RADIUS*0.7, STEPRADIUS); // top-center
-      lcd.fillCircle(center[0] - RADIUS*0.55, center[1]-RADIUS*0.35, STEPRADIUS); // top-left
-      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middle-left
-      lcd.drawLine(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.3, center[1]+RADIUS*0.7);
-      lcd.drawLine(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.65, center[1]+RADIUS*0.25);
-      lcd.drawLine(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, center[0] + RADIUS*0.55, center[1]-RADIUS*0.35);
-      lcd.drawLine(center[0] + RADIUS*0.55, center[1]-RADIUS*0.35, center[0], center[1]-RADIUS*0.7);
-      lcd.drawLine(center[0], center[1]-RADIUS*0.7, center[0] - RADIUS*0.55, center[1]-RADIUS*0.35);
-      lcd.drawLine(center[0] - RADIUS*0.55, center[1]-RADIUS*0.35, center[0] - RADIUS*0.65, center[1]+RADIUS*0.25);
-      lcd.drawLine(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, center[0] - RADIUS*0.3, center[1]+RADIUS*0.7);
-    break;
-    
-    case 8: 
-      lcd.setColor(VGA_BLUE);
-      lcd.fillCircle(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-left
-      lcd.fillCircle(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, STEPRADIUS); // bottom-right
-      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middleDown-right
-      lcd.fillCircle(center[0] + RADIUS*0.65, center[1]-RADIUS*0.25, STEPRADIUS); // middleUp-right
-      lcd.fillCircle(center[0] + RADIUS*0.3, center[1]-RADIUS*0.7, STEPRADIUS); // top-right
-      lcd.fillCircle(center[0] - RADIUS*0.3, center[1]-RADIUS*0.7, STEPRADIUS); // top-left
-      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]-RADIUS*0.25, STEPRADIUS); // middleUp-left 
-      lcd.fillCircle(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, STEPRADIUS); // middleDown-left
-      
-      lcd.drawLine(center[0] - RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.3, center[1]+RADIUS*0.7);
-      lcd.drawLine(center[0] + RADIUS*0.3, center[1]+RADIUS*0.7, center[0] + RADIUS*0.65, center[1]+RADIUS*0.25);
-      lcd.drawLine(center[0] + RADIUS*0.65, center[1]+RADIUS*0.25, center[0] + RADIUS*0.65, center[1]-RADIUS*0.25);
-      lcd.drawLine(center[0] + RADIUS*0.65, center[1]-RADIUS*0.25, center[0] + RADIUS*0.3, center[1]-RADIUS*0.7);
-      lcd.drawLine(center[0] + RADIUS*0.3, center[1]-RADIUS*0.7, center[0] - RADIUS*0.3, center[1]-RADIUS*0.7);
-      lcd.drawLine(center[0] - RADIUS*0.3, center[1]-RADIUS*0.7, center[0] - RADIUS*0.65, center[1]-RADIUS*0.25);
-      lcd.drawLine(center[0] - RADIUS*0.65, center[1]-RADIUS*0.25, center[0] - RADIUS*0.65, center[1]+RADIUS*0.25);
-      lcd.drawLine(center[0] - RADIUS*0.65, center[1]+RADIUS*0.25, center[0] - RADIUS*0.3, center[1]+RADIUS*0.7);
-    
-    default:
-    break;
-  }
-}
-
-void printBPM(){
-  if(bpm != _bpm){
-    lcd.setColor(VGA_BLUE);
-    if(bpm > 99) lcd.print(String(bpm), 64, 2);
-    else {
-      lcd.print(String(bpm), 64, 2);
-      lcd.print(" ", 96, 2);
+      case 1:
+         PORTH &= ~_BV(PH3); // pin6 LOW (common anode, so it's a ON)
+      break; 
+      case 2:
+         PORTH &= ~_BV(PH4); // pin7 LOW (common anode, so it's a ON)
+      break;
+      case 3:
+         PORTH &= ~_BV(PH5); // pin8 LOW (common anode, so it's a ON)
+      break;
+      default:
+      break; 
     }
-    _bpm = bpm;
+  } 
+  else{
+    PORTB &= ~_BV(PB7); // pin13 LOW
+    switch(curStep){
+      case 0:
+         PORTE |= _BV(PE3); // pin5 LOW (common anode, so it's a ON)
+      break;
+      case 1:
+         PORTH |= _BV(PH3); // pin6 LOW (common anode, so it's a ON)
+      break; 
+      case 2:
+         PORTH |= _BV(PH4); // pin7 LOW (common anode, so it's a ON)
+      break;
+      case 3:
+         PORTH |= _BV(PH5); // pin8 LOW (common anode, so it's a ON)
+      break;
+      default:
+      break; 
+    }
   }
 }
 
-void printSize(){
-  if(numSteps != _numSteps){
-    lcd.setColor(VGA_BLUE);
-    lcd.printNumI(numSteps, 80, HEIGHT/2-8);
-    _numSteps = numSteps; 
-  }
-}
-
-void printDur(){
-  lcd.setColor(VGA_BLUE);
-  lcd.printNumI(stepEdit, 64, HEIGHT-18);
-  lcd.print("-", 80, HEIGHT-18);
-  lcd.printNumI(dur[stepEdit], 96, HEIGHT-18);
-}
 /************************************** UPDATE CONTROLS *****************************************************/
 void updateControls(){
   // Potentiometers
-  bpm = (analogRead(BPMPIN) >> 3) + 30; // from 30 to 157 bpm
+  bpm = (analogRead(BPMPIN) >> 3) + 40; // from 40 to 167 bpm
+  stepTime = 60000.f / bpm;
+  stepTime = 60000 / bpm; 
   numSteps = (analogRead(NSTEPSPIN) >> 7) + 1; // from 1 to 8 steps 
-  
+  for(int i = 0; i < 8; i++){
+    pitch[i] = analogRead(i) >> 3; // from 0 to 127
+  }
   
   // Encoder 
   button = digitalRead(ENCB);
@@ -264,6 +176,3 @@ void updateControls(){
   }
   _encVal = encVal;
 }
-
-
-
