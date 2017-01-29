@@ -11,29 +11,33 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
  * Academy of Media Arts Cologne
 */
 
+/************************************ INCLUDED LIBS & HEADERS ***********************************************/
 #include "avr/pgmspace.h"
 #include "Waveforms.h"
+#include "TimerFive.h"
+#include <UTFT.h>
+#include "Screen.h"
 
+/************************************ DEFINITIONS ***********************************************************/
+// Audio Interrupts
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 
-//byte bb;
-
-//double dfreq;
-uint_fast16_t dfreq, _dfreq = 0;
+/************************************ VARIABLES *************************************************************/
+// Audio 
+double dfreq, _dfreq=0; // freq must be a double!!!
 uint_fast16_t count;
 // const double refclk=31372.549;  // =16MHz / 510
 //const double refclk=41830.065; // same speed for 12MHz clock ????
- const double refclk=31376.6;      // measured
-
-
+const double refclk=31376.6;      // measured
 // variables used inside interrupt service declared as voilatile
 volatile uint_fast8_t icnt;              // var inside interrupt
 volatile uint_fast8_t icnt1;             // var inside interrupt
-volatile uint_fast8_t c4ms = 0;              // counter incremented all 4ms
+volatile uint_fast8_t c = 0;              // counter for audio control operations 
 volatile uint_fast32_t phaccu;   // pahse accumulator
 volatile uint_fast32_t tword_m;  // dds tuning word m
 
+/************************************ SETUP ****************************************************************/
 void setup()
 {
   pinMode(10, OUTPUT);     // pin11= PWM  output / frequency output (pin10 on MEGA)
@@ -49,6 +53,8 @@ void setup()
   tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word 
 
 }
+
+/************************************ LOOP *****************************************************************/
 void loop()
 {
   
@@ -57,7 +63,7 @@ void loop()
         _dfreq = analogRead(0);
         count = 0;
        }
-     if (c4ms > 0 && dfreq != _dfreq) {                 // timer / wait fou a full second
+     if (c > 0 && dfreq != _dfreq) {                 // timer / wait fou a full second
         
         dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
         
@@ -65,11 +71,11 @@ void loop()
         tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
         sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
       } 
-      c4ms=0;
+      c=0;
    }
 }
-//******************************************************************
-// timer2 setup
+/************************************ AUDIO FUNCTIONS *******************************************************/
+// Timer2 Setup
 // set prscaler to 1, PWM mode to phase correct PWM,  16000000/510 = 31372.55 Hz clock
 void Setup_timer2() {
 
@@ -100,10 +106,6 @@ ISR(TIMER2_OVF_vect) {
   OCR2A=pgm_read_byte_near(sine256 + icnt);    
 
   if(icnt == 0){ // increment control variable at beginning of table read
-    c4ms++;
+    c++;
   }
-//  if(icnt1++ == 125) {  // increment variable c4ms all 4 milliseconds
-//    c4ms++;
-//    icnt1=0;
-//   }   
 }
