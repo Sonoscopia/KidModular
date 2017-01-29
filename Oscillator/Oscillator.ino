@@ -22,7 +22,8 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 //double dfreq;
 uint_fast16_t dfreq; 
 // const double refclk=31372.549;  // =16MHz / 510
-const double refclk=31376.6;      // measured
+//const float refclk=31376.6;      // measured
+const float refclk=23529.412; // =12MHz / 510
 
 // variables used inside interrupt service declared as voilatile
 volatile uint_fast8_t icnt;              // var inside interrupt
@@ -50,7 +51,7 @@ void loop()
 //  dfreq_copy = analogRead(0);
   
   while(1) {
-     if (c4ms > 250) {                 // timer / wait fou a full second
+     if (c4ms > 120) {                 // timer / wait fou a full second
       c4ms=0;
       dfreq = analogRead(0);
 //      dfreq=analogRead(0);             // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
