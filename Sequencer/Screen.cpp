@@ -40,7 +40,6 @@ void Screen::drawCircFrame(){ // draw circular frame to enclose geometric shpaes
   mLCD.setColor(VGA_BLUE);
 }
 
-/*
 void Screen::printBPM(uint16_t _bpm){
   if(_bpm > 99) mLCD.print(String(_bpm), 64, 2);
   else {
@@ -54,14 +53,14 @@ void Screen::printSize(uint8_t _numSteps){ // display number of steps
 }
 
 void Screen::printDur(uint8_t _dur[], uint8_t _stepEdit){ // display step durations
-  mLCD.printNumI(_stepEdit, 64, HEIGHT-18); // print select step for edit
+  mLCD.printNumI(_stepEdit+1, 64, HEIGHT-18); // print select step for edit
   mLCD.print("-", 80, HEIGHT-18); // separator
   if(_dur[_stepEdit]>9){ // display selected step duration
     mLCD.printNumI(_dur[_stepEdit], 96, HEIGHT-18);
   }
   else { // if dur < 0 print a leading '0'
-    mLCD.printNumI(0, 96, HEIGHT-18);
-    mLCD.printNumI(_dur[_stepEdit], 96, HEIGHT-18);
+    mLCD.print("0", 96, HEIGHT-18);
+    mLCD.printNumI(_dur[_stepEdit], 112, HEIGHT-18);
   }
 }
 
@@ -69,7 +68,7 @@ void Screen::drawShape(uint8_t _numSteps){
     // clear screen portion
     mLCD.setColor(VGA_BLACK);
     mLCD.fillCircle(center[0], center[1], RADIUS-2);
-    mLCD.setColor(VGA_BLUE); // set used color for all subsequent functions
+    drawCircFrame();
     
   switch(_numSteps){
     case 1:
@@ -171,5 +170,5 @@ void Screen::drawShape(uint8_t _numSteps){
     break;
   }
 }
-*/
+
 
