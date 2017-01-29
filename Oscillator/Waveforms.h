@@ -1,5 +1,5 @@
-#ifndef WAVETABLES_H
-#define WAVETABLES_H
+#ifndef WAVEFORMS_H
+#define WAVEFORMS_H
 
 // table of 256 sine values / one sine period / stored in flash memory
 PROGMEM  prog_uchar sine256[]  = {
