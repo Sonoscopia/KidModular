@@ -14,6 +14,7 @@ class Screen{
   Screen(UTFT _lcd, uint8_t font[]);
   void init();
   void drawScope(prog_uchar *_table, double _freq);
+  void displayFreq(double _freq);
   // objects
   UTFT mLCD;
   uint8_t *mFont; 

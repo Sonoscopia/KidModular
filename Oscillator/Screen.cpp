@@ -23,7 +23,7 @@ void Screen::drawScope(prog_uchar *_table, double _freq){
   // Draw buffer according to frequency
   //clear
   mLCD.setColor(VGA_BLACK);
-  mLCD.drawLine(x, ZERO, x, HEIGHT);
+  mLCD.drawLine(x, ZERO, x, HEIGHT-20);
   // draw signal
   head+= _freq/20;
   if(head > 255) head = 0;
@@ -38,3 +38,8 @@ void Screen::drawScope(prog_uchar *_table, double _freq){
   }
 }
 
+void Screen::displayFreq(double _freq){
+  mLCD.setColor(VGA_MAROON);
+  mLCD.print("F: ", 2, HEIGHT-18);
+  mLCD.printNumI((int)_freq, 34, HEIGHT-18);
+}

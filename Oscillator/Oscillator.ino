@@ -16,41 +16,75 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #include "avr/interrupt.h"
 #include "Waveforms.h"
 #include <UTFT.h>
+#define ENCODER_DO_NOT_USE_INTERRUPTS
+#include <Encoder.h>
 #include "Screen.h"
+#include "Controls.h"
 
 /************************************ DEFINITIONS ***********************************************************/
+#define DEBUG 1
+
+// Routine Rates
+//#define AUDIO_RATE 31373
+#define CTRL_RATE 64 // 64Hz
+#define SCRN_RATE 480 // 480Hz
+
 // Audio Interrupts
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+
+// NOTE: pins 4, 9, 10 & 13 ARE DISABLED !!!!
 // Audio Pins 
 #define AUDIO_OUT 10
+// Interface Control Pins
+#define ENC1L 2
+#define ENC1R 3
+#define ENC1B 5
 
 /************************************ CLASS OBJECTS *********************************************************/
 // LCD Screen
 UTFT LCD(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[];
 Screen screen(LCD, BigFont);
+// Controls 
+Encoder enc1(ENC1L, ENC1R);
+Controls ctrl(&enc1);
+ 
+
 /************************************ VARIABLES *************************************************************/
 // Audio 
 double dfreq, _dfreq=0; // freq must be a double!!!
-uint_fast16_t updateCount;
 // const double refclk=31372.549;  // =16MHz / 510 (8bit PWM mode takes 510 clocks to cycle)
 //const double refclk=41830.065; // same speed for 12MHz clock ????
 const double refclk=31376.6;      // measured
 // variables used inside interrupt service declared as voilatile
-volatile uint_fast8_t icnt;      // var inside interrupt
-volatile uint_fast8_t icnt1;     // var inside interrupt
+volatile uint_fast8_t icnt;      // increment0 inside interrupt (used for audio sample udpate)
+volatile uint_fast16_t icnt1;    // increment1 inside interrupt (used for control update)
+volatile uint_fast16_t icnt2;    // increment2 inside interrupt (used for screen update)
 volatile boolean trigger = 0; // trigger for audio control operations 
 volatile uint_fast32_t phaccu;   // pahse accumulator
 volatile uint_fast32_t tword_m;  // dds tuning word m
 
+// Routine speed calcs 
+const uint16_t control_rate = (1.f/CTRL_RATE) / (1/refclk); // in audio samples = sample rate(hz) / control rate (hz)
+boolean ctrlTrigger = false; 
+const uint16_t screen_rate = (1.f/SCRN_RATE) / (1/refclk); // in audio samples = sample rate(hz) / screen rate (hz)
+boolean scrnTrigger = false;
+
 /************************************ SETUP ****************************************************************/
 void setup()
 {
-  pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
+  if(DEBUG) {
+    Serial.begin(9600);
+    Serial.print("Control Rate in samples: ");
+    Serial.println(control_rate);
+    Serial.print("Screen Rate in samples: ");
+    Serial.println(screen_rate);
+  }
   // Init LCD
   screen.init(); 
   
+  pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
   // Setup Audio Timer
   Setup_timer2();
 
@@ -61,8 +95,6 @@ void setup()
   dfreq=1000.0;                    // initial output frequency = 1000.o Hz
   _dfreq = dfreq;
   tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
- 
-
 }
 
 /************************************ LOOP *****************************************************************/
@@ -71,23 +103,27 @@ void loop()
   
 while(1) {
     
-     // Update Control 
-     if(updateCount++ > 4191){ // run every ?ms 
-        _dfreq = analogRead(0);
-        updateCount = 0;
+     // UPDATE SCREEN (runs at SCRN_RATE)
+     if(scrnTrigger){ 
         screen.drawScope(sine256, dfreq);
+        scrnTrigger = false;
      }
-     // update frequency
+     // UPDATE CONTROL (runs at CTRL_RATE)
+     if(ctrlTrigger){
+       ctrl.readEncoders();
+//       if(DEBUG) Serial.println(ctrl.val);
+       ctrlTrigger = false; 
+     }
+     /* // UPDATE CONTROL
      if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
-        
         dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
-        
+
         cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
         tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
         sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
         
         trigger=false; // reset trigger 
-      } 
+      }*/ 
    }
 }
 
@@ -121,10 +157,17 @@ ISR(TIMER2_OVF_vect) {
   icnt=phaccu >> 24;     // use upper 8 bits for phase accu as frequency information
                          // read value fron ROM sine table and send to PWM DAC
   OCR2A=pgm_read_byte_near(sine256 + icnt);    
-
-  if(icnt == 0){ // trigger updateControl at beginning of table read
-    trigger=true;
-  }
   
+  if(icnt == 0){ // trigger at beginning of table read
+    trigger=true;
+  } 
+  if(icnt1++ > control_rate){  // at CTRL_RATE(64Hz) = 490 
+    icnt1=0;
+    ctrlTrigger = true;
+  }
+  if(icnt2++ > screen_rate){ 
+    icnt2=0;
+    scrnTrigger = true;
+  }
 }
 
