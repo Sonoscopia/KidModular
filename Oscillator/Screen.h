@@ -15,10 +15,11 @@ class Screen{
   Screen(); // default constructor
   Screen(UTFT _lcd, uint8_t font[]);
   void init(prog_uchar *_table);
-  void drawScope(double _freq);
-  void printFreq(double _freq);
+  void drawScope();
+  void printFreq();
   void printFreqMul(uint8_t _index);
-  
+  // setters
+  void setFrequency(double *f);
   // variables
   uint8_t sig; // oscillator signal sample
   
@@ -33,6 +34,7 @@ class Screen{
   UTFT mLCD;
   uint8_t *mFont;
   prog_uchar *mTable;
+  double *mFreq; // frequency is a pointer so there is no need to set/update
   
   // variables
   uint16_t x, y, _y; // x-y and previous positions

@@ -102,6 +102,8 @@ void setup()
   dfreq=1000.0;                    // initial output frequency = 1000.o Hz
   _dfreq = dfreq;
   tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
+  
+  screen.setFrequency(&dfreq);
 }
 
 /************************************ LOOP *****************************************************************/
@@ -113,19 +115,19 @@ while(1) {
       
      // UPDATE SCREEN (runs at SCRN_RATE)
      if(scrnTrigger){ 
-       screen.drawScope(dfreq);
+       screen.drawScope();
        scrnTrigger = false;
      }
      // UPDATE CONTROL (runs at CTRL_RATE)
      if(ctrlTrigger){
        updateControls();
-       screen.printFreq(dfreq);
+       screen.printFreq();
        ctrlTrigger = false; 
      }
      // UPDATE FREQUENCY (runs when table index = 0)
      if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
         dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
-
+        // !!!INTERRUPT!!! TO CHANGE FREQUENCY
         cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
         tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
         sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt

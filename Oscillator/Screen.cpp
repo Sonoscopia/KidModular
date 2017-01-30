@@ -27,6 +27,13 @@ void Screen::init(prog_uchar *_table){
   drawLabels();
 }
 
+// SETTERS
+void Screen::setFrequency(double *f){
+  mFreq = f;
+}
+
+
+// DRAW
 void Screen::drawFrames(){
   // TOP
   mLCD.setColor(COLOR);
@@ -82,10 +89,10 @@ void Screen::drawEnvLabels(){
   mLCD.print("ms ", 362, HEIGHT-43);
 }
 
-void Screen::printFreq(double _freq){
+void Screen::printFreq(){
   mLCD.setBackColor(COLOR);
   mLCD.setColor(VGA_BLACK);
-  mLCD.printNumF(_freq, 2, 2, HEIGHT-20);
+  mLCD.printNumF(*mFreq, 2, 2, HEIGHT-20);
 }
 
 void Screen::printFreqMul(uint8_t _index){
@@ -96,13 +103,13 @@ void Screen::printFreqMul(uint8_t _index){
   mLCD.print(fMul[_index], 18, HEIGHT-43);
 }
 
-void Screen::drawScope(double _freq){
+void Screen::drawScope(){
   // Draw buffer according to frequency
   //clear
   mLCD.setColor(VGA_BLACK);
   mLCD.drawLine(x, ZERO, x, HEIGHT-68);
   // draw signal
-  head+= _freq/BUFSIZE;
+  head+= *mFreq/BUFSIZE;
   if(head > 255) head = 0;
   y = 220 - pgm_read_byte_near(mTable + (byte)head) * 0.75; 
   mLCD.setColor(COLOR);
