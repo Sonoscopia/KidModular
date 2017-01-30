@@ -25,8 +25,8 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 
 // Routine Rates
 //#define AUDIO_RATE 31373
-#define CTRL_RATE 64 // 64Hz
-#define SCRN_RATE 480 // 480Hz
+#define CTRL_RATE 32 // 64Hz
+#define SCRN_RATE 240 // 480Hz
 
 // Audio Interrupts
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
@@ -82,7 +82,7 @@ void setup()
   }
   // Init LCD
   screen.init(); 
-  
+  // Set Pins
   pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
   // Setup Audio Timer
   Setup_timer2();
@@ -111,9 +111,18 @@ while(1) {
      // UPDATE CONTROL (runs at CTRL_RATE)
      if(ctrlTrigger){
        updateControls();
-       setFrequency();
        ctrlTrigger = false; 
      }
+     // UPDATE FREQUENCY (runs when table index = 0)
+     if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
+        dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
+
+        cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
+        tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
+        sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
+  
+        trigger=false; // reset trigger 
+      }
 
   }
 }
@@ -162,19 +171,6 @@ ISR(TIMER2_OVF_vect) {
   }
 }
 
-void setFrequency(){
-     // UPDATE FREQUENCY (runs when table index = 0)
-     if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
-        dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
-
-        cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
-        tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
-        sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
-  
-        trigger=false; // reset trigger 
-      }
- }
-
 /************************************ UPDATE CONTROLS *****************************************************/
 void readEncoders(){
   // Encoder 1
@@ -192,5 +188,4 @@ void readEncoders(){
 }
 
 void updateControls(){
-
 }

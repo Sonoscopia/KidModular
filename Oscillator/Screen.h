@@ -6,6 +6,7 @@
 #define WIDTH 479
 #define HEIGHT 319
 #define ZERO 0
+#define BUFSIZE 60
 
 class Screen{
   public:

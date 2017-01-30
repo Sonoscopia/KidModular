@@ -25,7 +25,7 @@ void Screen::drawScope(prog_uchar *_table, double _freq){
   mLCD.setColor(VGA_BLACK);
   mLCD.drawLine(x, ZERO, x, HEIGHT-20);
   // draw signal
-  head+= _freq/20;
+  head+= _freq/BUFSIZE;
   if(head > 255) head = 0;
   y = 250 - pgm_read_byte_near(_table + (int)head) * 0.75; 
   mLCD.setColor(VGA_MAROON);
