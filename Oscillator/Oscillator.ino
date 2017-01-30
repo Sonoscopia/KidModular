@@ -13,8 +13,8 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 
 /************************************ INCLUDED LIBS & HEADERS ***********************************************/
 #include "avr/pgmspace.h"
+#include "avr/interrupt.h"
 #include "Waveforms.h"
-#include "TimerFive.h"
 #include <UTFT.h>
 #include "Screen.h"
 
@@ -22,33 +22,34 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 // Audio Interrupts
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+// Audio Pins 
+#define AUDIO_OUT 10
 
 /************************************ CLASS OBJECTS *********************************************************/
 // LCD Screen
-UTFT lcd(CTE32HR,38,39,40,41);
+UTFT LCD(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[];
-Screen screen(lcd, BigFont);
-
+Screen screen(LCD, BigFont);
 /************************************ VARIABLES *************************************************************/
 // Audio 
 double dfreq, _dfreq=0; // freq must be a double!!!
-uint_fast16_t count;
-// const double refclk=31372.549;  // =16MHz / 510
+uint_fast16_t updateCount;
+// const double refclk=31372.549;  // =16MHz / 510 (8bit PWM mode takes 510 clocks to cycle)
 //const double refclk=41830.065; // same speed for 12MHz clock ????
 const double refclk=31376.6;      // measured
 // variables used inside interrupt service declared as voilatile
-volatile uint_fast8_t icnt;              // var inside interrupt
-volatile uint_fast8_t icnt1;             // var inside interrupt
-volatile uint_fast8_t c = 0;              // counter for audio control operations 
+volatile uint_fast8_t icnt;      // var inside interrupt
+volatile uint_fast8_t icnt1;     // var inside interrupt
+volatile boolean trigger = 0; // trigger for audio control operations 
 volatile uint_fast32_t phaccu;   // pahse accumulator
 volatile uint_fast32_t tword_m;  // dds tuning word m
 
 /************************************ SETUP ****************************************************************/
 void setup()
 {
-  pinMode(10, OUTPUT);     // pin11= PWM  output / frequency output (pin10 on MEGA)
+  pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
   // Init LCD
-  screen.init();
+  screen.init(); 
   
   // Setup Audio Timer
   Setup_timer2();
@@ -59,7 +60,8 @@ void setup()
 
   dfreq=1000.0;                    // initial output frequency = 1000.o Hz
   _dfreq = dfreq;
-  tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word 
+  tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
+ 
 
 }
 
@@ -67,22 +69,28 @@ void setup()
 void loop()
 {
   
-  while(1) {
-      if(count++ > 4191){
+while(1) {
+    
+     // Update Control 
+     if(updateCount++ > 4191){ // run every ?ms 
         _dfreq = analogRead(0);
-        count = 0;
-       }
-     if (c > 0 && dfreq != _dfreq) {                 // timer / wait fou a full second
+        updateCount = 0;
+        screen.drawScope(sine256, dfreq);
+     }
+     // update frequency
+     if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
         
         dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
         
         cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
         tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
         sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
+        
+        trigger=false; // reset trigger 
       } 
-      c=0;
    }
 }
+
 /************************************ AUDIO FUNCTIONS *******************************************************/
 // Timer2 Setup
 // set prscaler to 1, PWM mode to phase correct PWM,  16000000/510 = 31372.55 Hz clock
@@ -114,7 +122,9 @@ ISR(TIMER2_OVF_vect) {
                          // read value fron ROM sine table and send to PWM DAC
   OCR2A=pgm_read_byte_near(sine256 + icnt);    
 
-  if(icnt == 0){ // increment control variable at beginning of table read
-    c++;
+  if(icnt == 0){ // trigger updateControl at beginning of table read
+    trigger=true;
   }
+  
 }
+
