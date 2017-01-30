@@ -1,5 +1,9 @@
 #include "Screen.h"
 
+const String fMul[8] = {"0.1", "1  ", "2  ", "5  ", "10 ", "20 ", "50 ", "100"}; // frequency multipliers
+//const String fMul[] = {"1/24", "1/12", "1/8 ", "1/6 ", "1/4 ", "1/3 ", "1/2 ", "2   "}; // frequency multipliers
+
+
 Screen::Screen() {
   // default constructor
 }
@@ -17,6 +21,7 @@ void Screen::init(){
   // Init variables
   head = 0;
   y = 0;
+  // Static draws 
   drawFrames();
   drawLabels();
 }
@@ -63,6 +68,14 @@ void Screen::printFreq(double _freq){
   mLCD.setBackColor(COLOR);
   mLCD.setColor(VGA_BLACK);
   mLCD.printNumI((int)_freq, 2, HEIGHT-20);
+}
+
+void Screen::printFreqMul(uint8_t _index){
+  mLCD.setBackColor(VGA_BLACK);
+  mLCD.setColor(COLOR);
+//  if(_index > 0) mLCD.printNumI(freqMul[_index], 2, HEIGHT-43);
+//  else mLCD.print("0.1", 2, HEIGHT-43);
+  mLCD.print(fMul[_index], 18, HEIGHT-43);
 }
 
 void Screen::drawScope(prog_uchar *_table, double _freq){

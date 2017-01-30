@@ -17,13 +17,15 @@ class Screen{
   void init();
   void drawScope(prog_uchar *_table, double _freq);
   void printFreq(double _freq);
-
+  void printFreqMul(uint8_t _index);
+  
   // objects
   UTFT mLCD;
   uint8_t *mFont; 
   // variables
   uint8_t sig; // oscillator signal sample
-
+  
+  
   private:
   // functions
   void drawFrames();  
@@ -31,6 +33,7 @@ class Screen{
   // variables
   uint16_t x, y, _y; // x-y and previous positions
   float head; // head to read buffer
+
 };
 
 #endif 

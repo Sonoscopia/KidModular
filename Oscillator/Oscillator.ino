@@ -21,7 +21,7 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #include "Screen.h"
 
 /************************************ DEFINITIONS ***********************************************************/
-#define DEBUG 0
+#define DEBUG 1
 
 // Routine Rates
 //#define AUDIO_RATE 31373
@@ -48,7 +48,7 @@ Screen screen(LCD, BigFont);
 // Controls - Encoder 1
 Encoder enc1(ENC1L, ENC1R);
 byte e1val = -1, _e1val;
-boolean e1but = false; // button
+boolean e1but, _e1but = false; // button
 
 /************************************ VARIABLES *************************************************************/
 // Audio 
@@ -63,6 +63,9 @@ volatile uint_fast16_t icnt2;    // increment2 inside interrupt (used for screen
 volatile boolean trigger = 0; // trigger for audio control operations 
 volatile uint_fast32_t phaccu;   // pahse accumulator
 volatile uint_fast32_t tword_m;  // dds tuning word m
+// Audio params
+const float freqMul[] = {0.1, 1, 2, 5, 10, 20, 50, 100}; // frequency multipliers
+uint_fast8_t fMul = 1; 
 
 // Routine speed calcs 
 const uint16_t control_rate = (1.f/CTRL_RATE) / (1/refclk); // in audio samples = sample rate(hz) / control rate (hz)
@@ -83,6 +86,7 @@ void setup()
   // Init LCD
   screen.init(); 
   // Set Pins
+  pinMode(ENC1B, INPUT_PULLUP);
   pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
   // Setup Audio Timer
   Setup_timer2();
@@ -175,18 +179,27 @@ ISR(TIMER2_OVF_vect) {
 /************************************ UPDATE CONTROLS *****************************************************/
 void readEncoders(){
   // Encoder 1
-  _e1val = enc1.read();
+  _e1val = enc1.read() << 2;
     if(e1val > _e1val){ 
-      _dfreq--;
+      _dfreq -= freqMul[fMul];
       e1val = _e1val;  // update
       if(DEBUG) Serial.println(_dfreq);
     }
     if(e1val < _e1val) {
-      _dfreq++;
+      _dfreq += freqMul[fMul];
       e1val = _e1val; // update
       if(DEBUG) Serial.println(_dfreq);
     }
 }
 
 void updateControls(){
+  // Encoder 1 - Button
+  e1but = digitalRead(ENC1B);
+  if(e1but < 1 && e1but != _e1but){
+    fMul++;
+    if(fMul > 7) fMul=0;
+    screen.printFreqMul(fMul);
+  } 
+
+  _e1but = e1but;
 }
