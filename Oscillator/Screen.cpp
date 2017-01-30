@@ -14,26 +14,58 @@ Screen::Screen(UTFT _lcd, uint8_t font[]) {
   mFont = font; 
 }
 
-void Screen::init(prog_uchar *_table){
+void Screen::init(boolean *m, prog_uchar *_table){
   mLCD.InitLCD();
   mLCD.setFont(mFont);
   mLCD.fillScr(VGA_BLACK); // set background color
   // Init variables
+  pMode = !*m;
+  mMode = m;
   mTable = _table;
   head = 0;
   y = 0;
   // Static draws 
   drawFrames();
-  drawLabels();
+  drawParams();
 }
 
 // SETTERS
-void Screen::setFrequency(double *f){
+void Screen::setFrequency(double *f, uint8_t *mul){
   mFreq = f;
+  fMuli = mul;
 }
 
+// DRAW (public)
+void Screen::drawDisplay(){
+  // clear display area on mode change
+  if(*mMode != pMode){
+    mLCD.setColor(VGA_BLACK);
+    mLCD.fillRect(0, 0, WIDTH, HEIGHT-68);
+  } 
+  if(*mMode) drawEnvelope();
+  else drawScope();
+  
+  pMode = *mMode; // keep mode state changes updated!
+}
 
-// DRAW
+void Screen::drawParams(){
+  // clear params area on mode change
+  if(*mMode != pMode) drawFrames(); 
+  
+  if(*mMode){ // Envelope Params
+    if(*mMode != pMode) drawEnvLabels(); //Env Labels
+    // Param Multipliers and Values : top to bottom, left to right
+
+  }
+  else{ // Scope Params
+    if(*mMode != pMode) drawScopeLabels(); // Scppe Labels
+    // Param Multipliers and Values : top to bottom, left to right
+    printFreqMul();
+    printFrequency(); // display freq
+  }
+}
+
+// DRAW (private)
 void Screen::drawFrames(){
   // TOP
   mLCD.setColor(COLOR);
@@ -55,11 +87,11 @@ void Screen::drawFrames(){
   mLCD.fillRect(360, HEIGHT-22, WIDTH, HEIGHT-2);
 }
 
-void Screen::drawLabels(){
+void Screen::drawScopeLabels(){
   // TOP
   mLCD.setBackColor(COLOR);
   mLCD.setColor(VGA_BLACK);
-  mLCD.print("Freq", 2, HEIGHT-63);
+  mLCD.print("Freq (Hz)", 2, HEIGHT-63);
   mLCD.print("FX", 122, HEIGHT-63);
   mLCD.print("Filter", 242, HEIGHT-63);
   mLCD.print("Res", 362, HEIGHT-63);
@@ -71,7 +103,6 @@ void Screen::drawLabels(){
   mLCD.print("x ", 242, HEIGHT-43);
   mLCD.print("x ", 362, HEIGHT-43);
 }
-
 void Screen::drawEnvLabels(){
   // TOP
   mLCD.setBackColor(COLOR);
@@ -85,22 +116,22 @@ void Screen::drawEnvLabels(){
   mLCD.setColor(COLOR);
   mLCD.print("ms ", 2, HEIGHT-43);
   mLCD.print("ms ", 122, HEIGHT-43);
-  mLCD.print("dB ", 242, HEIGHT-43);
+  mLCD.print("level ", 242, HEIGHT-43);
   mLCD.print("ms ", 362, HEIGHT-43);
 }
 
-void Screen::printFreq(){
+void Screen::printFrequency(){
   mLCD.setBackColor(COLOR);
   mLCD.setColor(VGA_BLACK);
   mLCD.printNumF(*mFreq, 2, 2, HEIGHT-20);
 }
 
-void Screen::printFreqMul(uint8_t _index){
+void Screen::printFreqMul(){
   mLCD.setBackColor(VGA_BLACK);
   mLCD.setColor(COLOR);
 //  if(_index > 0) mLCD.printNumI(freqMul[_index], 2, HEIGHT-43);
 //  else mLCD.print("0.1", 2, HEIGHT-43);
-  mLCD.print(fMul[_index], 18, HEIGHT-43);
+  mLCD.print(fMul[*fMuli], 18, HEIGHT-43);
 }
 
 void Screen::drawScope(){
@@ -120,4 +151,8 @@ void Screen::drawScope(){
   if(x++ > WIDTH) {
     x=ZERO;
   }
+}
+
+void Screen::drawEnvelope(){
+
 }

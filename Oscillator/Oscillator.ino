@@ -87,7 +87,7 @@ void setup()
     Serial.println(screen_rate);
   }
   // Init LCD
-  screen.init(sine256); 
+  screen.init(&mode, sine256); 
   // Set Pins
   pinMode(MODEPIN, INPUT_PULLUP);
   pinMode(ENC1B, INPUT_PULLUP);
@@ -103,7 +103,7 @@ void setup()
   _dfreq = dfreq;
   tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
   
-  screen.setFrequency(&dfreq);
+  screen.setFrequency(&dfreq, &fMul);
 }
 
 /************************************ LOOP *****************************************************************/
@@ -115,13 +115,13 @@ while(1) {
       
      // UPDATE SCREEN (runs at SCRN_RATE)
      if(scrnTrigger){ 
-       screen.drawScope();
+       screen.drawDisplay();
        scrnTrigger = false;
      }
      // UPDATE CONTROL (runs at CTRL_RATE)
      if(ctrlTrigger){
        updateControls();
-       screen.printFreq();
+       screen.drawParams();
        ctrlTrigger = false; 
      }
      // UPDATE FREQUENCY (runs when table index = 0)
@@ -209,7 +209,7 @@ void updateControls(){
   if(e1but < 1 && e1but != _e1but){
     fMul++;
     if(fMul > 7) fMul=0;
-    screen.printFreqMul(fMul);
+//    screen.printFreqMul(fMul);
   } 
 
   _e1but = e1but;
