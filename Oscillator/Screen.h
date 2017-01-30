@@ -30,10 +30,10 @@ class Screen{
   // functions
   void drawFrames();  
   void drawLabels(); // mode1=scope, mode0=envelope
+  void drawEnvLabels();
   // variables
   uint16_t x, y, _y; // x-y and previous positions
   float head; // head to read buffer
-
 };
 
 #endif 

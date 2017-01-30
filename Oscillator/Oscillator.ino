@@ -21,7 +21,7 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #include "Screen.h"
 
 /************************************ DEFINITIONS ***********************************************************/
-#define DEBUG 1
+#define DEBUG 0
 
 // Routine Rates
 //#define AUDIO_RATE 31373
@@ -36,6 +36,7 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 // Audio Pins 
 #define AUDIO_OUT 10
 // Interface Control Pins
+#define MODEPIN 12 
 #define ENC1L 2
 #define ENC1R 3
 #define ENC1B 5
@@ -45,6 +46,8 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 UTFT LCD(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[];
 Screen screen(LCD, BigFont);
+// Controls - Mode Button
+boolean mode=0, _m=1, m; 
 // Controls - Encoder 1
 Encoder enc1(ENC1L, ENC1R);
 byte e1val = -1, _e1val;
@@ -86,6 +89,7 @@ void setup()
   // Init LCD
   screen.init(); 
   // Set Pins
+  pinMode(MODEPIN, INPUT_PULLUP);
   pinMode(ENC1B, INPUT_PULLUP);
   pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
   // Setup Audio Timer
@@ -109,8 +113,8 @@ while(1) {
       
      // UPDATE SCREEN (runs at SCRN_RATE)
      if(scrnTrigger){ 
-        screen.drawScope(sine256, dfreq);
-        scrnTrigger = false;
+       screen.drawScope(sine256, dfreq);
+       scrnTrigger = false;
      }
      // UPDATE CONTROL (runs at CTRL_RATE)
      if(ctrlTrigger){
@@ -179,20 +183,25 @@ ISR(TIMER2_OVF_vect) {
 /************************************ UPDATE CONTROLS *****************************************************/
 void readEncoders(){
   // Encoder 1
-  _e1val = enc1.read() << 2;
+  _e1val = enc1.read() << 2; // extend readings to improve readibility 
     if(e1val > _e1val){ 
       _dfreq -= freqMul[fMul];
       e1val = _e1val;  // update
-      if(DEBUG) Serial.println(_dfreq);
     }
     if(e1val < _e1val) {
       _dfreq += freqMul[fMul];
       e1val = _e1val; // update
-      if(DEBUG) Serial.println(_dfreq);
     }
 }
 
 void updateControls(){
+  // Mode - Button
+  m = digitalRead(MODEPIN);
+  if(m < 1 && m != _m){
+    mode = !mode;
+  }
+  _m = m;
+  
   // Encoder 1 - Button
   e1but = digitalRead(ENC1B);
   if(e1but < 1 && e1but != _e1but){

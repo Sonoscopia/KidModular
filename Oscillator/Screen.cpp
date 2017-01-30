@@ -64,10 +64,27 @@ void Screen::drawLabels(){
   mLCD.print("x ", 362, HEIGHT-43);
 }
 
+void Screen::drawEnvLabels(){
+  // TOP
+  mLCD.setBackColor(COLOR);
+  mLCD.setColor(VGA_BLACK);
+  mLCD.print("Attack", 2, HEIGHT-63);
+  mLCD.print("Decay", 122, HEIGHT-63);
+  mLCD.print("Sustain", 242, HEIGHT-63);
+  mLCD.print("Release", 362, HEIGHT-63);
+  // MIDDLE
+  mLCD.setBackColor(VGA_BLACK);
+  mLCD.setColor(COLOR);
+  mLCD.print("ms ", 2, HEIGHT-43);
+  mLCD.print("ms ", 122, HEIGHT-43);
+  mLCD.print("dB ", 242, HEIGHT-43);
+  mLCD.print("ms ", 362, HEIGHT-43);
+}
+
 void Screen::printFreq(double _freq){
   mLCD.setBackColor(COLOR);
   mLCD.setColor(VGA_BLACK);
-  mLCD.printNumI((int)_freq, 2, HEIGHT-20);
+  mLCD.printNumF(_freq, 2, 2, HEIGHT-20);
 }
 
 void Screen::printFreqMul(uint8_t _index){
