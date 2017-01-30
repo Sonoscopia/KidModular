@@ -63,12 +63,17 @@ const double refclk=31376.6;      // measured
 volatile uint_fast8_t icnt;      // increment0 inside interrupt (used for audio sample udpate)
 volatile uint_fast16_t icnt1;    // increment1 inside interrupt (used for control update)
 volatile uint_fast16_t icnt2;    // increment2 inside interrupt (used for screen update)
-volatile boolean trigger = 0; // trigger for audio control operations 
+volatile boolean zcross = 0; // trigger for audio control operations 
 volatile uint_fast32_t phaccu;   // pahse accumulator
 volatile uint_fast32_t tword_m;  // dds tuning word m
-// Audio params
+// Audio params - frequency
 const float freqMul[] = {0.1, 1, 2, 5, 10, 20, 50, 100}; // frequency multipliers
 uint_fast8_t fMul = 1; 
+// Audio params - envelope (ADSR)
+uint_fast16_t atk=100, dcy=100, rel=250; // max time = 2^16 * 1/refclk = 2seconds
+uint_fast8_t sus=127; // min=0 max=255
+uint_fast16_t ecnt=0; // envelope counter
+uint_fast8_t estg=0; // envelope stage 0-atk, 1-decay, 2-sus, 3-rel
 
 // Routine speed calcs 
 const uint16_t control_rate = (1.f/CTRL_RATE) / (1/refclk); // in audio samples = sample rate(hz) / control rate (hz)
@@ -125,16 +130,15 @@ while(1) {
        ctrlTrigger = false; 
      }
      // UPDATE FREQUENCY (runs when table index = 0)
-     if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
+     if (zcross && dfreq != _dfreq) { // if phase=0 and freq. changes
         dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
         // !!!INTERRUPT!!! TO CHANGE FREQUENCY
         cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
         tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
         sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
   
-        trigger=false; // reset trigger 
+        zcross=false; // reset zero-crossing 
       }
-
   }
 }
 
@@ -170,7 +174,7 @@ ISR(TIMER2_OVF_vect) {
   OCR2A=pgm_read_byte_near(sine256 + icnt);    
   
   if(icnt == 0){ // trigger at beginning of table read
-    trigger=true;
+    zcross=true;
   } 
   if(icnt1++ > control_rate){  // at CTRL_RATE(64Hz) = 490 
     icnt1=0;
@@ -209,7 +213,6 @@ void updateControls(){
   if(e1but < 1 && e1but != _e1but){
     fMul++;
     if(fMul > 7) fMul=0;
-//    screen.printFreqMul(fMul);
   } 
 
   _e1but = e1but;

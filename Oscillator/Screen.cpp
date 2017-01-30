@@ -91,7 +91,7 @@ void Screen::drawScopeLabels(){
   // TOP
   mLCD.setBackColor(COLOR);
   mLCD.setColor(VGA_BLACK);
-  mLCD.print("Freq (Hz)", 2, HEIGHT-63);
+  mLCD.print("FreqHz", 2, HEIGHT-63);
   mLCD.print("FX", 122, HEIGHT-63);
   mLCD.print("Filter", 242, HEIGHT-63);
   mLCD.print("Res", 362, HEIGHT-63);
