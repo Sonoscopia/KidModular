@@ -87,7 +87,7 @@ void setup()
     Serial.println(screen_rate);
   }
   // Init LCD
-  screen.init(); 
+  screen.init(sine256); 
   // Set Pins
   pinMode(MODEPIN, INPUT_PULLUP);
   pinMode(ENC1B, INPUT_PULLUP);
@@ -113,7 +113,7 @@ while(1) {
       
      // UPDATE SCREEN (runs at SCRN_RATE)
      if(scrnTrigger){ 
-       screen.drawScope(sine256, dfreq);
+       screen.drawScope(dfreq);
        scrnTrigger = false;
      }
      // UPDATE CONTROL (runs at CTRL_RATE)

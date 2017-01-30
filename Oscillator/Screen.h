@@ -14,14 +14,11 @@ class Screen{
   // functions
   Screen(); // default constructor
   Screen(UTFT _lcd, uint8_t font[]);
-  void init();
-  void drawScope(prog_uchar *_table, double _freq);
+  void init(prog_uchar *_table);
+  void drawScope(double _freq);
   void printFreq(double _freq);
   void printFreqMul(uint8_t _index);
   
-  // objects
-  UTFT mLCD;
-  uint8_t *mFont; 
   // variables
   uint8_t sig; // oscillator signal sample
   
@@ -31,9 +28,17 @@ class Screen{
   void drawFrames();  
   void drawLabels(); // mode1=scope, mode0=envelope
   void drawEnvLabels();
+  
+  // objects
+  UTFT mLCD;
+  uint8_t *mFont;
+  prog_uchar *mTable;
+  
   // variables
   uint16_t x, y, _y; // x-y and previous positions
   float head; // head to read buffer
+  
+
 };
 
 #endif 

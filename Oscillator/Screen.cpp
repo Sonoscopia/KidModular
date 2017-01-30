@@ -14,11 +14,12 @@ Screen::Screen(UTFT _lcd, uint8_t font[]) {
   mFont = font; 
 }
 
-void Screen::init(){
+void Screen::init(prog_uchar *_table){
   mLCD.InitLCD();
   mLCD.setFont(mFont);
   mLCD.fillScr(VGA_BLACK); // set background color
   // Init variables
+  mTable = _table;
   head = 0;
   y = 0;
   // Static draws 
@@ -95,7 +96,7 @@ void Screen::printFreqMul(uint8_t _index){
   mLCD.print(fMul[_index], 18, HEIGHT-43);
 }
 
-void Screen::drawScope(prog_uchar *_table, double _freq){
+void Screen::drawScope(double _freq){
   // Draw buffer according to frequency
   //clear
   mLCD.setColor(VGA_BLACK);
@@ -103,7 +104,7 @@ void Screen::drawScope(prog_uchar *_table, double _freq){
   // draw signal
   head+= _freq/BUFSIZE;
   if(head > 255) head = 0;
-  y = 220 - pgm_read_byte_near(_table + (int)head) * 0.75; 
+  y = 220 - pgm_read_byte_near(mTable + (byte)head) * 0.75; 
   mLCD.setColor(COLOR);
   if(x > 0) mLCD.drawLine(x-1,_y, x, y);
   _y = y;
