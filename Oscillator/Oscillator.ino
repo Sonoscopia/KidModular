@@ -12,17 +12,16 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 */
 
 /************************************ INCLUDED LIBS & HEADERS ***********************************************/
-#include "avr/pgmspace.h"
-#include "avr/interrupt.h"
-#include "Waveforms.h"
-#include <UTFT.h>
 #define ENCODER_DO_NOT_USE_INTERRUPTS
 #include <Encoder.h>
+#include "avr/pgmspace.h"
+//#include "avr/interrupt.h"
+#include "Waveforms.h"
+#include <UTFT.h>
 #include "Screen.h"
-#include "Controls.h"
 
 /************************************ DEFINITIONS ***********************************************************/
-#define DEBUG 1
+#define DEBUG 0
 
 // Routine Rates
 //#define AUDIO_RATE 31373
@@ -46,10 +45,10 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 UTFT LCD(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[];
 Screen screen(LCD, BigFont);
-// Controls 
+// Controls - Encoder 1
 Encoder enc1(ENC1L, ENC1R);
-Controls ctrl(&enc1);
- 
+byte e1val = -1, _e1val;
+boolean e1but = false; // button
 
 /************************************ VARIABLES *************************************************************/
 // Audio 
@@ -102,7 +101,8 @@ void loop()
 {
   
 while(1) {
-    
+     readEncoders(); // encoders must be called as fast as possible
+      
      // UPDATE SCREEN (runs at SCRN_RATE)
      if(scrnTrigger){ 
         screen.drawScope(sine256, dfreq);
@@ -110,21 +110,12 @@ while(1) {
      }
      // UPDATE CONTROL (runs at CTRL_RATE)
      if(ctrlTrigger){
-       ctrl.readEncoders();
-//       if(DEBUG) Serial.println(ctrl.val);
+       updateControls();
+       setFrequency();
        ctrlTrigger = false; 
      }
-     /* // UPDATE CONTROL
-     if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
-        dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
 
-        cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
-        tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
-        sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
-        
-        trigger=false; // reset trigger 
-      }*/ 
-   }
+  }
 }
 
 /************************************ AUDIO FUNCTIONS *******************************************************/
@@ -171,3 +162,35 @@ ISR(TIMER2_OVF_vect) {
   }
 }
 
+void setFrequency(){
+     // UPDATE FREQUENCY (runs when table index = 0)
+     if (trigger && dfreq != _dfreq) { // if phase=0 and freq. changes
+        dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
+
+        cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
+        tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
+        sbi (TIMSK2,TOIE2);              // enable Timer2 Interrupt
+  
+        trigger=false; // reset trigger 
+      }
+ }
+
+/************************************ UPDATE CONTROLS *****************************************************/
+void readEncoders(){
+  // Encoder 1
+  _e1val = enc1.read();
+    if(e1val > _e1val){ 
+      _dfreq--;
+      e1val = _e1val;  // update
+      if(DEBUG) Serial.println(_dfreq);
+    }
+    if(e1val < _e1val) {
+      _dfreq++;
+      e1val = _e1val; // update
+      if(DEBUG) Serial.println(_dfreq);
+    }
+}
+
+void updateControls(){
+
+}
