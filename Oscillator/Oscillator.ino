@@ -111,6 +111,7 @@ while(1) {
      // UPDATE CONTROL (runs at CTRL_RATE)
      if(ctrlTrigger){
        updateControls();
+       screen.printFreq(dfreq);
        ctrlTrigger = false; 
      }
      // UPDATE FREQUENCY (runs when table index = 0)

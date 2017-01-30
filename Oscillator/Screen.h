@@ -7,6 +7,7 @@
 #define HEIGHT 319
 #define ZERO 0
 #define BUFSIZE 60
+#define COLOR VGA_MAROON
 
 class Screen{
   public:
@@ -15,14 +16,19 @@ class Screen{
   Screen(UTFT _lcd, uint8_t font[]);
   void init();
   void drawScope(prog_uchar *_table, double _freq);
-  void displayFreq(double _freq);
+  void printFreq(double _freq);
+
   // objects
   UTFT mLCD;
   uint8_t *mFont; 
+  // variables
   uint8_t sig; // oscillator signal sample
-  
+
   private:
-  // Scope Variables
+  // functions
+  void drawFrames();  
+  void drawLabels(); // mode1=scope, mode0=envelope
+  // variables
   uint16_t x, y, _y; // x-y and previous positions
   float head; // head to read buffer
 };
