@@ -21,6 +21,7 @@ class Screen{
   void setFrequency(double *f, uint8_t *mul); // only needs to be called on setup()
   void setMode(boolean *m); // only needs to be called on setup();
   void setADSR(uint16_t *a, uint16_t *d, uint8_t *s, uint16_t *r); // only needs to be called on setup();
+  void setWaveform(prog_uchar *_table);
   // variables
   uint8_t sig; // oscillator signal sample
   

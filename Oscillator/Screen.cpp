@@ -30,6 +30,9 @@ void Screen::init(boolean *m, prog_uchar *_table){
 }
 
 // SETTERS
+void Screen::setWaveform(prog_uchar *_table){
+  mTable = _table;
+}
 void Screen::setFrequency(double *f, uint8_t *mul){
   mFreq = f;
   fMuli = mul;

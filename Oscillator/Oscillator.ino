@@ -74,7 +74,9 @@ uint_fast16_t atk=100, dcy=100, rel=250; // max time = 2^16 * 1/refclk = 2second
 uint_fast8_t sus=127; // min=0 max=255
 uint_fast16_t ecnt=0; // envelope counter
 uint_fast8_t estg=0; // envelope stage 0-atk, 1-decay, 2-sus, 3-rel
+// Audio params - selected waveform 
 
+uint_fast8_t *waveform = tri256;
 // Routine speed calcs 
 const uint16_t control_rate = (1.f/CTRL_RATE) / (1/refclk); // in audio samples = sample rate(hz) / control rate (hz)
 boolean ctrlTrigger = false; 
@@ -92,7 +94,7 @@ void setup()
     Serial.println(screen_rate);
   }
   // Init LCD
-  screen.init(&mode, sine256); 
+  screen.init(&mode, waveform); 
   // Set Pins
   pinMode(MODEPIN, INPUT_PULLUP);
   pinMode(ENC1B, INPUT_PULLUP);
@@ -171,7 +173,7 @@ ISR(TIMER2_OVF_vect) {
   phaccu=phaccu+tword_m; // soft DDS, phase accu with 32 bits
   icnt=phaccu >> 24;     // use upper 8 bits for phase accu as frequency information
                          // read value fron ROM sine table and send to PWM DAC
-  OCR2A=pgm_read_byte_near(sine256 + icnt);    
+  OCR2A=pgm_read_byte_near(waveform + icnt);    
   
   if(icnt == 0){ // trigger at beginning of table read
     zcross=true;
