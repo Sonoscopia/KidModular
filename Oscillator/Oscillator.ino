@@ -21,7 +21,7 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #include "Screen.h"
 
 /************************************ DEFINITIONS ***********************************************************/
-#define DEBUG 0
+#define DEBUG 1
 
 // Routine Rates
 //#define AUDIO_RATE 31373
@@ -35,8 +35,16 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 // NOTE: pins 4, 9, 10 & 13 ARE DISABLED !!!!
 // Audio Pins 
 #define AUDIO_OUT 10
+// CV Pins
 #define GATEPIN 8
-// CONTROLS - Encoder's
+#define PITCHPIN 0 // analog port A0 
+// Controls - Buttons
+#define MODEPIN 14 
+#define ENC1B 18
+#define ENC2B 17
+#define ENC3B 16
+#define ENC4B 15
+// Controls - Encoders 
 #define ENC1L 2
 #define ENC1R 3
 #define ENC2L 5
@@ -45,13 +53,7 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #define ENC3R 11
 #define ENC4L 44
 #define ENC4R 46
-// CONTROLS - Buttons 
-#define MODEPIN 14 
-#define ENC1B 18
-#define ENC2B 17
-#define ENC3B 16
-#define ENC4B 15
-// LED 
+// LED
 #define LED 12
 
 /************************************ CLASS OBJECTS *********************************************************/
@@ -95,6 +97,14 @@ volatile uint_fast32_t tword_m;  // dds tuning word m
 const float freqMul[] = {0.1, 1, 2, 5, 10, 20, 50, 100}; // frequency multipliers
 uint_fast8_t fMul = 1; 
 // Audio params - envelope (ADSR)
+const float atkMul[] = { 1, 2, 5, 10, 20, 50, 100, 250}; // attack multipliers
+uint_fast8_t aMul = 1;
+const float dcyMul[] = { 1, 2, 5, 10, 20, 50, 100, 250}; // attack multipliers
+uint_fast8_t dMul = 1;
+const float susMul[] = { 1, 2, 5, 10, 20, 50 }; // attack multipliers
+uint_fast8_t sMul = 1;
+const float relMul[] = { 1, 2, 5, 10, 20, 50, 100, 250}; // attack multipliers
+uint_fast8_t rMul = 1;
 uint_fast16_t atk=100, dcy=100, rel=250; // max time = 2^16 * 1/refclk = 2seconds
 uint_fast8_t sus=127; // min=0 max=255
 uint_fast16_t ecnt=0; // envelope counter
@@ -126,7 +136,10 @@ void setup()
   pinMode(ENC2B, INPUT_PULLUP);
   pinMode(ENC3B, INPUT_PULLUP);
   pinMode(ENC4B, INPUT_PULLUP);
+  pinMode(LED, OUTPUT);
   pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
+  pinMode(GATEPIN, OUTPUT);
+  
   // Setup Audio Timer
   Setup_timer2();
 
@@ -146,6 +159,10 @@ void loop()
 {
   
 while(1) {
+     if(DEBUG){ 
+       Serial.println(mode);
+     }
+     
      readEncoders(); // encoders must be called as fast as possible
       
      // UPDATE SCREEN (runs at SCRN_RATE)
@@ -221,11 +238,13 @@ void readEncoders(){
   // Encoder 1
   _e1val = enc1.read() << 2; // extend readings to improve readibility 
     if(e1val > _e1val){ 
-      _dfreq -= freqMul[fMul];
+      if(mode) atk -= atkMul[aMul]; 
+      else _dfreq -= freqMul[fMul];
       e1val = _e1val;  // update
     }
     if(e1val < _e1val) {
-      _dfreq += freqMul[fMul];
+      if(mode) atk += atkMul[aMul]; 
+      else _dfreq += freqMul[fMul];
       e1val = _e1val; // update
     }
 }

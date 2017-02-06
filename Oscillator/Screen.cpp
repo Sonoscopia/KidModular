@@ -48,7 +48,7 @@ void Screen::drawDisplay(){
   if(*mMode) drawEnvelope();
   else drawScope();
   
-//  pMode = *mMode; // keep mode state changes updated!
+  pMode = *mMode; // keep mode state changes updated!
 }
 
 void Screen::drawParams(){

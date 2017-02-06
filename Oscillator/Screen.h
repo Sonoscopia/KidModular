@@ -7,7 +7,7 @@
 #define HEIGHT 319
 #define ZERO 0
 #define BUFSIZE 60
-#define COLOR VGA_MAROON
+#define COLOR VGA_RED
 
 class Screen{
   public:
