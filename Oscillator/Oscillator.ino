@@ -35,11 +35,24 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 // NOTE: pins 4, 9, 10 & 13 ARE DISABLED !!!!
 // Audio Pins 
 #define AUDIO_OUT 10
-// Interface Control Pins
-#define MODEPIN 12 
+#define GATEPIN 8
+// CONTROLS - Encoder's
 #define ENC1L 2
 #define ENC1R 3
-#define ENC1B 5
+#define ENC2L 5
+#define ENC2R 6
+#define ENC3L 7
+#define ENC3R 11
+#define ENC4L 44
+#define ENC4R 46
+// CONTROLS - Buttons 
+#define MODEPIN 14 
+#define ENC1B 18
+#define ENC2B 17
+#define ENC3B 16
+#define ENC4B 15
+// LED 
+#define LED 12
 
 /************************************ CLASS OBJECTS *********************************************************/
 // LCD Screen
@@ -52,6 +65,18 @@ boolean mode=0, _m=1, m;
 Encoder enc1(ENC1L, ENC1R);
 byte e1val = -1, _e1val;
 boolean e1but, _e1but = false; // button
+// Controls - Encoder 2
+Encoder enc2(ENC2L, ENC2R);
+byte e2val = -1, _e2val;
+boolean e2but, _e2but = false; // button
+// Controls - Encoder 3
+Encoder enc3(ENC3L, ENC3R);
+byte e3val = -1, _e3val;
+boolean e3but, _e3but = false; // button
+// Controls - Encoder 4
+Encoder enc4(ENC4L, ENC4R);
+byte e4val = -1, _e4val;
+boolean e4but, _e4but = false; // button
 
 /************************************ VARIABLES *************************************************************/
 // Audio 
@@ -98,6 +123,9 @@ void setup()
   // Set Pins
   pinMode(MODEPIN, INPUT_PULLUP);
   pinMode(ENC1B, INPUT_PULLUP);
+  pinMode(ENC2B, INPUT_PULLUP);
+  pinMode(ENC3B, INPUT_PULLUP);
+  pinMode(ENC4B, INPUT_PULLUP);
   pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
   // Setup Audio Timer
   Setup_timer2();
