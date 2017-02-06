@@ -1,5 +1,5 @@
 /*
-KidModular - SEQUENCER 
+KidModular - SEQUENCER - V.0.1.0 
 by Tiago Angelo (aka p1nho)
 
 Built with: 
@@ -28,15 +28,20 @@ Sequencer code based on Rui Penha's "Polissonos" ()
 #define DEBUG 1
 
 // Sequencer
-#define MAXSTEPS 8
+#define MAXSTEPS 6
 #define RADIUS 140 // gemetric shapes radius
 #define STEPRADIUS 8 // step circle radius
 // Controls
-#define BPMPIN 8
-#define NSTEPSPIN 9
-#define ENCL 2 // encoder Left
-#define ENCR 3 // encoder Right
-#define ENCB 4 // encoder button
+#define BPMPIN 7 // bpm pot
+#define NSTEPSPIN 6 // num steps pot
+                    // pitch pots from A0 to A5
+#define ENCL 8 // encoder Left
+#define ENCR 9 // encoder Right
+#define ENCB 12 // encoder button
+// Control Voltage
+#define GATEPIN 11
+#define PITCHPIN 10
+                // led pins from 2 to 7 
 /************************************ CLASS OBJECTS *********************************************************/
 // Encoder
 Encoder encoder(ENCL, ENCR);
@@ -53,7 +58,7 @@ uint8_t numSteps = 1, pNumSteps;
 uint8_t curStep = 0;
 uint8_t stepEdit = 0, pStepEdit = 0;
 uint8_t pitch[MAXSTEPS]; 
-uint8_t dur[] = {50, 50, 50, 50, 50, 50, 50, 50};
+uint8_t dur[] = {50, 50, 50, 50, 50, 50};
 uint8_t pDur = 50; 
 // Encoder
 byte button, _button; 
@@ -63,16 +68,14 @@ void setup(void){
   if(DEBUG) Serial.begin(9600);
   
   // set pins
-  for (int i = 5; i < 12; i++){
-    // LEDS pins 5~11
+  for (int i = 2; i < 8; i++){
+    // LEDS pins 2~7
     pinMode(i, OUTPUT);
     digitalWrite(i, HIGH); // turn off
   }
-  pinMode(44, OUTPUT); // LED 8 - pin44 ??
-  digitalWrite(44, HIGH); // turn off  
-  pinMode(12, OUTPUT); // PITCH CV OUT pin12
-  pinMode(13, OUTPUT); // GATE CV OUT pin13 
-  pinMode(4, INPUT_PULLUP); // Encoder button
+  pinMode(PITCHPIN, OUTPUT); // PITCH CV OUT pin12
+  pinMode(GATEPIN, OUTPUT); // GATE CV OUT pin13 
+  pinMode(ENCB, INPUT_PULLUP); // Encoder button
   // Init LCD
   screen.init();
 
@@ -88,7 +91,7 @@ void setup(void){
 void loop(void){
   noInterrupts();
   // print stuff here
-    if(DEBUG) Serial.println(dur[1]);
+    if(DEBUG) Serial.println(numSteps);
   interrupts();
   
   delayMicroseconds(6000); // latency = 8ms (remember 0.75ms is equivalent to 1ms)
@@ -121,38 +124,50 @@ void runSequence(void){
   }
   // Gate CV output 
   if(playhead < stepTime * dur[curStep] / 100.f){
-    PORTB |= _BV(PB7); // pin13 HIGH
+//    PORTB |= _BV(PB7); // pin13 HIGH
     switch(curStep){
       case 0:
-         PORTE &= ~_BV(PE3); // pin5 LOW (common anode, so it's a ON)
+         PORTE &= ~_BV(PE4); // pin2 LOW (common anode, so it's a ON)
       break;
       case 1:
-         PORTH &= ~_BV(PH3); // pin6 LOW (common anode, so it's a ON)
+         PORTE &= ~_BV(PE5); // pin3 LOW (common anode, so it's a ON)
       break; 
       case 2:
-         PORTH &= ~_BV(PH4); // pin7 LOW (common anode, so it's a ON)
+         PORTG &= ~_BV(PG5); // pin4 LOW (common anode, so it's a ON)
       break;
       case 3:
-         PORTH &= ~_BV(PH5); // pin8 LOW (common anode, so it's a ON)
+         PORTE &= ~_BV(PE3); // pin5 LOW (common anode, so it's a ON)
+      break;
+      case 4:
+         PORTH &= ~_BV(PH3); // pin6 LOW (common anode, so it's a ON)
+      break;
+      case 5:
+         PORTH &= ~_BV(PH4); // pin7 LOW (common anode, so it's a ON)
       break;
       default:
       break; 
     }
   } 
   else{
-    PORTB &= ~_BV(PB7); // pin13 LOW
+//    PORTB &= ~_BV(PB7); // pin13 LOW
     switch(curStep){
       case 0:
-         PORTE |= _BV(PE3); // pin5 LOW (common anode, so it's a ON)
+         PORTE |= _BV(PE4); // pin2 LOW (common anode, so it's a ON)
       break;
       case 1:
-         PORTH |= _BV(PH3); // pin6 LOW (common anode, so it's a ON)
+         PORTE |= _BV(PE5); // pin3 LOW (common anode, so it's a ON)
       break; 
       case 2:
-         PORTH |= _BV(PH4); // pin7 LOW (common anode, so it's a ON)
+         PORTG |= _BV(PG5); // pin4 LOW (common anode, so it's a ON)
       break;
       case 3:
-         PORTH |= _BV(PH5); // pin8 LOW (common anode, so it's a ON)
+         PORTE |= _BV(PE3); // pin5 LOW (common anode, so it's a ON)
+      break;
+      case 4:
+         PORTH |= _BV(PH3); // pin6 LOW (common anode, so it's a ON)
+      break;
+      case 5:
+         PORTH |= _BV(PH4); // pin7 LOW (common anode, so it's a ON)
       break;
       default:
       break; 
@@ -163,9 +178,9 @@ void runSequence(void){
 /************************************** UPDATE CONTROLS *****************************************************/
 void updateControls(){
   // Potentiometers
-  bpm = (analogRead(BPMPIN) >> 1) + 30; // from 40 to 167 bpm
+  bpm = (analogRead(BPMPIN) >> 1) + 30; // from 30 to 541 bpm
   stepTime = 60000.f / bpm;
-  numSteps = (analogRead(NSTEPSPIN) >> 7) + 1; // from 1 to 8 steps 
+  numSteps = (analogRead(NSTEPSPIN) / 171) + 1; // from 1 to 6 steps 
   for(int i = 0; i < 8; i++){
     pitch[i] = analogRead(i) >> 3; // from 0 to 127
   }
