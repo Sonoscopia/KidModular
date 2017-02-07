@@ -116,8 +116,9 @@ void loop(void){
 
 /************************************ SEQUENCER FUNCTIONS ***************************************************/
 void runSequence(void){
+  // Sequencer increment
   playhead++;
-  if(playhead > stepTime){
+  if(playhead > stepTime){ 
     playhead = 0;
     curStep++;
     if(curStep == numSteps) {curStep = 0;}
@@ -125,6 +126,7 @@ void runSequence(void){
   // Gate CV output 
   if(playhead < stepTime * dur[curStep] / 100.f){
 //    PORTB |= _BV(PB7); // pin13 HIGH
+    PORTB |= _BV(PB5); // pin11 (Gate) HIGH 
     switch(curStep){
       case 0:
          PORTE &= ~_BV(PE4); // pin2 LOW (common anode, so it's a ON)
@@ -150,6 +152,7 @@ void runSequence(void){
   } 
   else{
 //    PORTB &= ~_BV(PB7); // pin13 LOW
+    PORTB &= ~_BV(PB5); // pin11 (Gate) LOW
     switch(curStep){
       case 0:
          PORTE |= _BV(PE4); // pin2 LOW (common anode, so it's a ON)
