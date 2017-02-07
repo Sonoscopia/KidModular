@@ -1,5 +1,5 @@
 /*
-KidModular - SEQUENCER - V.0.1.0 
+KidModular - SEQUENCER - V.0.1.1 
 by Tiago Angelo (aka p1nho)
 
 Built with: 
