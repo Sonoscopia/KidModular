@@ -191,9 +191,8 @@ void updateControls(){
   stepTime = 60000.f / bpm;
   numSteps = (analogRead(NSTEPSPIN) / 171) + 1; // from 1 to 6 steps 
   for(int i = 0; i < 8; i++){
-    pitch[i] = analogRead(i) >> 3; // from 0 to 127
+    pitch[i] = analogRead(i) >> 2; // from 0 to 255 (0 to 5V at a V/oct would be 5 octaves)
   }
-  
   
   // Encoder 
   button = digitalRead(ENCB);
