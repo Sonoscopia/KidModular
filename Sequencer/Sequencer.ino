@@ -130,21 +130,27 @@ void runSequence(void){
     switch(curStep){
       case 0:
          PORTE &= ~_BV(PE4); // pin2 LOW (common anode, so it's a ON)
+         analogWrite(PITCHPIN, pitch[0]);
       break;
       case 1:
          PORTE &= ~_BV(PE5); // pin3 LOW (common anode, so it's a ON)
+         analogWrite(PITCHPIN, pitch[1]);
       break; 
       case 2:
          PORTG &= ~_BV(PG5); // pin4 LOW (common anode, so it's a ON)
+         analogWrite(PITCHPIN, pitch[2]);
       break;
       case 3:
          PORTE &= ~_BV(PE3); // pin5 LOW (common anode, so it's a ON)
+         analogWrite(PITCHPIN, pitch[3]);
       break;
       case 4:
          PORTH &= ~_BV(PH3); // pin6 LOW (common anode, so it's a ON)
+         analogWrite(PITCHPIN, pitch[4]);
       break;
       case 5:
          PORTH &= ~_BV(PH4); // pin7 LOW (common anode, so it's a ON)
+         analogWrite(PITCHPIN, pitch[5]);
       break;
       default:
       break; 
