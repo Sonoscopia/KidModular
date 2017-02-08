@@ -121,7 +121,7 @@ void runSequence(void){
   if(playhead > stepTime){ 
     playhead = 0;
     curStep++;
-    if(curStep == numSteps) {curStep = 0;}
+    if(curStep > numSteps-1) {curStep = 0;}
   }
   // Gate CV output 
   if(playhead < stepTime * dur[curStep] / 100.f){
