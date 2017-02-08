@@ -57,6 +57,7 @@ Audio ouput using Direct Digital Synthesis method from an example by Martin Nawr
 #define LED 12
 
 /************************************ CLASS OBJECTS *********************************************************/
+float f;
 // LCD Screen
 UTFT LCD(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[];
@@ -79,6 +80,11 @@ boolean e3but, _e3but = false; // button
 Encoder enc4(ENC4L, ENC4R);
 byte e4val = -1, _e4val;
 boolean e4but, _e4but = false; // button
+// CV 
+byte array[50];
+float sum, value; 
+byte inc = 0; 
+boolean gate, _gate = 0;
 
 /************************************ VARIABLES *************************************************************/
 // Audio 
@@ -111,7 +117,7 @@ uint_fast16_t ecnt=0; // envelope counter
 uint_fast8_t estg=0; // envelope stage 0-atk, 1-decay, 2-sus, 3-rel
 // Audio params - selected waveform 
 
-uint_fast8_t *waveform = tri256;
+uint_fast8_t *waveform = sine256;
 // Routine speed calcs 
 const uint16_t control_rate = (1.f/CTRL_RATE) / (1/refclk); // in audio samples = sample rate(hz) / control rate (hz)
 boolean ctrlTrigger = false; 
@@ -138,7 +144,7 @@ void setup()
   pinMode(ENC4B, INPUT_PULLUP);
   pinMode(LED, OUTPUT);
   pinMode(AUDIO_OUT, OUTPUT); // pin11= PWM  output / frequency output (pin10 on MEGA)
-  pinMode(GATEPIN, OUTPUT);
+  pinMode(GATEPIN, INPUT);
   
   // Setup Audio Timer
   Setup_timer2();
@@ -160,11 +166,12 @@ void loop()
   
 while(1) {
      if(DEBUG){ 
-       Serial.println(mode);
+//       Serial.println();
      }
-     
-     readEncoders(); // encoders must be called as fast as possible
-      
+
+//     readEncoders(); // encoders must be called as fast as possible
+           readCV();
+
      // UPDATE SCREEN (runs at SCRN_RATE)
      if(scrnTrigger){ 
        screen.drawDisplay();
@@ -173,12 +180,15 @@ while(1) {
      // UPDATE CONTROL (runs at CTRL_RATE)
      if(ctrlTrigger){
        updateControls();
+
+
        screen.drawParams();
        ctrlTrigger = false; 
      }
      // UPDATE FREQUENCY (runs when table index = 0)
-     if (zcross && dfreq != _dfreq) { // if phase=0 and freq. changes
-        dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
+     if (zcross && dfreq ) { // if phase=0 and freq. changes
+//                readCV();
+//        dfreq = _dfreq;         // read Poti on analog pin 0 to adjust output frequency from 0..1023 Hz
         // !!!INTERRUPT!!! TO CHANGE FREQUENCY
         cbi (TIMSK2,TOIE2);              // disble Timer2 Interrupt
         tword_m=pow(2,32)*dfreq/refclk;  // calulate DDS new tuning word
@@ -251,12 +261,12 @@ void readEncoders(){
 
 void updateControls(){
   // Mode - Button
-  m = digitalRead(MODEPIN);
+  /*m = digitalRead(MODEPIN);
   if(m < 1 && m != _m){
     mode = !mode;
   }
   _m = m;
-  
+  */
   // Encoder 1 - Button
   e1but = digitalRead(ENC1B);
   if(e1but < 1 && e1but != _e1but){
@@ -265,4 +275,26 @@ void updateControls(){
   } 
 
   _e1but = e1but;
+}
+
+void readCV(){
+  /*array[inc] = ((pulseIn(A0, HIGH) >> 5) + 36);
+  sum += array[inc];
+  inc++;
+  if(inc > 50){
+    inc = 0;
+    value = sum / 50.f;
+    sum = 0;
+  }*/
+//  dfreq = value; 
+  
+  gate = digitalRead(GATEPIN);
+  value = (pulseIn(A0, HIGH) >> 5) + 36;
+  if(gate > 0 && gate != _gate){
+    dfreq = pow(2, (value-69)/12.f) * 440.f;
+//    Serial.println("hit");
+  }
+  _gate = gate;
+  
+//  Serial.println(dfreq);
 }
