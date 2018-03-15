@@ -7,6 +7,7 @@ Revision A
 ## List of modules
 - Oscillator
 - Sequencer
+- Mixer 2ch
 
 ## Notes
 Both the Oscillator and the Sequencer have incomplete but working code.
