@@ -7,12 +7,11 @@ Screen::Screen(UTFT _lcd, uint8_t _f[]){ // default constructor
   mLCD = _lcd;
   mFont = _f;
   // top menus: Wave+LFO, Filter, Envelope, FX, Settings
-  label[0] = {"WAVE"};
+  label[0] = {"OSCIL"};
   label[1] = {"FILT."};
   label[2] = {"ENV."};
   label[3] = {"FX"};
   label[4] = {"SETT."};
-  menuInc = 0; 
   isSelected[0] = true; // default "WAVE" menu selected at instantiation 
   isSelected[1] = false;
   isSelected[2] = false;
@@ -20,8 +19,9 @@ Screen::Screen(UTFT _lcd, uint8_t _f[]){ // default constructor
   isSelected[4] = false;
   menuChange = true; // enable topMenu draw upon instantiation
 }
-
-void Screen::init(){
+void Screen::init(params_t *p){
+  mParams = p;
+  
   mLCD = UTFT(CTE32HR,38,39,40,41); // instantiate UTFT object
   mLCD.InitLCD(); // init screen
   mLCD.setFont(mFont); // set font 
@@ -63,14 +63,12 @@ void Screen::drawTopMenu(){
    }
 }
 
+
 void Screen::updateMenu(){
-  // increment menu
-  menuInc++;
-  if(menuInc>4) menuInc =0;
   for(int i = 0; i < 5; i++){ // set all to false
     isSelected[i] = false;
   }
-  isSelected[menuInc] = true; // then set selected menu
+  isSelected[mParams->selectedMenu] = true; // then set selected menu
   menuChange = true; 
- 
 }
+

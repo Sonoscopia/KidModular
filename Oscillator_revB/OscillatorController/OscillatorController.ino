@@ -1,24 +1,23 @@
 // PseudoCode (Arduino MEGA)
 #include <UTFT.h>
-#include "Parameters.h"
-#include "Screen.h"
 #include "Controls.h"
+#include "Screen.h"
 
-#define DEBUG 0
+#define DEBUG 1
 
-
-// Screen variables and objects
+params_t params = {0, 0, 220.f, 0, 2.f}; 
+Controls controls;
+// screen
 UTFT lcd(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[]; 
 Screen screen(lcd, BigFont);
-// Control object
-Controls controls;
+
 
 void setup(){
   if(DEBUG) Serial.begin(9600);
   //setI2C();
-  controls.init();  
-  screen.init(); // setup screen 
+  controls.init(&params);  
+  screen.init(&params); // setup screen 
 }
 
 void loop(){

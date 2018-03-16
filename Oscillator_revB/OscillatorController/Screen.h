@@ -3,13 +3,14 @@
 
 #include "Arduino.h"
 #include <UTFT.h>
+#include "Controls.h"
 
 class Screen{ 
   public: 
     // METHODS
     Screen(); // default constructor
     Screen(UTFT _lcd, uint8_t _f[]); // default constructor
-    void init(); // initialize screen
+    void init(params_t *p); // initialize screen
     void updateMenu();
     void draw(); // render screen
     
@@ -18,6 +19,8 @@ class Screen{
   private:
     // METHODS
     void drawTopMenu();
+    void drawBottomMenu();
+    void oscilMenu();
     
     // ATTRIBUTES
     UTFT mLCD; // my UTFT object
@@ -27,8 +30,11 @@ class Screen{
     byte menuHeight, menuWidth;
     byte menuStroke;  
     const String label[5];
-    boolean isSelected[5];
-    byte menuInc; 
-    boolean menuChange; 
+    boolean isSelected[5]; 
+    boolean menuChange;
+
+    params_t *mParams;
+     
+    String waveforms[4] = {"SINE", "SQR", "TRI", "SAW"};
 };
 #endif
