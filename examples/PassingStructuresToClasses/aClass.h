@@ -8,5 +8,8 @@ class aClass{
   public:
     aClass();
     void printColor(struct RGB *s);
+    void randomColor();
+    void passStruct(struct RGB *s);
+    RGB *mRGB;
 };
 #endif

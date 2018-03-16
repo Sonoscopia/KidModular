@@ -1,5 +1,5 @@
 #ifndef MYSTRUCT_H
-#define MYSTRUCT_
+#define MYSTRUCT_H
 
 struct RGB{
   byte r;
