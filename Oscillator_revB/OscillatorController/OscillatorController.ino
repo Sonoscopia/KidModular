@@ -10,7 +10,8 @@ Controls controls;
 // screen
 UTFT lcd(CTE32HR,38,39,40,41);
 extern uint8_t BigFont[]; 
-Screen screen(lcd, BigFont);
+extern uint8_t SmallFont[]; 
+Screen screen(lcd, BigFont, SmallFont);
 
 
 void setup(){

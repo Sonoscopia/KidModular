@@ -3,10 +3,10 @@
 
 struct params_t{
   byte selectedMenu;
-  byte osc_wave;
-  float osc_freq;
-  byte lfo_wave;
-  float lfo_freq;
+  byte oscWave;
+  float oscFreq;
+  byte lfoWave;
+  float lfoFreq;
   };
 
 //int adsr[4] = {0, 0, 0, 0}; // {atk, dcy, sus, rel} parameters
