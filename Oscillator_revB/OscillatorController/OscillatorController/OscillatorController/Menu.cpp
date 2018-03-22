@@ -12,8 +12,8 @@ Menu::Menu() {
 }
 
 void Menu::init(UTFT* u, uint8_t* sF, uint8_t* bF, params_t* p) {
-	Serial.println(p->oscFreq);
-	p->oscFreq = 440.f;
+	//Serial.println(p->oscFreq);
+	//p->oscFreq = 440.f;
 }
 
 void Menu::drawMenus(){

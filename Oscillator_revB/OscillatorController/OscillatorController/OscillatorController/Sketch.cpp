@@ -1,5 +1,5 @@
 ﻿#include <Arduino.h> // needed in Atmel Studio only
-#include "GLOBALS.h"
+
 #include "Parameters.h"
 #include "Control.h"
 #include "Screen.h"
@@ -18,4 +18,5 @@ void setup() {
 }
 
 void loop() {
+	control.read();
 }

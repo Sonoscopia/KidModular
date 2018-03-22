@@ -224,7 +224,7 @@ public:
 			"ld	r24, X+"		"\n\t"
 			"ld	r25, X+"		"\n\t"
 			"ijmp"				"\n\t"	// jumps to update_finishup()
-			// TODO move this table to another static function,
+			//_TODO move this table to another static function,
 			// so it doesn't get needlessly duplicated.  Easier
 			// said than done, due to linker issues and inlining
 		"L%=table:"				"\n\t"

@@ -38,7 +38,7 @@ Control.d Control.o: .././Control.cpp .././Control.h \
  ..\include\libraries\Encoder-1.4/Encoder.h \
  ..\include\libraries\Encoder-1.4/utility/direct_pin_read.h \
  ..\include\libraries\Encoder-1.4/utility/interrupt_pins.h \
- .././EncoderHandler.h .././Parameters.h
+ .././EncoderHandler.h .././Parameters.h .././GLOBALS.h
 
 .././Control.h:
 
@@ -123,3 +123,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././EncoderHandler.h:
 
 .././Parameters.h:
+
+.././GLOBALS.h:

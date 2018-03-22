@@ -16,6 +16,7 @@ public:
     void setValue(byte* v, byte min, byte max);
 
 private: 
+	Encoder* enc;
     byte bPin;
     float bMul;
     float nMul;
