@@ -12,10 +12,15 @@ Control::Control() {
 
 void Control::init(params_t *p) {
 	paramsPtr = p;
+	enc1 = new Encoder(ENC1L, ENC1R);
+	enc1h.init(enc1, ENC1B);
 }
 
 void Control::read() {
-	Serial.println(paramsPtr->oscFreq);
+	//Serial.println(enc1->read());
+	float val = 0.f;
+	float* valPtr = &val;
+	enc1h.setValue(valPtr, 0.f, 100.f);
 }
 
 void Control::readButton() {
