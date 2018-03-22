@@ -35,6 +35,8 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../include/ \
 ../include/libraries/ \
+../include/libraries/Encoder-1.4/ \
+../include/libraries/Encoder-1.4/utility/ \
 ../include/libraries/UTFT/ \
 ../include/libraries/UTFT/hardware/ \
 ../include/libraries/UTFT/hardware/arm/ \
@@ -75,18 +77,21 @@ SUBDIRS :=  \
 ../include/libraries/UTFT/tft_drivers/st7735/std/ \
 ../src/ \
 ../src/libraries/ \
+../src/libraries/Encoder-1.4/ \
 ../src/libraries/UTFT/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../Control.cpp \
+../EncoderHandler.cpp \
+../Menu.cpp \
+../Screen.cpp \
 ../Sketch.cpp \
-../src/Control.cpp \
+../src/libraries/Encoder-1.4/Encoder.cpp \
 ../src/libraries/UTFT/DefaultFonts.c \
-../src/Menus.cpp \
-../src/Parameters.cpp \
-../src/Screen.cpp \
-../src/UTFT.cpp
+../src/libraries/UTFT/UTFT.cpp \
+../Window.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -96,40 +101,48 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+Control.o \
+EncoderHandler.o \
+Menu.o \
+Screen.o \
 Sketch.o \
-src/Control.o \
+src/libraries/Encoder-1.4/Encoder.o \
 src/libraries/UTFT/DefaultFonts.o \
-src/Menus.o \
-src/Parameters.o \
-src/Screen.o \
-src/UTFT.o
+src/libraries/UTFT/UTFT.o \
+Window.o
 
 OBJS_AS_ARGS +=  \
+Control.o \
+EncoderHandler.o \
+Menu.o \
+Screen.o \
 Sketch.o \
-src/Control.o \
+src/libraries/Encoder-1.4/Encoder.o \
 src/libraries/UTFT/DefaultFonts.o \
-src/Menus.o \
-src/Parameters.o \
-src/Screen.o \
-src/UTFT.o
+src/libraries/UTFT/UTFT.o \
+Window.o
 
 C_DEPS +=  \
+Control.d \
+EncoderHandler.d \
+Menu.d \
+Screen.d \
 Sketch.d \
-src/Control.d \
+src/libraries/Encoder-1.4/Encoder.d \
 src/libraries/UTFT/DefaultFonts.d \
-src/Menus.d \
-src/Parameters.d \
-src/Screen.d \
-src/UTFT.d
+src/libraries/UTFT/UTFT.d \
+Window.d
 
 C_DEPS_AS_ARGS +=  \
+Control.d \
+EncoderHandler.d \
+Menu.d \
+Screen.d \
 Sketch.d \
-src/Control.d \
+src/libraries/Encoder-1.4/Encoder.d \
 src/libraries/UTFT/DefaultFonts.d \
-src/Menus.d \
-src/Parameters.d \
-src/Screen.d \
-src/UTFT.d
+src/libraries/UTFT/UTFT.d \
+Window.d
 
 OUTPUT_FILE_PATH +=OscillatorController.elf
 
@@ -161,24 +174,35 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
 ./%.o: .././%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_MEGA2560 -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0010 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\mega" -I"..\include\libraries\UTFT" -I"..\include\libraries\UTFT\hardware\arm" -I"..\include\libraries\UTFT\hardware\avr" -I"..\include\libraries\UTFT\hardware\pic32" -I"..\include\libraries\UTFT\tft_drivers\cpld" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\8" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\s" -I"..\include\libraries\UTFT\tft_drivers\hx8347a" -I"..\include\libraries\UTFT\tft_drivers\hx8352a" -I"..\include\libraries\UTFT\tft_drivers\hx8353c" -I"..\include\libraries\UTFT\tft_drivers\ili9325c" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\alt" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\default" -I"..\include\libraries\UTFT\tft_drivers\ili9327" -I"..\include\libraries\UTFT\tft_drivers\ili9341\16" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s4p" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s5p" -I"..\include\libraries\UTFT\tft_drivers\ili9481" -I"..\include\libraries\UTFT\tft_drivers\ili9486" -I"..\include\libraries\UTFT\tft_drivers\pcf8833" -I"..\include\libraries\UTFT\tft_drivers\r61581" -I"..\include\libraries\UTFT\tft_drivers\s1d19122" -I"..\include\libraries\UTFT\tft_drivers\s6d0164" -I"..\include\libraries\UTFT\tft_drivers\s6d1121" -I"..\include\libraries\UTFT\tft_drivers\ssd1289" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\480" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\std" -I"..\include\libraries\UTFT\tft_drivers\st7735s"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -w -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_MEGA2560 -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0010 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\mega" -I"..\include\libraries\Encoder-1.4" -I"..\include\libraries\Encoder-1.4\utility" -I"..\include\libraries\UTFT" -I"..\include\libraries\UTFT\hardware\arm" -I"..\include\libraries\UTFT\hardware\avr" -I"..\include\libraries\UTFT\hardware\pic32" -I"..\include\libraries\UTFT\tft_drivers\cpld" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\8" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\s" -I"..\include\libraries\UTFT\tft_drivers\hx8347a" -I"..\include\libraries\UTFT\tft_drivers\hx8352a" -I"..\include\libraries\UTFT\tft_drivers\hx8353c" -I"..\include\libraries\UTFT\tft_drivers\ili9325c" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\alt" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\default" -I"..\include\libraries\UTFT\tft_drivers\ili9327" -I"..\include\libraries\UTFT\tft_drivers\ili9341\16" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s4p" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s5p" -I"..\include\libraries\UTFT\tft_drivers\ili9481" -I"..\include\libraries\UTFT\tft_drivers\ili9486" -I"..\include\libraries\UTFT\tft_drivers\pcf8833" -I"..\include\libraries\UTFT\tft_drivers\r61581" -I"..\include\libraries\UTFT\tft_drivers\s1d19122" -I"..\include\libraries\UTFT\tft_drivers\s6d0164" -I"..\include\libraries\UTFT\tft_drivers\s6d1121" -I"..\include\libraries\UTFT\tft_drivers\ssd1289" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\480" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\std" -I"..\include\libraries\UTFT\tft_drivers\st7735s"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -w -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/%.o: ../src/%.cpp
+src/libraries/Encoder-1.4/%.o: ../src/libraries/Encoder-1.4/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_MEGA2560 -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0010 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\mega" -I"..\include\libraries\UTFT" -I"..\include\libraries\UTFT\hardware\arm" -I"..\include\libraries\UTFT\hardware\avr" -I"..\include\libraries\UTFT\hardware\pic32" -I"..\include\libraries\UTFT\tft_drivers\cpld" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\8" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\s" -I"..\include\libraries\UTFT\tft_drivers\hx8347a" -I"..\include\libraries\UTFT\tft_drivers\hx8352a" -I"..\include\libraries\UTFT\tft_drivers\hx8353c" -I"..\include\libraries\UTFT\tft_drivers\ili9325c" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\alt" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\default" -I"..\include\libraries\UTFT\tft_drivers\ili9327" -I"..\include\libraries\UTFT\tft_drivers\ili9341\16" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s4p" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s5p" -I"..\include\libraries\UTFT\tft_drivers\ili9481" -I"..\include\libraries\UTFT\tft_drivers\ili9486" -I"..\include\libraries\UTFT\tft_drivers\pcf8833" -I"..\include\libraries\UTFT\tft_drivers\r61581" -I"..\include\libraries\UTFT\tft_drivers\s1d19122" -I"..\include\libraries\UTFT\tft_drivers\s6d0164" -I"..\include\libraries\UTFT\tft_drivers\s6d1121" -I"..\include\libraries\UTFT\tft_drivers\ssd1289" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\480" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\std" -I"..\include\libraries\UTFT\tft_drivers\st7735s"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -w -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_MEGA2560 -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0010 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\mega" -I"..\include\libraries\Encoder-1.4" -I"..\include\libraries\Encoder-1.4\utility" -I"..\include\libraries\UTFT" -I"..\include\libraries\UTFT\hardware\arm" -I"..\include\libraries\UTFT\hardware\avr" -I"..\include\libraries\UTFT\hardware\pic32" -I"..\include\libraries\UTFT\tft_drivers\cpld" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\8" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\s" -I"..\include\libraries\UTFT\tft_drivers\hx8347a" -I"..\include\libraries\UTFT\tft_drivers\hx8352a" -I"..\include\libraries\UTFT\tft_drivers\hx8353c" -I"..\include\libraries\UTFT\tft_drivers\ili9325c" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\alt" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\default" -I"..\include\libraries\UTFT\tft_drivers\ili9327" -I"..\include\libraries\UTFT\tft_drivers\ili9341\16" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s4p" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s5p" -I"..\include\libraries\UTFT\tft_drivers\ili9481" -I"..\include\libraries\UTFT\tft_drivers\ili9486" -I"..\include\libraries\UTFT\tft_drivers\pcf8833" -I"..\include\libraries\UTFT\tft_drivers\r61581" -I"..\include\libraries\UTFT\tft_drivers\s1d19122" -I"..\include\libraries\UTFT\tft_drivers\s6d0164" -I"..\include\libraries\UTFT\tft_drivers\s6d1121" -I"..\include\libraries\UTFT\tft_drivers\ssd1289" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\480" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\std" -I"..\include\libraries\UTFT\tft_drivers\st7735s"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -w -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/libraries/UTFT/%.o: ../src/libraries/UTFT/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_MEGA2560 -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0010 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\mega" -I"..\include\libraries\UTFT" -I"..\include\libraries\UTFT\hardware\arm" -I"..\include\libraries\UTFT\hardware\avr" -I"..\include\libraries\UTFT\hardware\pic32" -I"..\include\libraries\UTFT\tft_drivers\cpld" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\8" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\s" -I"..\include\libraries\UTFT\tft_drivers\hx8347a" -I"..\include\libraries\UTFT\tft_drivers\hx8352a" -I"..\include\libraries\UTFT\tft_drivers\hx8353c" -I"..\include\libraries\UTFT\tft_drivers\ili9325c" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\alt" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\default" -I"..\include\libraries\UTFT\tft_drivers\ili9327" -I"..\include\libraries\UTFT\tft_drivers\ili9341\16" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s4p" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s5p" -I"..\include\libraries\UTFT\tft_drivers\ili9481" -I"..\include\libraries\UTFT\tft_drivers\ili9486" -I"..\include\libraries\UTFT\tft_drivers\pcf8833" -I"..\include\libraries\UTFT\tft_drivers\r61581" -I"..\include\libraries\UTFT\tft_drivers\s1d19122" -I"..\include\libraries\UTFT\tft_drivers\s6d0164" -I"..\include\libraries\UTFT\tft_drivers\s6d1121" -I"..\include\libraries\UTFT\tft_drivers\ssd1289" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\480" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\std" -I"..\include\libraries\UTFT\tft_drivers\st7735s"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -w -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -c -std=gnu99 -std=gnu11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_MEGA2560 -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0010 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\mega" -I"..\include\libraries\Encoder-1.4" -I"..\include\libraries\Encoder-1.4\utility" -I"..\include\libraries\UTFT" -I"..\include\libraries\UTFT\hardware\arm" -I"..\include\libraries\UTFT\hardware\avr" -I"..\include\libraries\UTFT\hardware\pic32" -I"..\include\libraries\UTFT\tft_drivers\cpld" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\8" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\s" -I"..\include\libraries\UTFT\tft_drivers\hx8347a" -I"..\include\libraries\UTFT\tft_drivers\hx8352a" -I"..\include\libraries\UTFT\tft_drivers\hx8353c" -I"..\include\libraries\UTFT\tft_drivers\ili9325c" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\alt" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\default" -I"..\include\libraries\UTFT\tft_drivers\ili9327" -I"..\include\libraries\UTFT\tft_drivers\ili9341\16" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s4p" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s5p" -I"..\include\libraries\UTFT\tft_drivers\ili9481" -I"..\include\libraries\UTFT\tft_drivers\ili9486" -I"..\include\libraries\UTFT\tft_drivers\pcf8833" -I"..\include\libraries\UTFT\tft_drivers\r61581" -I"..\include\libraries\UTFT\tft_drivers\s1d19122" -I"..\include\libraries\UTFT\tft_drivers\s6d0164" -I"..\include\libraries\UTFT\tft_drivers\s6d1121" -I"..\include\libraries\UTFT\tft_drivers\ssd1289" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\480" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\std" -I"..\include\libraries\UTFT\tft_drivers\st7735s"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -w -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -c -std=gnu99 -std=gnu11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/libraries/UTFT/%.o: ../src/libraries/UTFT/%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10802 -DARDUINO_AVR_MEGA2560 -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0010 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\mega" -I"..\include\libraries\Encoder-1.4" -I"..\include\libraries\Encoder-1.4\utility" -I"..\include\libraries\UTFT" -I"..\include\libraries\UTFT\hardware\arm" -I"..\include\libraries\UTFT\hardware\avr" -I"..\include\libraries\UTFT\hardware\pic32" -I"..\include\libraries\UTFT\tft_drivers\cpld" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\8" -I"..\include\libraries\UTFT\tft_drivers\hx8340b\s" -I"..\include\libraries\UTFT\tft_drivers\hx8347a" -I"..\include\libraries\UTFT\tft_drivers\hx8352a" -I"..\include\libraries\UTFT\tft_drivers\hx8353c" -I"..\include\libraries\UTFT\tft_drivers\ili9325c" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\alt" -I"..\include\libraries\UTFT\tft_drivers\ili9325d\default" -I"..\include\libraries\UTFT\tft_drivers\ili9327" -I"..\include\libraries\UTFT\tft_drivers\ili9341\16" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s4p" -I"..\include\libraries\UTFT\tft_drivers\ili9341\s5p" -I"..\include\libraries\UTFT\tft_drivers\ili9481" -I"..\include\libraries\UTFT\tft_drivers\ili9486" -I"..\include\libraries\UTFT\tft_drivers\pcf8833" -I"..\include\libraries\UTFT\tft_drivers\r61581" -I"..\include\libraries\UTFT\tft_drivers\s1d19122" -I"..\include\libraries\UTFT\tft_drivers\s6d0164" -I"..\include\libraries\UTFT\tft_drivers\s6d1121" -I"..\include\libraries\UTFT\tft_drivers\ssd1289" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\480" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800" -I"..\include\libraries\UTFT\tft_drivers\ssd1963\800alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\alt" -I"..\include\libraries\UTFT\tft_drivers\st7735\std" -I"..\include\libraries\UTFT\tft_drivers\st7735s"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -w -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -207,7 +231,7 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR8/GNU Linker : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="OscillatorController.map" -Wl,--start-group -Wl,-lm -Wl,-lArduinoCore  -Wl,--end-group -Wl,-L"C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~1\OSCILL~1\ARDUIN~1\Debug"  -Wl,--gc-sections -mrelax -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -Os  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="OscillatorController.map" -Wl,--start-group -Wl,-lm -Wl,-lArduinoCore  -Wl,--end-group -Wl,-L"C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug"  -Wl,--gc-sections -mrelax -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega2560" -Os  
 	@echo Finished building target: $@
 	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "OscillatorController.elf" "OscillatorController.hex"
 	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "OscillatorController.elf" "OscillatorController.eep" || exit 0

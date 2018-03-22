@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "OscillatorController", "OscillatorController\OscillatorController\OscillatorController.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "OscillatorController\ArduinoCore\ArduinoCore.cppproj", "{A5B5D0B4-77D5-48E1-B888-7F3CDDC5C90B}"
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "OscillatorController\ArduinoCore\ArduinoCore.cppproj", "{3809F1E0-9EAC-41D5-8034-76574310FA38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
-		{A5B5D0B4-77D5-48E1-B888-7F3CDDC5C90B}.Debug|AVR.ActiveCfg = Debug|AVR
-		{A5B5D0B4-77D5-48E1-B888-7F3CDDC5C90B}.Debug|AVR.Build.0 = Debug|AVR
-		{A5B5D0B4-77D5-48E1-B888-7F3CDDC5C90B}.Release|AVR.ActiveCfg = Release|AVR
-		{A5B5D0B4-77D5-48E1-B888-7F3CDDC5C90B}.Release|AVR.Build.0 = Release|AVR
+		{3809F1E0-9EAC-41D5-8034-76574310FA38}.Debug|AVR.ActiveCfg = Debug|AVR
+		{3809F1E0-9EAC-41D5-8034-76574310FA38}.Debug|AVR.Build.0 = Debug|AVR
+		{3809F1E0-9EAC-41D5-8034-76574310FA38}.Release|AVR.ActiveCfg = Release|AVR
+		{3809F1E0-9EAC-41D5-8034-76574310FA38}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

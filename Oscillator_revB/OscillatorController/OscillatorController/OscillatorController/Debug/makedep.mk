@@ -2,17 +2,21 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+Control.cpp
+
+EncoderHandler.cpp
+
+Menu.cpp
+
+Screen.cpp
+
 Sketch.cpp
 
-src\Control.cpp
+src\libraries\Encoder-1.4\Encoder.cpp
 
 src\libraries\UTFT\DefaultFonts.c
 
-src\Menus.cpp
+src\libraries\UTFT\UTFT.cpp
 
-src\Parameters.cpp
-
-src\Screen.cpp
-
-src\UTFT.cpp
+Window.cpp
 
