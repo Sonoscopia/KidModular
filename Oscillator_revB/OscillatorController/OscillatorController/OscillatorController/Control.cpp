@@ -18,9 +18,8 @@ void Control::init(params_t *p) {
 
 void Control::read() {
 	//Serial.println(enc1->read());
-	float val = 0.f;
-	float* valPtr = &val;
-	enc1h.setValue(valPtr, 0.f, 100.f);
+	enc1h.setMul(1.f, 10.f);
+	enc1h.setValue(&paramsPtr->oscFreq, OFMIN, OFMAX);
 }
 
 void Control::readButton() {

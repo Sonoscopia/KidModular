@@ -20,6 +20,10 @@ private:
     byte bPin;
     float bMul;
     float nMul;
+	int pos[2];
+	boolean button; // is encoder button pressed ? 
+	
+	float returnMul(boolean m);
 };
 
 #endif //_ENCODERHANDLER_H
