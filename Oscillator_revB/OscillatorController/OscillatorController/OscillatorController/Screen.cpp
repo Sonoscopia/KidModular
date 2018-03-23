@@ -30,4 +30,15 @@ void Screen::display() {
 		menu.drawValues();
 		ctrlPtr->menuChanged = false;
 	}
+	if (ctrlPtr->enc1h.changed
+	|| ctrlPtr->enc2h.changed
+	|| ctrlPtr->enc3h.changed
+	|| ctrlPtr->enc4h.changed )
+	{
+		menu.drawValues();
+		ctrlPtr->enc1h.changed = false;
+		ctrlPtr->enc2h.changed = false;
+		ctrlPtr->enc3h.changed = false;
+		ctrlPtr->enc4h.changed = false;
+	}
 }

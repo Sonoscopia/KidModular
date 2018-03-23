@@ -112,7 +112,7 @@ void Menu::drawValues() {
 			i++;
 			mLCD->printNumI(paramsPtr->filRes, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
-			mLCD->printNumF(paramsPtr->filLfo, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumI(paramsPtr->filLfo, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 		break;
 		case 2:
 			mLCD->printNumF(paramsPtr->envAtt, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
@@ -137,7 +137,7 @@ void Menu::drawValues() {
 			i++;
 			mLCD->printNumI(paramsPtr->inEnv, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
-			mLCD->printNumI(paramsPtr->envFil, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumI(paramsPtr->filEnv, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
 			mLCD->printNumI(paramsPtr->preset, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 		break;

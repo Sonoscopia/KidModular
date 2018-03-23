@@ -32,7 +32,7 @@ public:
 		// SETTINGS
 		byte inPitch = 255;
 		byte inEnv = 0;
-		byte envFil = 0;
+		byte filEnv = 0;
 		byte preset = 0;
 	}params_t;
 	
