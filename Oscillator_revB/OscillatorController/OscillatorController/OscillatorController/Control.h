@@ -18,7 +18,7 @@ public:
     //EncoderHandler* enc2h;
     //EncoderHandler* enc3h;
     //EncoderHandler* enc4h;
-    boolean menuChange;
+    boolean menuChanged;
     boolean paramsChanged;
     params_t* paramsPtr;
     
@@ -28,8 +28,9 @@ public:
     void read();
 
 private: 
-    void readButton();
-    void incMenu();
+	boolean button[2]; // menu button
+    void readButton(); // read menu button
+    void incMenu(); // increment menu
     void sendI2C();
     void storePreset();
     void loadPreset();

@@ -19,7 +19,7 @@ public:
 private: 
 	UTFT lcd;
     Menu menu;
-    Window* window;
+    Window window;
 };
 
 #endif //_SCREEN_H

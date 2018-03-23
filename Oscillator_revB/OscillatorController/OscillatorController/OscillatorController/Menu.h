@@ -19,6 +19,7 @@ private:
     uint8_t* sFont;
     uint8_t* bFont;
     params_t* paramsPtr;
+	byte tWidth, bWidth, height;
 	
 	void drawTopMenu();
 	void drawBottomMenu();
