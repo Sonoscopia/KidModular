@@ -20,6 +20,7 @@ void Control::read() {
 	//Serial.println(enc1->read());
 	enc1h.setMul(1.f, 10.f);
 	enc1h.setValue(&paramsPtr->oscFreq, OFMIN, OFMAX);
+	Serial.println(paramsPtr->oscFreq);
 }
 
 void Control::readButton() {

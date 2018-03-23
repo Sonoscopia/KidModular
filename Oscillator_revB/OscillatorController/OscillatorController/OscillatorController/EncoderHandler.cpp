@@ -31,27 +31,50 @@ void EncoderHandler::setValue(float* v, float min, float max) {
 	pos[0] = enc->read();
 	if(pos[0]>pos[1]){
 		*v += returnMul(button);
+		*v = clip(*v, min, max);
 		pos[1] = pos[0];
 		changed = true;
-		Serial.print("val: ");
-		Serial.println(*v);
 	}
 	if(pos[0]<pos[1]){
 		*v -= returnMul(button);
+		*v = clip(*v, min, max);
 		pos[1] = pos[0];
 		changed = true;
-		Serial.print("val: ");
-		Serial.println(*v);
 	}
 	//changed = false; // --> set from outside (where?)
-	
 }
+
 void EncoderHandler::setValue(byte* v, byte min, byte max) {
 
+}
+
+float EncoderHandler::clip(float f, float mn, float mx){
+	if(f < mn){
+		return mn;
+	}
+	else{
+		if(f>mx) return mx;
+		else return f;
+	}
+}
+
+byte EncoderHandler::clip(byte f, byte mn, byte mx){
+	if(f < mn){
+		return mn;
+	}
+	else{
+		if(f>mx) return mx;
+		else return f;
+	}
 }
 
 float EncoderHandler::returnMul(boolean m){ // mode, bMul, nMul
 	if(m) return nMul;
 	else return bMul;
 }
+
+/*float EncoderHandler::wrap(float f, float mn, float mx){
+	if(f < mn) return mx-(mn-f);
+	if(f > mx) return mn+(f-mx); 
+}*/
 

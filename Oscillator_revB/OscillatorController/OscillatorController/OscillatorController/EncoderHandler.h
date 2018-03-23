@@ -24,6 +24,9 @@ private:
 	boolean button; // is encoder button pressed ? 
 	
 	float returnMul(boolean m);
+	/*float wrap(float f, float mn, float mx); */
+	float clip(float f, float mn, float mx);
+	byte clip(byte b, byte mn, byte mx);
 };
 
 #endif //_ENCODERHANDLER_H
