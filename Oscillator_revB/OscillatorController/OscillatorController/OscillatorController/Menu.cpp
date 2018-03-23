@@ -8,8 +8,8 @@
 
 
 Menu::Menu() {
-	tWidth = WIDTH/TLABELS; // 96px
-	bWidth = WIDTH/BLABELS; // 120px
+	tWidth = (WIDTH+1)/TLABELS; // 96px
+	bWidth = (WIDTH+1)/BLABELS; // 120px
 	height = HEIGHT/8; // 40px
 }
 
@@ -91,5 +91,57 @@ void Menu::drawBottomLabels(const String s[4]){
 	}
 }
 void Menu::drawValues() {
-
+	byte i = 0;
+	mLCD->setFont(sFont);
+	mLCD->setColor(COLOR);
+	mLCD->setBackColor(BKGCOLOR);
+	switch(paramsPtr->menu){
+		case 0:
+			mLCD->print(waveNames[paramsPtr->oscWave], ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumF(paramsPtr->oscFreq, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->print(waveNames[paramsPtr->lfoWave], ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumF(paramsPtr->lfoFreq, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+		break;
+		case 1:
+			mLCD->printNumI(paramsPtr->filType, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumF(paramsPtr->filFreq, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->filRes, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumF(paramsPtr->filLfo, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+		break;
+		case 2:
+			mLCD->printNumF(paramsPtr->envAtt, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumF(paramsPtr->envDcy, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->envSus, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumF(paramsPtr->envRel, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+		break;
+		case 3:
+			mLCD->printNumI(paramsPtr->fxType, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->fxAmt, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->fxParam, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->fxLfo, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+		break;
+		case 4:
+			mLCD->printNumI(paramsPtr->inPitch, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->inEnv, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->envFil, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			i++;
+			mLCD->printNumI(paramsPtr->preset, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+		break;
+		default:
+		break;
+	}
 }

@@ -27,6 +27,7 @@ void Screen::init(Control *obj) {
 void Screen::display() {
 	if(ctrlPtr->menuChanged){
 		menu.drawMenus();
+		menu.drawValues();
 		ctrlPtr->menuChanged = false;
 	}
 }

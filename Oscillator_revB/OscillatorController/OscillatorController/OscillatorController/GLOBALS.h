@@ -20,8 +20,8 @@
     const byte ENC4R = 46;
     const byte ENC4B = 15;
     // SCREEN
-	const int WIDTH = 480;
-    const int HEIGHT = 320;
+	const int WIDTH = 479;
+    const int HEIGHT = 319;
     const byte ORIGIN = 0;
     const int BKGCOLOR = 0x0000;
     const int COLOR = 0xF800;

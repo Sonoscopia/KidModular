@@ -18,7 +18,7 @@ public:
 		byte filType = 0;
 		float filFreq = 12000.f;
 		byte filRes = 40;
-		byte filterLfo = 0;
+		byte filLfo = 0;
 		// ENVELOPE
 		float envAtt = 0.f;
 		float envDcy = 200.f;

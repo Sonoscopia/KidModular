@@ -4,7 +4,7 @@
 #include "Control.h"
 #include "Screen.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 Parameters parameters;
 Control control; 

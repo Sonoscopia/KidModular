@@ -24,6 +24,11 @@ private:
 	void drawTopMenu();
 	void drawBottomMenu();
 	void drawBottomLabels(const String s[4]);
+	void displayOsc();
+	void displayFil();
+	void displayEnv();
+	void displayFX();
+	void displaySett();
 };
 
 #endif //_MENU_H
