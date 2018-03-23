@@ -40,7 +40,7 @@ void Control::readButton() {
 
 void Control::incMenu() {
 	paramsPtr->menu++;
-	if (paramsPtr->menu > TABLES-1) paramsPtr->menu=0;
+	if (paramsPtr->menu > TLABELS-1) paramsPtr->menu=0;
 }
 
 void Control::sendI2C() {

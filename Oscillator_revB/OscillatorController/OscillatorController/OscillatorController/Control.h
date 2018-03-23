@@ -13,7 +13,6 @@ public:
     //Encoder* enc2;
     //Encoder* enc3;
     //Encoder* enc4;
-
 	EncoderHandler enc1h;
     //EncoderHandler* enc2h;
     //EncoderHandler* enc3h;

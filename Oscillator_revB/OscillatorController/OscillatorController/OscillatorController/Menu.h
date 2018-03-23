@@ -23,6 +23,7 @@ private:
 	
 	void drawTopMenu();
 	void drawBottomMenu();
+	void drawBottomLabels(const String s[4]);
 };
 
 #endif //_MENU_H

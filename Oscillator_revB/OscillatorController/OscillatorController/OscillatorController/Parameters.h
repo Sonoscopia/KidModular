@@ -30,8 +30,8 @@ public:
 		byte fxParam = 0;
 		byte fxLfo = 0;
 		// SETTINGS
-		byte inEnv = 0;
 		byte inPitch = 255;
+		byte inEnv = 0;
 		byte envFil = 0;
 		byte preset = 0;
 	}params_t;

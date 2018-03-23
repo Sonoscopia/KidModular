@@ -27,13 +27,14 @@
     const int COLOR = 0xF800;
     const byte STROKEWEIGHT = 3;
     
-	const byte TABLES = 5;
-    const String tmTables[TABLES] = {"OSC.", "FIL.", "ENV.", "FX", "SETT."};
+	const byte TLABELS = 5;
+    const String tmLabels[TLABELS] = {"OSC.", "FIL.", "ENV.", "FX", "SETT."};
     const byte BLABELS = 4;
     const String oscLabels[BLABELS] = {"WAVE:", "FREQ:", "LFO:", "FREQ:"};
-    const String filLabels[BLABELS] = {"TYPE:", "FREQ:", "RES:", "ENV:"};
+    const String filLabels[BLABELS] = {"TYPE:", "FREQ:", "RES:", "LFO:"};
     const String envLabels[BLABELS] = {"ATK:", "DEC:", "SUS:", "REL:"};
     const String fxLabels[BLABELS] = {"TYPE:", "AMT:", "PARAM:", "LFO:"};
+	const String settLabels[BLABELS] = {"IN>PITCH:", "IN>ENV:", "ENV>FIL:", "PRESET:"};
     const byte NUMWAVES = 4; 
 	const String waveNames[NUMWAVES] = {"SINE", "SQR", "TRI", "SAW"};
     const byte NUMFX = 8;
