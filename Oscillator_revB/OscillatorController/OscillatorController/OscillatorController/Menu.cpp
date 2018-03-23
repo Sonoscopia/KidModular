@@ -13,11 +13,15 @@ Menu::Menu() {
 
 void Menu::init(UTFT* u, uint8_t* sF, uint8_t* bF, params_t* p) {
 	//Serial.println(p->oscFreq);
-	//p->oscFreq = 440.f;
+	paramsPtr = p;
+	mLCD = u;
+	sFont = sF;
+	bFont = bF;
 }
 
 void Menu::drawMenus(){
-	
+	mLCD->setColor(COLOR);
+	mLCD->fillRect(120, 120, WIDTH, HEIGHT);
 }
 
 void Menu::drawTopMenu() {

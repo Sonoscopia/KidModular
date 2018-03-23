@@ -19,4 +19,5 @@ void setup() {
 
 void loop() {
 	control.read();
+	screen.display();
 }

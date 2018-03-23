@@ -37,7 +37,7 @@ Menu.d Menu.o: .././Menu.cpp .././Menu.h \
  ..\\..\ArduinoCore\include\variants\mega/pins_arduino.h \
  ..\include\libraries\UTFT/UTFT.h \
  ..\include\libraries\UTFT/hardware/avr/HW_AVR_defines.h \
- .././Parameters.h
+ .././Parameters.h .././GLOBALS.h
 
 .././Menu.h:
 
@@ -118,3 +118,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ..\include\libraries\UTFT/hardware/avr/HW_AVR_defines.h:
 
 .././Parameters.h:
+
+.././GLOBALS.h:

@@ -10,7 +10,6 @@
 
 class Screen: public UTFT, public Menu, public Window {
 public: 
-    UTFT lcd;
     Control* ctrlPtr;
     
     Screen();
@@ -18,7 +17,8 @@ public:
     void init(Control* obj);
     void display();
 private: 
-    Menu* menu;
+	UTFT lcd;
+    Menu menu;
     Window* window;
 };
 

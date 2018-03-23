@@ -4,6 +4,7 @@
 #include "Arduino.h"
 #include "UTFT.h"
 #include "Parameters.h"
+#include "GLOBALS.h"
 
 class Menu: public Parameters {
 public: 

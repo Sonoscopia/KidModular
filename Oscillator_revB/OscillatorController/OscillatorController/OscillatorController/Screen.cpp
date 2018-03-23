@@ -17,13 +17,13 @@ void Screen::init(Control *obj) {
 	extern uint8_t BigFont[];
 	extern uint8_t SmallFont[];
 	
-	menu->init(&lcd, SmallFont, BigFont, ctrlPtr->paramsPtr);
+	menu.init(&lcd, SmallFont, BigFont, ctrlPtr->paramsPtr);
 	
 	lcd.clrScr();
-	menu->drawMenus();
-	menu->drawValues();
+	menu.drawMenus();
+	menu.drawValues();
 }
 
 void Screen::display() {
-
+	menu.drawMenus();
 }
