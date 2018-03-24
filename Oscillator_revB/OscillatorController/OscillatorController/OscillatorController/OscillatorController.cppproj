@@ -26,7 +26,7 @@
     <preserveEEPROM>true</preserveEEPROM>
     <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
-    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
     <AssemblyName>OscillatorController</AssemblyName>
     <ResetRule>0</ResetRule>
     <EraseKey />
@@ -42,6 +42,19 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <avrtoolserialnumber />
+    <avrdeviceexpectedsignature>0x1E9801</avrdeviceexpectedsignature>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -357,16 +370,7 @@
     <Compile Include="GLOBALS.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="include\libraries\Encoder-1.4\Encoder.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="include\libraries\Encoder-1.4\utility\direct_pin_read.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="include\libraries\Encoder-1.4\utility\interrupt_config.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="include\libraries\Encoder-1.4\utility\interrupt_pins.h">
+    <Compile Include="include\libraries\Rotary\Rotary.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\libraries\UTFT\hardware\arm\HW_ARM.h">
@@ -603,7 +607,7 @@
     <Compile Include="Sketch.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\libraries\Encoder-1.4\Encoder.cpp">
+    <Compile Include="src\libraries\Rotary\Rotary.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\libraries\UTFT\DefaultFonts.c">
@@ -631,8 +635,7 @@
   <ItemGroup>
     <Folder Include="include\" />
     <Folder Include="include\libraries\" />
-    <Folder Include="include\libraries\Encoder-1.4\" />
-    <Folder Include="include\libraries\Encoder-1.4\utility\" />
+    <Folder Include="include\libraries\Rotary" />
     <Folder Include="include\libraries\UTFT\" />
     <Folder Include="include\libraries\UTFT\hardware\" />
     <Folder Include="include\libraries\UTFT\hardware\arm\" />
@@ -673,7 +676,7 @@
     <Folder Include="include\libraries\UTFT\tft_drivers\st7735\std\" />
     <Folder Include="src\" />
     <Folder Include="src\libraries\" />
-    <Folder Include="src\libraries\Encoder-1.4\" />
+    <Folder Include="src\libraries\Rotary" />
     <Folder Include="src\libraries\UTFT\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

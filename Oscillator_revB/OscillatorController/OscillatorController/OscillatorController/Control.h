@@ -9,10 +9,6 @@
 
 class Control: public EncoderHandler, public Parameters {
 public: 
-    Encoder* enc1;
-    Encoder* enc2;
-    Encoder* enc3;
-    Encoder* enc4;
 	EncoderHandler enc1h;
     EncoderHandler enc2h;
     EncoderHandler enc3h;
@@ -27,6 +23,10 @@ public:
     void read();
 
 private: 
+	Encoder* enc1;
+	Encoder* enc2;
+	Encoder* enc3;
+	Encoder* enc4;
 	boolean button[2]; // menu button
     void readButton(); // read menu button
     void incMenu(); // increment menu

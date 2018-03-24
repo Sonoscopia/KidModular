@@ -11,22 +11,26 @@ public:
     EncoderHandler();
     
     void init(Encoder* e, byte bP);
-    void setMul(float bM, float nM);
-    void setValue(float* v, float min, float max);
-    void setValue(byte* v, byte min, byte max);
+    void setMulF(float bM, float nM);
+	void setMulN(byte bM, byte nM);
+    void setValueF(float* v, float min, float max);
+    void setValueN(byte* v, byte min, byte max);
 
 private: 
 	Encoder* enc;
     byte bPin;
-    float bMul;
-    float nMul;
+    float bMulF;
+    float nMulF;
+	byte bMulN;
+	byte nMulN;
 	int pos[2];
 	boolean button; // is encoder button pressed ? 
 	
-	float returnMul(boolean m);
+	float returnMulF(boolean m);
+	float returnMulN(boolean m);
 	/*float wrap(float f, float mn, float mx); */
-	float clip(float f, float mn, float mx);
-	byte clip(byte b, byte mn, byte mx);
+	float clipF(float f, float mn, float mx);
+	byte clipN(byte b, byte mn, byte mx);
 };
 
 #endif //_ENCODERHANDLER_H

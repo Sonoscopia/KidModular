@@ -36,7 +36,7 @@
     const String fxLabels[BLABELS] = {"TYPE:", "AMT:", "PARAM:", "LFO:"};
 	const String settLabels[BLABELS] = {"IN>PITCH:", "IN>ENV:", "ENV>FIL:", "PRESET:"};
     const byte NUMWAVES = 4; 
-	const String waveNames[NUMWAVES] = {"SINE", "SQR", "TRI", "SAW"};
+	const String waveNames[NUMWAVES] = {"SIN", "SQR", "TRI", "SAW"};
     const byte NUMFX = 8;
 	const String fxNames[NUMFX] = {"OFF, >>, <<, AND, OR, NOR, XAND, XOR"};
 	// SYNTH 

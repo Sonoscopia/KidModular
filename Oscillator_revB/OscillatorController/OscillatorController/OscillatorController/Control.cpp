@@ -50,38 +50,38 @@ void Control::incMenu() {
 void Control::setEncoders(){
 	switch(paramsPtr->menu){
 		case 0: // Oscillator
-			enc1h.setMul(1.f, 1.f);
-			enc2h.setMul(1.f, 20.f);
-			enc3h.setMul(1.f, 1.f);
-			enc4h.setMul(0.1f, 2.f);
+			enc1h.setMulN(1, 1);
+			enc2h.setMulF(1.f, 20.f);
+			enc3h.setMulN(1, 1);
+			enc4h.setMulF(0.1f, 2.f);
 		break;
 		
 		case 1: // Filter
-			enc1h.setMul(1.f, 5.f);
-			enc2h.setMul(1.f, 20.f);
-			enc3h.setMul(1.f, 5.f);
-			enc4h.setMul(1.f, 5.f);
+			enc1h.setMulN(1, 5);
+			enc2h.setMulF(1.f, 20.f);
+			enc3h.setMulN(1, 5);
+			enc4h.setMulN(1, 5);
 		break;
 		
 		case 2: // Envelope
-			enc1h.setMul(1.f, 20.f);
-			enc2h.setMul(1.f, 20.f);
-			enc3h.setMul(1.f, 5.f);
-			enc4h.setMul(1.f, 20.f);
+			enc1h.setMulF(1.f, 20.f);
+			enc2h.setMulF(1.f, 20.f);
+			enc3h.setMulN(1, 5);
+			enc4h.setMulF(1.f, 20.f);
 		break;
 		
 		case 3: // Fx
-			enc1h.setMul(1.f, 5.f);
-			enc2h.setMul(1.f, 5.f);
-			enc3h.setMul(1.f, 5.f);
-			enc4h.setMul(1.f, 5.f);
+			enc1h.setMulN(1, 5);
+			enc2h.setMulN(1, 5);
+			enc3h.setMulN(1, 5);
+			enc4h.setMulN(1, 5);
 		break;
 		
 		case 4: // Settings
-			enc1h.setMul(1.f, 5.f);
-			enc2h.setMul(1.f, 5.f);
-			enc3h.setMul(1.f, 5.f);
-			enc4h.setMul(1.f, 1.f);
+			enc1h.setMulN(1, 5);
+			enc2h.setMulN(1, 5);
+			enc3h.setMulN(1, 5);
+			enc4h.setMulN(1, 1);
 		break;
 		
 		default:
@@ -92,38 +92,38 @@ void Control::setEncoders(){
 void Control::updateParameters(){
 	switch(paramsPtr->menu){
 		case 0:
-			enc1h.setValue(&paramsPtr->oscWave, OWMIN, OWMAX);
-			enc2h.setValue(&paramsPtr->oscFreq, OFMIN, OFMAX);
-			enc3h.setValue(&paramsPtr->lfoWave, LWMIN, LWMAX);
-			enc4h.setValue(&paramsPtr->lfoFreq, LFMIN, LFMAX);
+			enc1h.setValueN(&paramsPtr->oscWave, OWMIN, OWMAX);
+			enc2h.setValueF(&paramsPtr->oscFreq, OFMIN, OFMAX);
+			enc3h.setValueN(&paramsPtr->lfoWave, LWMIN, LWMAX);
+			enc4h.setValueF(&paramsPtr->lfoFreq, LFMIN, LFMAX);
 		break;
 		
 		case 1:
-			enc1h.setValue(&paramsPtr->filType, FTMIN, FTMAX);
-			enc2h.setValue(&paramsPtr->filFreq, FFMIN, FFMAX);
-			enc3h.setValue(&paramsPtr->filRes, FRMIN, FRMAX);
-			enc4h.setValue(&paramsPtr->filLfo, FLMIN, FLMAX);
+			enc1h.setValueN(&paramsPtr->filType, FTMIN, FTMAX);
+			enc2h.setValueF(&paramsPtr->filFreq, FFMIN, FFMAX);
+			enc3h.setValueN(&paramsPtr->filRes, FRMIN, FRMAX);
+			enc4h.setValueN(&paramsPtr->filLfo, FLMIN, FLMAX);
 		break;
 		
 		case 2:
-			enc1h.setValue(&paramsPtr->envAtt, EAMIN, EAMAX);
-			enc2h.setValue(&paramsPtr->envDcy, EDMIN, EDMAX);
-			enc3h.setValue(&paramsPtr->envSus, ESMIN, ESMAX);
-			enc4h.setValue(&paramsPtr->envRel, ERMIN, ERMAX);
+			enc1h.setValueF(&paramsPtr->envAtt, EAMIN, EAMAX);
+			enc2h.setValueF(&paramsPtr->envDcy, EDMIN, EDMAX);
+			enc3h.setValueN(&paramsPtr->envSus, ESMIN, ESMAX);
+			enc4h.setValueF(&paramsPtr->envRel, ERMIN, ERMAX);
 		break;
 		
 		case 3:
-			enc1h.setValue(&paramsPtr->fxType, FXTMIN, FXTMAX);
-			enc2h.setValue(&paramsPtr->fxAmt, FXAMIN, FXAMAX);
-			enc3h.setValue(&paramsPtr->fxParam, FXPMIN, FXPMAX);
-			enc4h.setValue(&paramsPtr->fxLfo, FXLMIN, FXLMAX);
+			enc1h.setValueN(&paramsPtr->fxType, FXTMIN, FXTMAX);
+			enc2h.setValueN(&paramsPtr->fxAmt, FXAMIN, FXAMAX);
+			enc3h.setValueN(&paramsPtr->fxParam, FXPMIN, FXPMAX);
+			enc4h.setValueN(&paramsPtr->fxLfo, FXLMIN, FXLMAX);
 		break;
 		
 		case 4:
-			enc1h.setValue(&paramsPtr->inPitch, IPMIN, IPMAX);
-			enc2h.setValue(&paramsPtr->inEnv, IEMIN, IEMAX);
-			enc3h.setValue(&paramsPtr->filEnv, FEMIN, FEMAX);
-			enc4h.setValue(&paramsPtr->preset, PRMIN, PRMAX);
+			enc1h.setValueN(&paramsPtr->inPitch, IPMIN, IPMAX);
+			enc2h.setValueN(&paramsPtr->inEnv, IEMIN, IEMAX);
+			enc3h.setValueN(&paramsPtr->filEnv, FEMIN, FEMAX);
+			enc4h.setValueN(&paramsPtr->preset, PRMIN, PRMAX);
 		break;
 		
 		default:
