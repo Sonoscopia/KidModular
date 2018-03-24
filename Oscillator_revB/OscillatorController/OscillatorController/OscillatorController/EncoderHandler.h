@@ -2,28 +2,28 @@
 #define _ENCODERHANDLER_H
 
 #include "Arduino.h"
-#include "Encoder.h"
+#include "Rotary.h"
 
-class EncoderHandler: public Encoder {
+class EncoderHandler: public Rotary {
 public: 
     boolean changed;
 
     EncoderHandler();
     
-    void init(Encoder* e, byte bP);
+    void init(Rotary* r, byte bP);
     void setMulF(float bM, float nM);
 	void setMulN(byte bM, byte nM);
     void setValueF(float* v, float min, float max);
     void setValueN(byte* v, byte min, byte max);
 
 private: 
-	Encoder* enc;
+	Rotary* enc;
     byte bPin;
     float bMulF;
     float nMulF;
 	byte bMulN;
 	byte nMulN;
-	int pos[2];
+	unsigned char result;
 	boolean button; // is encoder button pressed ? 
 	
 	float returnMulF(boolean m);

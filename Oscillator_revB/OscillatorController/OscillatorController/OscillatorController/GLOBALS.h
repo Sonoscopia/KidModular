@@ -5,19 +5,19 @@
 
 //class GLOBALS {
 //public: 
-    // HARDWARE
+    // HARDWARE (pins 11&12 are disabled because of Timer1)
 	const byte MENUPIN = 14;
     const byte ENC1L = 2;
     const byte ENC1R = 3;
 	const byte ENC1B = 18;
-    const byte ENC2L = 5;
-    const byte ENC2R = 6;
+    const byte ENC2L = 4;
+    const byte ENC2R = 5;
     const byte ENC2B = 17;
-    const byte ENC3L = 7;
-    const byte ENC3R = 11;
+    const byte ENC3L = 6;
+    const byte ENC3R = 7;
     const byte ENC3B = 16;
-    const byte ENC4L = 44;
-    const byte ENC4R = 46;
+    const byte ENC4L = 8;
+    const byte ENC4R = 9;
     const byte ENC4B = 15;
     // SCREEN
 	const int WIDTH = 479;

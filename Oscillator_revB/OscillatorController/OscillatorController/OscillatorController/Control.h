@@ -2,7 +2,7 @@
 #define _CONTROL_H
 
 #include "Arduino.h"
-#include "Encoder.h"
+#include "Rotary.h"
 #include "EncoderHandler.h"
 #include "Parameters.h"
 #include "GLOBALS.h"
@@ -21,17 +21,17 @@ public:
     
     void init(params_t *p);  
     void read();
+	void updateParameters(); // update params according to cur. menu
 
 private: 
-	Encoder* enc1;
-	Encoder* enc2;
-	Encoder* enc3;
-	Encoder* enc4;
+	Rotary* enc1;
+	Rotary* enc2;
+	Rotary* enc3;
+	Rotary* enc4;
 	boolean button[2]; // menu button
     void readButton(); // read menu button
     void incMenu(); // increment menu
 	void setEncoders(); // set encoders according to current menu
-    void updateParameters(); // update params according to cur. menu
 	void sendI2C();
     void storePreset();
     void loadPreset();

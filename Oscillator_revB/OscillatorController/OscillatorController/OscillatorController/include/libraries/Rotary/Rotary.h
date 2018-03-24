@@ -24,6 +24,7 @@
 class Rotary
 {
   public:
+    Rotary(); //default constructor (added by p1nh0)
     Rotary(char, char);
     // Process pin(s)
     unsigned char process();

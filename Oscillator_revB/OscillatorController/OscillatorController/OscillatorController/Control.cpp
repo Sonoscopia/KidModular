@@ -15,19 +15,20 @@ Control::Control() {
 
 void Control::init(params_t *p) {
 	paramsPtr = p;
-	enc1 = new Encoder(ENC1L, ENC1R);
+	enc1 = new Rotary(ENC1L, ENC1R);
 	enc1h.init(enc1, ENC1B);
-	enc2 = new Encoder(ENC2L, ENC2R);
+	enc2 = new Rotary(ENC2L, ENC2R);
 	enc2h.init(enc2, ENC2B);
-	enc3 = new Encoder(ENC3L, ENC3R);
+	enc3 = new Rotary(ENC3L, ENC3R);
 	enc3h.init(enc3, ENC3B);
-	enc4 = new Encoder(ENC4L, ENC4R);
+	enc4 = new Rotary(ENC4L, ENC4R);
 	enc4h.init(enc4, ENC4B);
+	setEncoders();
 }
 
 void Control::read() {
 	readButton();
-	updateParameters();
+	//updateParameters(); -> this is called in the main sketch via ISR
 }
 
 void Control::readButton() {

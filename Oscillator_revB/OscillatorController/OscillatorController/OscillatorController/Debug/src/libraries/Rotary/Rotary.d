@@ -1,4 +1,5 @@
-Sketch.d Sketch.o: .././Sketch.cpp \
+src/libraries/Rotary/Rotary.d src/libraries/Rotary/Rotary.o: \
+ ../src/libraries/Rotary/Rotary.cpp \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
@@ -35,12 +36,7 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\mega/pins_arduino.h \
- ..\include\libraries\TimerOne/TimerOne.h .././Parameters.h \
- .././Control.h ..\include\libraries\Rotary/Rotary.h \
- .././EncoderHandler.h .././GLOBALS.h .././Screen.h \
- ..\include\libraries\UTFT/UTFT.h \
- ..\include\libraries\UTFT/hardware/avr/HW_AVR_defines.h .././Menu.h \
- .././Window.h
+ ..\include\libraries\Rotary/Rotary.h
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -114,24 +110,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ..\\..\ArduinoCore\include\variants\mega/pins_arduino.h:
 
-..\include\libraries\TimerOne/TimerOne.h:
-
-.././Parameters.h:
-
-.././Control.h:
-
 ..\include\libraries\Rotary/Rotary.h:
-
-.././EncoderHandler.h:
-
-.././GLOBALS.h:
-
-.././Screen.h:
-
-..\include\libraries\UTFT/UTFT.h:
-
-..\include\libraries\UTFT/hardware/avr/HW_AVR_defines.h:
-
-.././Menu.h:
-
-.././Window.h:

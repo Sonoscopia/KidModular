@@ -35,11 +35,8 @@ Screen.d Screen.o: .././Screen.cpp .././Screen.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\mega/pins_arduino.h .././Control.h \
- ..\include\libraries\Encoder-1.4/Encoder.h \
- ..\include\libraries\Encoder-1.4/utility/direct_pin_read.h \
- ..\include\libraries\Encoder-1.4/utility/interrupt_pins.h \
- .././EncoderHandler.h .././Parameters.h .././GLOBALS.h \
- ..\include\libraries\UTFT/UTFT.h \
+ ..\include\libraries\Rotary/Rotary.h .././EncoderHandler.h \
+ .././Parameters.h .././GLOBALS.h ..\include\libraries\UTFT/UTFT.h \
  ..\include\libraries\UTFT/hardware/avr/HW_AVR_defines.h .././Menu.h \
  .././Window.h
 
@@ -119,11 +116,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././Control.h:
 
-..\include\libraries\Encoder-1.4/Encoder.h:
-
-..\include\libraries\Encoder-1.4/utility/direct_pin_read.h:
-
-..\include\libraries\Encoder-1.4/utility/interrupt_pins.h:
+..\include\libraries\Rotary/Rotary.h:
 
 .././EncoderHandler.h:
 

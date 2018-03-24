@@ -12,7 +12,9 @@ Screen.cpp
 
 Sketch.cpp
 
-src\libraries\Encoder-1.4\Encoder.cpp
+src\libraries\Rotary\Rotary.cpp
+
+src\libraries\TimerOne\TimerOne.cpp
 
 src\libraries\UTFT\DefaultFonts.c
 
