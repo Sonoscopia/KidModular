@@ -99,7 +99,7 @@ void Menu::drawValues() {
 		case 0:
 			mLCD->print(waveNames[paramsPtr->oscWave], ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
-			mLCD->printNumF(paramsPtr->oscFreq, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumI(paramsPtr->oscFreq, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
 			mLCD->print(waveNames[paramsPtr->lfoWave], ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
@@ -108,20 +108,20 @@ void Menu::drawValues() {
 		case 1:
 			mLCD->printNumI(paramsPtr->filType, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
-			mLCD->printNumF(paramsPtr->filFreq, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumI(paramsPtr->filFreq, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
 			mLCD->printNumI(paramsPtr->filRes, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
 			mLCD->printNumI(paramsPtr->filLfo, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 		break;
 		case 2:
-			mLCD->printNumF(paramsPtr->envAtk, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumI(paramsPtr->envAtk, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
-			mLCD->printNumF(paramsPtr->envDcy, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumI(paramsPtr->envDcy, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
 			mLCD->printNumI(paramsPtr->envSus, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
-			mLCD->printNumF(paramsPtr->envRel, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumI(paramsPtr->envRel, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 		break;
 		case 3:
 			mLCD->printNumI(paramsPtr->fxType, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);

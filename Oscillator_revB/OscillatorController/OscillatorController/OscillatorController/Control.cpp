@@ -95,23 +95,23 @@ void Control::updateParameters(){
 	switch(paramsPtr->menu){
 		case 0:
 			enc1h.setValueN(&paramsPtr->oscWave, OWMIN, OWMAX);
-			enc2h.setValueF(&paramsPtr->oscFreq, OFMIN, OFMAX);
+			enc2h.setValueN(&paramsPtr->oscFreq, OFMIN, OFMAX);
 			enc3h.setValueN(&paramsPtr->lfoWave, LWMIN, LWMAX);
 			enc4h.setValueF(&paramsPtr->lfoFreq, LFMIN, LFMAX);
 		break;
 		
 		case 1:
 			enc1h.setValueN(&paramsPtr->filType, FTMIN, FTMAX);
-			enc2h.setValueF(&paramsPtr->filFreq, FFMIN, FFMAX);
+			enc2h.setValueN(&paramsPtr->filFreq, FFMIN, FFMAX);
 			enc3h.setValueN(&paramsPtr->filRes, FRMIN, FRMAX);
 			enc4h.setValueN(&paramsPtr->filLfo, FLMIN, FLMAX);
 		break;
 		
 		case 2:
-			enc1h.setValueF(&paramsPtr->envAtk, EAMIN, EAMAX);
-			enc2h.setValueF(&paramsPtr->envDcy, EDMIN, EDMAX);
+			enc1h.setValueN(&paramsPtr->envAtk, EAMIN, EAMAX);
+			enc2h.setValueN(&paramsPtr->envDcy, EDMIN, EDMAX);
 			enc3h.setValueN(&paramsPtr->envSus, ESMIN, ESMAX);
-			enc4h.setValueF(&paramsPtr->envRel, ERMIN, ERMAX);
+			enc4h.setValueN(&paramsPtr->envRel, ERMIN, ERMAX);
 		break;
 		
 		case 3:

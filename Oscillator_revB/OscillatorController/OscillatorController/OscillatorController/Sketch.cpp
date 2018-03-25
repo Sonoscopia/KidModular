@@ -41,7 +41,7 @@ void requestEvent(){
 	1st byte - menu and parameter address relative to encoder
 	2nd byte - parameter value
 	3nd byte - upper byte if parameter is integer or float* 
-	*- float is multiplied by 10 and converted to integer
+	*- float is multiplied by 10? and converted to integer
 	*/
 	
 	byte paramAddr = B10000000; // to signal no COM set first byte 8th bit high 
