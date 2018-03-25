@@ -37,7 +37,8 @@ void Control::readButton() {
 	if(button[0]==0 && button[0] != button[1]){
 		incMenu();
 		menuChanged = true;
-		setEncoders(); 
+		setEncoders();
+		//sendI2C(paramsPtr->menu); 
 	}
 	button[1] = button[0];
 	//menuChanged = false; // --> set from outside
@@ -107,7 +108,7 @@ void Control::updateParameters(){
 		break;
 		
 		case 2:
-			enc1h.setValueF(&paramsPtr->envAtt, EAMIN, EAMAX);
+			enc1h.setValueF(&paramsPtr->envAtk, EAMIN, EAMAX);
 			enc2h.setValueF(&paramsPtr->envDcy, EDMIN, EDMAX);
 			enc3h.setValueN(&paramsPtr->envSus, ESMIN, ESMAX);
 			enc4h.setValueF(&paramsPtr->envRel, ERMIN, ERMAX);
@@ -132,9 +133,9 @@ void Control::updateParameters(){
 	}
 }
 
-void Control::sendI2C() {
+/*params_t Control::sendI2C() {
 
-}
+}*/
 
 void Control::storePreset() {
 

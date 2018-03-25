@@ -120,6 +120,8 @@
       <Value>..\include\libraries\UTFT\tft_drivers\st7735s</Value>
       <Value>..\include\libraries\Rotary</Value>
       <Value>..\include\libraries\TimerOne</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -184,6 +186,8 @@
       <Value>..\include\libraries\UTFT\tft_drivers\st7735s</Value>
       <Value>..\include\libraries\Rotary</Value>
       <Value>..\include\libraries\TimerOne</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -273,6 +277,8 @@
       <Value>..\include\libraries\UTFT\tft_drivers\st7735s</Value>
       <Value>..\include\libraries\Rotary</Value>
       <Value>..\include\libraries\TimerOne</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -337,6 +343,8 @@
       <Value>..\include\libraries\UTFT\tft_drivers\st7735s</Value>
       <Value>..\include\libraries\Rotary</Value>
       <Value>..\include\libraries\TimerOne</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -600,6 +608,12 @@
     <Compile Include="include\libraries\UTFT\UTFT.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="include\libraries\Wire\src\utility\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Wire\src\Wire.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Menu.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -628,6 +642,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\libraries\UTFT\UTFT.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Wire\src\utility\twi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Wire\src\Wire.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Window.cpp">
@@ -689,11 +709,17 @@
     <Folder Include="include\libraries\UTFT\tft_drivers\st7735\" />
     <Folder Include="include\libraries\UTFT\tft_drivers\st7735\alt\" />
     <Folder Include="include\libraries\UTFT\tft_drivers\st7735\std\" />
+    <Folder Include="include\libraries\Wire\" />
+    <Folder Include="include\libraries\Wire\src\" />
+    <Folder Include="include\libraries\Wire\src\utility\" />
     <Folder Include="src\" />
     <Folder Include="src\libraries\" />
     <Folder Include="src\libraries\Rotary\" />
     <Folder Include="src\libraries\TimerOne\" />
     <Folder Include="src\libraries\UTFT\" />
+    <Folder Include="src\libraries\Wire\" />
+    <Folder Include="src\libraries\Wire\src\" />
+    <Folder Include="src\libraries\Wire\src\utility\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -35,7 +35,9 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\mega/pins_arduino.h \
- ..\include\libraries\TimerOne/TimerOne.h .././Parameters.h \
+ ..\include\libraries\TimerOne/TimerOne.h \
+ ..\include\libraries\Wire\src/Wire.h \
+ ..\\..\ArduinoCore\include\core/Stream.h .././Parameters.h \
  .././Control.h ..\include\libraries\Rotary/Rotary.h \
  .././EncoderHandler.h .././GLOBALS.h .././Screen.h \
  ..\include\libraries\UTFT/UTFT.h \
@@ -115,6 +117,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ..\\..\ArduinoCore\include\variants\mega/pins_arduino.h:
 
 ..\include\libraries\TimerOne/TimerOne.h:
+
+..\include\libraries\Wire\src/Wire.h:
+
+..\\..\ArduinoCore\include\core/Stream.h:
 
 .././Parameters.h:
 

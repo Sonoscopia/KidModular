@@ -3,6 +3,10 @@
 
 #include "Arduino.h"
 
+#define bit_get(p,m) ((p) & (m))
+#define bit_set(p,m) ((p) |= (m))
+#define bit_clear(p,m) ((p) &= ~(m))
+#define BIT(x)(0x01 << (x))
 //class GLOBALS {
 //public: 
     // HARDWARE (pins 11&12 are disabled because of Timer1)

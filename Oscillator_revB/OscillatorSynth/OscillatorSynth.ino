@@ -30,7 +30,7 @@ Oscil <SIN2048_NUM_CELLS, AUDIO_RATE> aSin(SIN2048_DATA);
 // use #define for CONTROL_RATE, not a constant
 #define CONTROL_RATE 64 // powers of 2 please
 #define I2C_ADDRESS 8 
-byte val[] = {0}; 
+byte val[1] = {0}; 
 
 void setup(){
   //startMozzi(CONTROL_RATE); // set a control rate of 64 (powers of 2 please)
@@ -53,8 +53,10 @@ int updateAudio(){
 
 
 void loop(){
-  byte reading = twi_readFromBlocking(I2C_ADDRESS, val, 2);
+  byte reading = twi_readFromBlocking(I2C_ADDRESS, val, 1);
   //byte paramAddr = val[0] & 0xFF;
+    //Serial.println( bit_get(val[0], BIT(7)) );
+    //Serial.println(val[0]);
     if( !bit_get(val[0], BIT(7)) ){ // if bit num 7 == 0 then there is data
      Serial.print("menu: ");
      Serial.print(val[0] & 0x0F);

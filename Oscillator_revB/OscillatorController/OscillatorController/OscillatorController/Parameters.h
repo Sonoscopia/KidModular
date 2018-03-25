@@ -8,6 +8,9 @@ public:
 	Parameters(){};
 	
     typedef struct {
+		//TODO change unnecessary floats to integers
+		// TODO change unsigned values to uint8_t
+		
 		byte menu = 0;
 		// OSCILLATOR
 		byte oscWave = 0;
@@ -20,7 +23,7 @@ public:
 		byte filRes = 40;
 		byte filLfo = 0;
 		// ENVELOPE
-		float envAtt = 0.f;
+		float envAtk = 0.f;
 		float envDcy = 200.f;
 		byte envSus = 180;
 		float envRel = 250;

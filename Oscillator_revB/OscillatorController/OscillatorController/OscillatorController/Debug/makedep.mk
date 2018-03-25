@@ -20,5 +20,9 @@ src\libraries\UTFT\DefaultFonts.c
 
 src\libraries\UTFT\UTFT.cpp
 
+src\libraries\Wire\src\utility\twi.c
+
+src\libraries\Wire\src\Wire.cpp
+
 Window.cpp
 

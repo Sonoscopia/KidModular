@@ -32,7 +32,7 @@ private:
     void readButton(); // read menu button
     void incMenu(); // increment menu
 	void setEncoders(); // set encoders according to current menu
-	void sendI2C();
+	params_t sendI2C(params_t *p);
     void storePreset();
     void loadPreset();
 };
