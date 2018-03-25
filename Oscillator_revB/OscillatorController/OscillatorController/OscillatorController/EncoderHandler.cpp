@@ -46,7 +46,24 @@ void EncoderHandler::setValueF(float* v, float min, float max) {
 	//changed = false; // --> set from outside (where?)
 }
 
-void EncoderHandler::setValueN(byte* v, byte min, byte max) {
+void EncoderHandler::setValueN(uint8_t* v, uint8_t min, uint8_t max) {
+	button = digitalRead(bPin);
+	
+	result = enc->process();
+	if(result == DIR_CW){
+		*v += returnMulN(button);
+		*v = clipN(*v, min, max);
+		changed = true;
+	}
+	if(result == DIR_CCW){
+		*v -= returnMulN(button);
+		*v = clipN(*v, min, max);
+		changed = true;
+	}
+	//changed = false; // --> set from outside (where?)
+}
+
+void EncoderHandler::setValueN(int8_t* v, int8_t min, int8_t max) {
 	button = digitalRead(bPin);
 	
 	result = enc->process();

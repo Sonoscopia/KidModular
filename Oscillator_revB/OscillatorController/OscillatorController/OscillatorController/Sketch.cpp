@@ -15,8 +15,6 @@ Parameters parameters;
 Control control; 
 Screen screen; 
 
-byte paramAddr = 0x00;
-
 void setup() {
 	if(DEBUG) Serial.begin(57600);
 	Wire.begin(8); // 0~7 are reserved
@@ -39,7 +37,16 @@ void encoderISR(){
 }
 
 void requestEvent(){   	
-	paramAddr = B10000000;
+	/* COM format
+	1st byte - menu and parameter address relative to encoder
+	2nd byte - parameter value
+	3nd byte - upper byte if parameter is integer or float* 
+	*- float is multiplied by 10 and converted to integer
+	*/
+	
+	byte paramAddr = B10000000; // to signal no COM set first byte 8th bit high 
+	byte byte1 = 0;
+	byte byte2 = 0;
 	
 	switch (parameters.data.menu)
 	{			
@@ -50,6 +57,8 @@ void requestEvent(){
 			{
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (0 << 4);
+				byte1 = parameters.data.oscWave;
+			    //byte2 = 0;
 			}	
 			if (control.enc2h.changed)
 			{
@@ -67,36 +76,11 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (3 << 4);
 			}
 		break;
-		/*
-		case 1:
-		if (control.enc1h.changed)
-		{
-			paramAddr = 0x00; // reset parameter address to send via I2C
-			paramAddr = parameters.data.menu | (0 << 4);
-			Wire.write(paramAddr);
-		}
-		if (control.enc2h.changed)
-		{
-			paramAddr = 0x00; // reset parameter address to send via I2C
-			paramAddr = parameters.data.menu | (1 << 4);
-			Wire.write(paramAddr);
-		}
-		if (control.enc3h.changed)
-		{
-			paramAddr = 0x00; // reset parameter address to send via I2C
-			paramAddr = parameters.data.menu | (2 << 4);
-			Wire.write(paramAddr);
-		}
-		if (control.enc2h.changed)
-		{
-			paramAddr = 0x00; // reset parameter address to send via I2C
-			paramAddr = parameters.data.menu | (3 << 4);
-			Wire.write(paramAddr);
-		}
-		break;*/
 		
 		default:	
 		break;
 	}
 	Wire.write(paramAddr); // send B10000000 if nothing happens
+	Wire.write(byte1);
+	Wire.write(byte2);
 }

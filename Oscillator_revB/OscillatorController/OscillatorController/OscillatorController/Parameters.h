@@ -9,34 +9,34 @@ public:
 	
     typedef struct {
 		//TODO change unnecessary floats to integers
-		// TODO change unsigned values to uint8_t
+		// TODO change unsigned values to uint8_t?
 		
-		byte menu = 0;
+		uint8_t menu = 0;
 		// OSCILLATOR
-		byte oscWave = 0;
+		uint8_t oscWave = 0;
 		float oscFreq = 220.f;
-		byte lfoWave = 0;
+		uint8_t lfoWave = 0;
 		float lfoFreq = 4.f;
 		// FILTER
-		byte filType = 0;
+		uint8_t filType = 0;
 		float filFreq = 12000.f;
-		byte filRes = 40;
-		byte filLfo = 0;
+		uint8_t filRes = 40;
+		int8_t filLfo = 0; // -127 to 127
 		// ENVELOPE
 		float envAtk = 0.f;
 		float envDcy = 200.f;
-		byte envSus = 180;
+		uint8_t envSus = 180;
 		float envRel = 250;
 		// FX
-		byte fxType = 0;
-		byte fxAmt = 0;
-		byte fxParam = 0;
-		byte fxLfo = 0;
+		uint8_t fxType = 0;
+		uint8_t fxAmt = 0;
+		uint8_t fxParam = 0;
+		int8_t fxLfo = 0; // -127 to 127
 		// SETTINGS
-		byte inPitch = 255;
-		byte inEnv = 0;
-		byte filEnv = 0;
-		byte preset = 0;
+		int8_t inPitch = 127; // -127 to 127
+		uint8_t inEnv = 0;
+		int8_t filEnv = 0; // -127 to 127
+		uint8_t preset = 0;
 	}params_t;
 	
 	 params_t data;
