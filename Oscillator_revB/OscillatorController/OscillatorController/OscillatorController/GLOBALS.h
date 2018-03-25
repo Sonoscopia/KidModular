@@ -7,6 +7,8 @@
 #define bit_set(p,m) ((p) |= (m))
 #define bit_clear(p,m) ((p) &= ~(m))
 #define BIT(x)(0x01 << (x))
+#define get_lowerByte(i) (i & 0xFF)
+#define get_upperByte(i) (i >> 8)
 //class GLOBALS {
 //public: 
     // HARDWARE (pins 11&12 are disabled because of Timer1)
@@ -53,7 +55,7 @@
     const uint8_t LWMAX = NUMWAVES-1;
 	//const float LFMIN = 0.001;
     //const float LFMAX = 48.f;
-	const uint16_t LFMIN = 100; //=0.01
+	const uint16_t LFMIN = 1; //=0.01
 	const uint16_t LFMAX = 4800; //=48.f
     const uint8_t FTMIN = 0;
     const uint8_t FTMAX = 255; 

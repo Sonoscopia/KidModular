@@ -98,6 +98,7 @@ void Control::updateParameters(){
 			enc2h.setValue_u16t(&paramsPtr->oscFreq, OFMIN, OFMAX);
 			enc3h.setValue_u8t(&paramsPtr->lfoWave, LWMIN, LWMAX);
 			enc4h.setValue_u16t(&paramsPtr->lfoFreq, LFMIN, LFMAX);
+			Serial.println(paramsPtr->lfoFreq);
 		break;
 		
 		case 1:

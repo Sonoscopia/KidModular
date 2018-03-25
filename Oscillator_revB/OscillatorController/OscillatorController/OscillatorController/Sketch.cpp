@@ -9,7 +9,7 @@ void requestEvent();
 #include "Screen.h"
 #include "GLOBALS.h"
 
-#define DEBUG 0
+#define DEBUG 1
 
 Parameters parameters;
 Control control; 
@@ -58,29 +58,147 @@ void requestEvent(){
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (0 << 4);
 				byte1 = parameters.data.oscWave;
-			    //byte2 = 0;
+			    byte2 = 0; // ensure upper byte is 00000000
 			}	
 			if (control.enc2h.changed)
 			{
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (1 << 4);
-				byte1 = parameters.data.oscFreq;
-				//byte2 = 0;
+				byte1 = get_lowerByte(parameters.data.oscFreq);
+				byte2 = get_upperByte(parameters.data.oscFreq); 
 			}
 			if (control.enc3h.changed)
 			{
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (2 << 4);
 				byte1 = parameters.data.lfoWave;
-				//byte2 = 0;
+				byte2 = 0; // ensure upper byte is 00000000
 			}
 			if (control.enc4h.changed)
 			{
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (3 << 4);
-				//byte1 = parameters.data.lfoFreq; // this is a float
-				//byte2 = 0;
+				byte1 = get_lowerByte(parameters.data.lfoFreq); // this is an integer (float * LFOMUL)
+				byte2 = get_upperByte(parameters.data.lfoFreq);
 			}
+		break;
+		
+		case 1:
+			if (control.enc1h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (0 << 4);
+				byte1 = parameters.data.filType;
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc2h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (1 << 4);
+				byte1 = get_lowerByte(parameters.data.filFreq);
+				byte2 = get_upperByte(parameters.data.filFreq);
+			}
+			if (control.enc3h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (2 << 4);
+				byte1 = parameters.data.filRes;
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc4h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (3 << 4);
+				byte1 = get_lowerByte(parameters.data.filLfo); // this is an integer (float * LFOMUL)
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+		break;
+		
+		case 2:
+			if (control.enc1h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (0 << 4);
+				byte1 = get_lowerByte(parameters.data.envAtk);
+				byte2 = get_upperByte(parameters.data.envAtk);
+			}
+			if (control.enc2h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (1 << 4);
+				byte1 = get_lowerByte(parameters.data.envDcy);
+				byte2 = get_upperByte(parameters.data.envDcy);
+			}
+			if (control.enc3h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (2 << 4);
+				byte1 = parameters.data.envSus;
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc4h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (3 << 4);
+				byte1 = get_lowerByte(parameters.data.envRel); // this is an integer (float * LFOMUL)
+				byte2 = get_upperByte(parameters.data.envRel);
+			}
+		break;
+		
+		case 3:
+			if (control.enc1h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (0 << 4);
+				byte1 = get_lowerByte(parameters.data.fxType);
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc2h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (1 << 4);
+				byte1 = get_lowerByte(parameters.data.fxAmt);
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc3h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (2 << 4);
+				byte1 = parameters.data.fxParam;
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc4h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (3 << 4);
+				byte1 = get_lowerByte(parameters.data.fxLfo); // this is an integer (float * LFOMUL)
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+		break;
+		
+		case 4:
+			if (control.enc1h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (0 << 4);
+				byte1 = get_lowerByte(parameters.data.inPitch);
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc2h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (1 << 4);
+				byte1 = get_lowerByte(parameters.data.inEnv);
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			if (control.enc3h.changed)
+			{
+				paramAddr = 0x00; // reset parameter address to send via I2C
+				paramAddr = parameters.data.menu | (2 << 4);
+				byte1 = parameters.data.filEnv;
+				byte2 = 0; // ensure upper byte is 00000000
+			}
+			// do not send preset variable, sending preset data on load is a different function
 		break;
 		
 		default:	
