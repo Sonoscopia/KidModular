@@ -1012,7 +1012,7 @@ void UTFT::print(String st, int x, int y, int deg)
 	print(buf, x, y, deg);
 }
 
-void UTFT::printNumI(long num, int x, int y, int length, char filler)
+void UTFT::printNumI(uint16_t num, int x, int y, int length, char filler)
 {
 	char buf[25];
 	char st[27];
@@ -1055,6 +1055,132 @@ void UTFT::printNumI(long num, int x, int y, int length, char filler)
 			st[0]=45;
 		}
 	  
+		if (length>(c+neg))
+		{
+			for (int i=0; i<(length-c-neg); i++)
+			{
+				st[i+neg]=filler;
+				f++;
+			}
+		}
+
+		for (int i=0; i<c; i++)
+		{
+			st[i+neg+f]=buf[c-i-1];
+		}
+		st[c+neg+f]=0;
+
+	}
+
+	print(st,x,y);
+}
+
+void UTFT::printNumI(uint8_t num, int x, int y, int length, char filler)
+{
+	char buf[25];
+	char st[27];
+	boolean neg=false;
+	int c=0, f=0;
+	
+	if (num==0)
+	{
+		if (length!=0)
+		{
+			for (c=0; c<(length-1); c++)
+			st[c]=filler;
+			st[c]=48;
+			st[c+1]=0;
+		}
+		else
+		{
+			st[0]=48;
+			st[1]=0;
+		}
+	}
+	else
+	{
+		if (num<0)
+		{
+			neg=true;
+			num=-num;
+		}
+		
+		while (num>0)
+		{
+			buf[c]=48+(num % 10);
+			c++;
+			num=(num-(num % 10))/10;
+		}
+		buf[c]=0;
+		
+		if (neg)
+		{
+			st[0]=45;
+		}
+		
+		if (length>(c+neg))
+		{
+			for (int i=0; i<(length-c-neg); i++)
+			{
+				st[i+neg]=filler;
+				f++;
+			}
+		}
+
+		for (int i=0; i<c; i++)
+		{
+			st[i+neg+f]=buf[c-i-1];
+		}
+		st[c+neg+f]=0;
+
+	}
+
+	print(st,x,y);
+}
+
+void UTFT::printNumI(int8_t num, int x, int y, int length, char filler)
+{
+	char buf[25];
+	char st[27];
+	boolean neg=false;
+	int c=0, f=0;
+	
+	if (num==0)
+	{
+		if (length!=0)
+		{
+			for (c=0; c<(length-1); c++)
+			st[c]=filler;
+			st[c]=48;
+			st[c+1]=0;
+		}
+		else
+		{
+			st[0]=48;
+			st[1]=0;
+		}
+	}
+	else
+	{
+		if (num<0)
+		{
+			neg=true;
+			num=-num;
+		}
+		
+		while (num>0)
+		{
+			buf[c]=48+(num % 10);
+			c++;
+			num=(num-(num % 10))/10;
+		}
+		buf[c]=0;
+		
+		if (neg)
+		{
+			st[0]=45;
+		}
+		
 		if (length>(c+neg))
 		{
 			for (int i=0; i<(length-c-neg); i++)

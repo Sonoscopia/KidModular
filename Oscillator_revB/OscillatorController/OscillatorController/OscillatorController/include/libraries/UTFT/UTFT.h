@@ -214,7 +214,9 @@ class UTFT
 		word	getBackColor();
 		void	print(char *st, int x, int y, int deg=0);
 		void	print(String st, int x, int y, int deg=0);
-		void	printNumI(long num, int x, int y, int length=0, char filler=' ');
+		void	printNumI(uint16_t num, int x, int y, int length=0, char filler=' ');
+		void	printNumI(uint8_t num, int x, int y, int length=0, char filler=' ');
+		void	printNumI(int8_t num, int x, int y, int length=0, char filler=' ');
 		void	printNumF(double num, byte dec, int x, int y, char divider='.', int length=0, char filler=' ');
 		void	setFont(uint8_t* font);
 		uint8_t* getFont();

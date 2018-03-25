@@ -1,5 +1,5 @@
 ﻿#include <Arduino.h> // needed in Atmel Studio only
-#include "TimerOne.h"
+#include "TimerOne.h" // DISABLES PINS 11 & 12
 void encoderISR();
 void requestEvent();
 
@@ -64,16 +64,22 @@ void requestEvent(){
 			{
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (1 << 4);
+				byte1 = parameters.data.oscFreq;
+				//byte2 = 0;
 			}
 			if (control.enc3h.changed)
 			{
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (2 << 4);
+				byte1 = parameters.data.lfoWave;
+				//byte2 = 0;
 			}
 			if (control.enc4h.changed)
 			{
 				paramAddr = 0x00; // reset parameter address to send via I2C
 				paramAddr = parameters.data.menu | (3 << 4);
+				//byte1 = parameters.data.lfoFreq; // this is a float
+				//byte2 = 0;
 			}
 		break;
 		

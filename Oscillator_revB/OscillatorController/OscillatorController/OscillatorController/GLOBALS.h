@@ -13,15 +13,15 @@
 	const byte MENUPIN = 14;
     const byte ENC1L = 2;
     const byte ENC1R = 3;
-	const byte ENC1B = 18;
     const byte ENC2L = 4;
     const byte ENC2R = 5;
-    const byte ENC2B = 17;
     const byte ENC3L = 6;
     const byte ENC3R = 7;
-    const byte ENC3B = 16;
     const byte ENC4L = 8;
     const byte ENC4R = 9;
+	const byte ENC1B = 18;
+	const byte ENC2B = 17;
+	const byte ENC3B = 16;
     const byte ENC4B = 15;
     // SCREEN
 	const int WIDTH = 479;
@@ -30,7 +30,8 @@
     const int BKGCOLOR = 0x0000;
     const int COLOR = 0xF800;
     const byte STROKEWEIGHT = 3;
-    
+    const float LFOMUL = 100.f;
+	
 	const byte TLABELS = 5;
     const String tmLabels[TLABELS] = {"OSC.", "FIL.", "ENV.", "FX", "SETT."};
     const byte BLABELS = 4;
@@ -50,8 +51,10 @@
     const uint16_t OFMAX = 8000;
     const uint8_t LWMIN = 0;
     const uint8_t LWMAX = NUMWAVES-1;
-    const float LFMIN = 0.001;
-    const float LFMAX = 48.f;
+	//const float LFMIN = 0.001;
+    //const float LFMAX = 48.f;
+	const uint16_t LFMIN = 100; //=0.01
+	const uint16_t LFMAX = 4800; //=48.f
     const uint8_t FTMIN = 0;
     const uint8_t FTMAX = 255; 
     const int FFMIN = 30.f;
@@ -84,6 +87,19 @@
 	const int8_t FEMAX = 127;
 	const uint8_t PRMIN = 0;
     const uint8_t PRMAX = 15;
+	
+	const uint16_t LOMUL_U16T = 1;
+	const uint16_t MEDMUL_U16T = 5;
+	const uint16_t HIMUL_U16T = 20;
+	const uint16_t LOMUL_U8T = 1;
+	const uint16_t MEDMUL_U8T = 5;
+	const uint16_t HIMUL_U8T = 20;
+	const uint16_t LOMUL_S8T = 1;
+	const uint16_t MEDMUL_S8T = 5;
+	const uint16_t HIMUL_S8T = 20;
+	
+	const uint16_t LFOLOMUL_U16T = 1; //0.01 * LFOMUL;
+	const uint16_t LFOHIMUL_U16T = 100; //2 * LFOMUL; 
 //};
 
 #endif //_GLOBALS_H

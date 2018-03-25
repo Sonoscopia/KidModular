@@ -103,7 +103,7 @@ void Menu::drawValues() {
 			i++;
 			mLCD->print(waveNames[paramsPtr->lfoWave], ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 			i++;
-			mLCD->printNumF(paramsPtr->lfoFreq, 1, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
+			mLCD->printNumF((float)((paramsPtr->lfoFreq)/LFOMUL), 2, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
 		break;
 		case 1:
 			mLCD->printNumI(paramsPtr->filType, ((bWidth*i)+STROKEWEIGHT)+(bWidth/2), HEIGHT-height+14);
