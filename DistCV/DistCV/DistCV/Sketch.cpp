@@ -13,20 +13,20 @@ void echoCheck();
 byte distToByte(byte distance);
 byte distanceToCV(byte b);
 void controlISR();
-void average(int* num, byte samp);
 
-#define TRIGGER_PIN  12 
-#define ECHO_PIN     11 
+#define TRIGGER_PIN  8
+#define ECHO_PIN     7 
 #define MAX_DISTANCE 40 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 #define POT1 0
 #define POT2 1
 #define CVOUT 9
-#define GREEN 6 
+#define GREEN 10 
 
 const boolean _DEBUGPOT = false;
 const boolean _DEBUGSONAR = true;
-const boolean _DEBUGCV = true;
+const boolean _DEBUGCV = false;
+
 /*byte samples = 10;
 byte iter = 0; 
 int distSample[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};*/
@@ -54,8 +54,6 @@ void loop() {
 		sonar.ping_timer(echoCheck, MAX_DISTANCE); // Send out the ping, calls "echoCheck" function every 24uS where you can check the ping status.
 	}		
 	
-  /*if(cv > 0) analogWrite(GREEN, map(cv, 0, 255, 113, 153));
-  else analogWrite(GREEN, 0);*/
   
   if (_DEBUGSONAR == true)
   {
@@ -82,6 +80,7 @@ void echoCheck() { // Timer2 interrupt calls this function every 24uS where you 
 	if (sonar.check_timer()) {
 		dist = sonar.ping_result / US_ROUNDTRIP_CM - 5;
 		if(dist<0) dist = 0;
+		
 		/*
 		dist[iter] = sonar.ping_result / US_ROUNDTRIP_CM - 5;
 		if(dist[iter]<0) dist[iter] = 0;
@@ -94,10 +93,6 @@ void echoCheck() { // Timer2 interrupt calls this function every 24uS where you 
 		if(iter<samples) iter++;
 		else iter = 0;*/
 	}
-}
-
-void average(int* num, byte samples){
-	
 }
 
 byte distToByte(byte distance){
