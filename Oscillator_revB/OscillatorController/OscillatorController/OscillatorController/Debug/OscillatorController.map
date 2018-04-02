@@ -50,8 +50,6 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_sinus.o) (__fp_powsodd)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powsodd.o) (__fp_powser)
-C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                              Sketch.o (_ZN14HardwareSerial5beginEmh)
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
                               Control.o (Serial)
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
@@ -59,7 +57,7 @@ C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debu
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
                               Control.o (_Znwj)
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                              C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o) (_ZN5Print5writeEPKhj)
+                              Control.o (_ZN5Print7printlnEji)
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
                               Control.o (delay)
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
@@ -68,6 +66,8 @@ C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debu
                               Control.o (_ZN6StringD1Ev)
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
                               C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o) (__cxa_pure_virtual)
+C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                              C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o) (_ZN14HardwareSerial9availableEv)
 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
                               C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o) (yield)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
@@ -442,14 +442,6 @@ Discarded input sections
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
- .group         0x00000000        0x8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .text          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .data          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .bss           0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .text._ZN14HardwareSerial3endEv
-                0x00000000       0x44 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .text._ZN14HardwareSerial17availableForWriteEv
-                0x00000000       0x1e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
  .text          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
  .data          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
  .bss           0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
@@ -695,6 +687,16 @@ Discarded input sections
  .debug_str     0x00000000      0x1c8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
  .comment       0x00000000       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
  .debug_frame   0x00000000       0x34 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
+ .group         0x00000000        0x8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .text          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .data          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .bss           0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .text._ZN14HardwareSerial5beginEmh
+                0x00000000       0xca C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .text._ZN14HardwareSerial3endEv
+                0x00000000       0x44 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .text._ZN14HardwareSerial17availableForWriteEv
+                0x00000000       0x1e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
  .text          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
  .data          0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
  .bss           0x00000000        0x0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
@@ -1263,7 +1265,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x9f1a
+.text           0x00000000     0x9e4c
  *(.vectors)
  .vectors       0x00000000       0xe4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega2560/avr6/crtatmega2560.o
                 0x00000000                __vector_default
@@ -1515,477 +1517,474 @@ END GROUP
  .text._Z10encoderISRv
                 0x00002e9c        0x8 Sketch.o
                 0x00002e9c                _Z10encoderISRv
- .text.setup    0x00002ea4       0x52 Sketch.o
+ .text.setup    0x00002ea4       0x40 Sketch.o
                 0x00002ea4                setup
- .text.loop     0x00002ef6       0x30 Sketch.o
-                0x00002ef6                loop
+ .text.loop     0x00002ee4       0x30 Sketch.o
+                0x00002ee4                loop
  .text.startup._GLOBAL__sub_I_parameters
-                0x00002f26      0x21e Sketch.o
+                0x00002f14      0x21e Sketch.o
  .text.exit._GLOBAL__sub_D_parameters
-                0x00003144       0xf2 Sketch.o
+                0x00003132       0xf2 Sketch.o
  .text._Z12requestEventv
-                0x00003236      0x1ae Sketch.o
-                0x00003236                _Z12requestEventv
+                0x00003224      0x1b8 Sketch.o
+                0x00003224                _Z12requestEventv
  .text._ZN6RotaryC2Ev
-                0x000033e4        0x2 src/libraries/Rotary/Rotary.o
-                0x000033e4                _ZN6RotaryC1Ev
-                0x000033e4                _ZN6RotaryC2Ev
+                0x000033dc        0x2 src/libraries/Rotary/Rotary.o
+                0x000033dc                _ZN6RotaryC1Ev
+                0x000033dc                _ZN6RotaryC2Ev
  .text._ZN6RotaryC2Ecc
-                0x000033e6       0x32 src/libraries/Rotary/Rotary.o
-                0x000033e6                _ZN6RotaryC1Ecc
-                0x000033e6                _ZN6RotaryC2Ecc
+                0x000033de       0x32 src/libraries/Rotary/Rotary.o
+                0x000033de                _ZN6RotaryC1Ecc
+                0x000033de                _ZN6RotaryC2Ecc
  .text._ZN6Rotary7processEv
-                0x00003418       0x42 src/libraries/Rotary/Rotary.o
-                0x00003418                _ZN6Rotary7processEv
+                0x00003410       0x42 src/libraries/Rotary/Rotary.o
+                0x00003410                _ZN6Rotary7processEv
  .text.__vector_20
-                0x0000345a       0x56 src/libraries/TimerOne/TimerOne.o
-                0x0000345a                __vector_20
+                0x00003452       0x56 src/libraries/TimerOne/TimerOne.o
+                0x00003452                __vector_20
  .text._ZN8TimerOne9setPeriodEl
-                0x000034b0       0xd0 src/libraries/TimerOne/TimerOne.o
-                0x000034b0                _ZN8TimerOne9setPeriodEl
+                0x000034a8       0xd0 src/libraries/TimerOne/TimerOne.o
+                0x000034a8                _ZN8TimerOne9setPeriodEl
  .text._ZN8TimerOne10initializeEl
-                0x00003580        0xc src/libraries/TimerOne/TimerOne.o
-                0x00003580                _ZN8TimerOne10initializeEl
+                0x00003578        0xc src/libraries/TimerOne/TimerOne.o
+                0x00003578                _ZN8TimerOne10initializeEl
  .text._ZN8TimerOne15detachInterruptEv
-                0x0000358c        0xc src/libraries/TimerOne/TimerOne.o
-                0x0000358c                _ZN8TimerOne15detachInterruptEv
+                0x00003584        0xc src/libraries/TimerOne/TimerOne.o
+                0x00003584                _ZN8TimerOne15detachInterruptEv
  .text._ZN8TimerOne6resumeEv
-                0x00003598       0x12 src/libraries/TimerOne/TimerOne.o
-                0x00003598                _ZN8TimerOne6resumeEv
+                0x00003590       0x12 src/libraries/TimerOne/TimerOne.o
+                0x00003590                _ZN8TimerOne6resumeEv
  .text._ZN8TimerOne15attachInterruptEPFvvEl
-                0x000035aa       0x32 src/libraries/TimerOne/TimerOne.o
-                0x000035aa                _ZN8TimerOne15attachInterruptEPFvvEl
+                0x000035a2       0x32 src/libraries/TimerOne/TimerOne.o
+                0x000035a2                _ZN8TimerOne15attachInterruptEPFvvEl
  .text._ZN4UTFT12LCD_Writ_BusEcch
-                0x000035dc      0x32e src/libraries/UTFT/UTFT.o
-                0x000035dc                _ZN4UTFT12LCD_Writ_BusEcch
+                0x000035d4      0x32e src/libraries/UTFT/UTFT.o
+                0x000035d4                _ZN4UTFT12LCD_Writ_BusEcch
  .text._ZN4UTFT24_set_direction_registersEh
-                0x0000390a       0x20 src/libraries/UTFT/UTFT.o
-                0x0000390a                _ZN4UTFT24_set_direction_registersEh
+                0x00003902       0x20 src/libraries/UTFT/UTFT.o
+                0x00003902                _ZN4UTFT24_set_direction_registersEh
  .text._ZN4UTFT13_fast_fill_16Eiil
-                0x0000392a      0x264 src/libraries/UTFT/UTFT.o
-                0x0000392a                _ZN4UTFT13_fast_fill_16Eiil
+                0x00003922      0x264 src/libraries/UTFT/UTFT.o
+                0x00003922                _ZN4UTFT13_fast_fill_16Eiil
  .text._ZN4UTFT12_fast_fill_8Eil
-                0x00003b8e      0x414 src/libraries/UTFT/UTFT.o
-                0x00003b8e                _ZN4UTFT12_fast_fill_8Eil
+                0x00003b86      0x414 src/libraries/UTFT/UTFT.o
+                0x00003b86                _ZN4UTFT12_fast_fill_8Eil
  .text._ZN4UTFTC2Ev
-                0x00003fa2        0x2 src/libraries/UTFT/UTFT.o
-                0x00003fa2                _ZN4UTFTC1Ev
-                0x00003fa2                _ZN4UTFTC2Ev
+                0x00003f9a        0x2 src/libraries/UTFT/UTFT.o
+                0x00003f9a                _ZN4UTFTC1Ev
+                0x00003f9a                _ZN4UTFTC2Ev
  .text._ZN4UTFTC2Ehiiiii
-                0x00003fa4      0x356 src/libraries/UTFT/UTFT.o
-                0x00003fa4                _ZN4UTFTC1Ehiiiii
-                0x00003fa4                _ZN4UTFTC2Ehiiiii
+                0x00003f9c      0x356 src/libraries/UTFT/UTFT.o
+                0x00003f9c                _ZN4UTFTC1Ehiiiii
+                0x00003f9c                _ZN4UTFTC2Ehiiiii
  .text._ZN4UTFT13LCD_Write_COMEc
-                0x000042fa       0x30 src/libraries/UTFT/UTFT.o
-                0x000042fa                _ZN4UTFT13LCD_Write_COMEc
+                0x000042f2       0x30 src/libraries/UTFT/UTFT.o
+                0x000042f2                _ZN4UTFT13LCD_Write_COMEc
  .text._ZN4UTFT14LCD_Write_DATAEcc
-                0x0000432a       0x48 src/libraries/UTFT/UTFT.o
-                0x0000432a                _ZN4UTFT14LCD_Write_DATAEcc
+                0x00004322       0x48 src/libraries/UTFT/UTFT.o
+                0x00004322                _ZN4UTFT14LCD_Write_DATAEcc
  .text._ZN4UTFT14LCD_Write_DATAEc
-                0x00004372       0x30 src/libraries/UTFT/UTFT.o
-                0x00004372                _ZN4UTFT14LCD_Write_DATAEc
+                0x0000436a       0x30 src/libraries/UTFT/UTFT.o
+                0x0000436a                _ZN4UTFT14LCD_Write_DATAEc
  .text._ZN4UTFT18LCD_Write_COM_DATAEci
-                0x000043a2       0x1e src/libraries/UTFT/UTFT.o
-                0x000043a2                _ZN4UTFT18LCD_Write_COM_DATAEci
+                0x0000439a       0x1e src/libraries/UTFT/UTFT.o
+                0x0000439a                _ZN4UTFT18LCD_Write_COM_DATAEci
  .text._ZN4UTFT5setXYEjjjj
-                0x000043c0      0x282 src/libraries/UTFT/UTFT.o
-                0x000043c0                _ZN4UTFT5setXYEjjjj
+                0x000043b8      0x282 src/libraries/UTFT/UTFT.o
+                0x000043b8                _ZN4UTFT5setXYEjjjj
  .text._ZN4UTFT7InitLCDEh
-                0x00004642     0x25cc src/libraries/UTFT/UTFT.o
-                0x00004642                _ZN4UTFT7InitLCDEh
+                0x0000463a     0x25cc src/libraries/UTFT/UTFT.o
+                0x0000463a                _ZN4UTFT7InitLCDEh
  .text._ZN4UTFT5clrXYEv
-                0x00006c0e       0x2e src/libraries/UTFT/UTFT.o
-                0x00006c0e                _ZN4UTFT5clrXYEv
+                0x00006c06       0x2e src/libraries/UTFT/UTFT.o
+                0x00006c06                _ZN4UTFT5clrXYEv
  .text._ZN4UTFT6clrScrEv
-                0x00006c3c      0x138 src/libraries/UTFT/UTFT.o
-                0x00006c3c                _ZN4UTFT6clrScrEv
+                0x00006c34      0x138 src/libraries/UTFT/UTFT.o
+                0x00006c34                _ZN4UTFT6clrScrEv
  .text._ZN4UTFT8setColorEj
-                0x00006d74        0x8 src/libraries/UTFT/UTFT.o
-                0x00006d74                _ZN4UTFT8setColorEj
+                0x00006d6c        0x8 src/libraries/UTFT/UTFT.o
+                0x00006d6c                _ZN4UTFT8setColorEj
  .text._ZN4UTFT12setBackColorEm
-                0x00006d7c       0x1c src/libraries/UTFT/UTFT.o
-                0x00006d7c                _ZN4UTFT12setBackColorEm
+                0x00006d74       0x1c src/libraries/UTFT/UTFT.o
+                0x00006d74                _ZN4UTFT12setBackColorEm
  .text._ZN4UTFT8setPixelEj
-                0x00006d98        0x8 src/libraries/UTFT/UTFT.o
-                0x00006d98                _ZN4UTFT8setPixelEj
+                0x00006d90        0x8 src/libraries/UTFT/UTFT.o
+                0x00006d90                _ZN4UTFT8setPixelEj
  .text._ZN4UTFT9drawHLineEiii
-                0x00006da0       0xc4 src/libraries/UTFT/UTFT.o
-                0x00006da0                _ZN4UTFT9drawHLineEiii
+                0x00006d98       0xc4 src/libraries/UTFT/UTFT.o
+                0x00006d98                _ZN4UTFT9drawHLineEiii
  .text._ZN4UTFT9drawVLineEiii
-                0x00006e64       0xc4 src/libraries/UTFT/UTFT.o
-                0x00006e64                _ZN4UTFT9drawVLineEiii
+                0x00006e5c       0xc4 src/libraries/UTFT/UTFT.o
+                0x00006e5c                _ZN4UTFT9drawVLineEiii
  .text._ZN4UTFT8fillRectEiiii
-                0x00006f28      0x1f8 src/libraries/UTFT/UTFT.o
-                0x00006f28                _ZN4UTFT8fillRectEiiii
+                0x00006f20      0x1f8 src/libraries/UTFT/UTFT.o
+                0x00006f20                _ZN4UTFT8fillRectEiiii
  .text._ZN4UTFT9printCharEhii
-                0x00007120      0x3b4 src/libraries/UTFT/UTFT.o
-                0x00007120                _ZN4UTFT9printCharEhii
+                0x00007118      0x3b4 src/libraries/UTFT/UTFT.o
+                0x00007118                _ZN4UTFT9printCharEhii
  .text._ZN4UTFT10rotateCharEhiiii
-                0x000074d4      0x31a src/libraries/UTFT/UTFT.o
-                0x000074d4                _ZN4UTFT10rotateCharEhiiii
+                0x000074cc      0x31a src/libraries/UTFT/UTFT.o
+                0x000074cc                _ZN4UTFT10rotateCharEhiiii
  .text._ZN4UTFT5printEPciii
-                0x000077ee      0x14e src/libraries/UTFT/UTFT.o
-                0x000077ee                _ZN4UTFT5printEPciii
+                0x000077e6      0x14e src/libraries/UTFT/UTFT.o
+                0x000077e6                _ZN4UTFT5printEPciii
  .text._ZN4UTFT5printE6Stringiii
-                0x0000793c       0x8c src/libraries/UTFT/UTFT.o
-                0x0000793c                _ZN4UTFT5printE6Stringiii
+                0x00007934       0x8c src/libraries/UTFT/UTFT.o
+                0x00007934                _ZN4UTFT5printE6Stringiii
  .text._ZN4UTFT9printNumIEjiiic
-                0x000079c8      0x14a src/libraries/UTFT/UTFT.o
-                0x000079c8                _ZN4UTFT9printNumIEjiiic
+                0x000079c0      0x14a src/libraries/UTFT/UTFT.o
+                0x000079c0                _ZN4UTFT9printNumIEjiiic
  .text._ZN4UTFT9printNumIEhiiic
-                0x00007b12      0x14a src/libraries/UTFT/UTFT.o
-                0x00007b12                _ZN4UTFT9printNumIEhiiic
+                0x00007b0a      0x14a src/libraries/UTFT/UTFT.o
+                0x00007b0a                _ZN4UTFT9printNumIEhiiic
  .text._ZN4UTFT9printNumIEaiiic
-                0x00007c5c      0x1a8 src/libraries/UTFT/UTFT.o
-                0x00007c5c                _ZN4UTFT9printNumIEaiiic
+                0x00007c54      0x1a8 src/libraries/UTFT/UTFT.o
+                0x00007c54                _ZN4UTFT9printNumIEaiiic
  .text._ZN4UTFT9printNumFEdhiicic
-                0x00007e04      0x108 src/libraries/UTFT/UTFT.o
-                0x00007e04                _ZN4UTFT9printNumFEdhiicic
+                0x00007dfc      0x108 src/libraries/UTFT/UTFT.o
+                0x00007dfc                _ZN4UTFT9printNumFEdhiicic
  .text._ZN4UTFT7setFontEPh
-                0x00007f0c       0x36 src/libraries/UTFT/UTFT.o
-                0x00007f0c                _ZN4UTFT7setFontEPh
+                0x00007f04       0x36 src/libraries/UTFT/UTFT.o
+                0x00007f04                _ZN4UTFT7setFontEPh
  .text.twi_init
-                0x00007f42       0x3c src/libraries/Wire/src/utility/twi.o
-                0x00007f42                twi_init
+                0x00007f3a       0x3c src/libraries/Wire/src/utility/twi.o
+                0x00007f3a                twi_init
  .text.twi_setAddress
-                0x00007f7e        0x8 src/libraries/Wire/src/utility/twi.o
-                0x00007f7e                twi_setAddress
+                0x00007f76        0x8 src/libraries/Wire/src/utility/twi.o
+                0x00007f76                twi_setAddress
  .text.twi_transmit
-                0x00007f86       0x50 src/libraries/Wire/src/utility/twi.o
-                0x00007f86                twi_transmit
+                0x00007f7e       0x50 src/libraries/Wire/src/utility/twi.o
+                0x00007f7e                twi_transmit
  .text.twi_attachSlaveRxEvent
-                0x00007fd6        0xa src/libraries/Wire/src/utility/twi.o
-                0x00007fd6                twi_attachSlaveRxEvent
+                0x00007fce        0xa src/libraries/Wire/src/utility/twi.o
+                0x00007fce                twi_attachSlaveRxEvent
  .text.twi_attachSlaveTxEvent
-                0x00007fe0        0xa src/libraries/Wire/src/utility/twi.o
-                0x00007fe0                twi_attachSlaveTxEvent
+                0x00007fd8        0xa src/libraries/Wire/src/utility/twi.o
+                0x00007fd8                twi_attachSlaveTxEvent
  .text.twi_stop
-                0x00007fea       0x14 src/libraries/Wire/src/utility/twi.o
-                0x00007fea                twi_stop
+                0x00007fe2       0x14 src/libraries/Wire/src/utility/twi.o
+                0x00007fe2                twi_stop
  .text.twi_releaseBus
-                0x00007ffe        0xc src/libraries/Wire/src/utility/twi.o
-                0x00007ffe                twi_releaseBus
+                0x00007ff6        0xc src/libraries/Wire/src/utility/twi.o
+                0x00007ff6                twi_releaseBus
  .text.__vector_39
-                0x0000800a      0x25c src/libraries/Wire/src/utility/twi.o
-                0x0000800a                __vector_39
+                0x00008002      0x25c src/libraries/Wire/src/utility/twi.o
+                0x00008002                __vector_39
  .text._ZN7TwoWire9availableEv
-                0x00008266       0x10 src/libraries/Wire/src/Wire.o
-                0x00008266                _ZN7TwoWire9availableEv
+                0x0000825e       0x10 src/libraries/Wire/src/Wire.o
+                0x0000825e                _ZN7TwoWire9availableEv
  .text._ZN7TwoWire4readEv
-                0x00008276       0x28 src/libraries/Wire/src/Wire.o
-                0x00008276                _ZN7TwoWire4readEv
+                0x0000826e       0x28 src/libraries/Wire/src/Wire.o
+                0x0000826e                _ZN7TwoWire4readEv
  .text._ZN7TwoWire4peekEv
-                0x0000829e       0x1e src/libraries/Wire/src/Wire.o
-                0x0000829e                _ZN7TwoWire4peekEv
+                0x00008296       0x1e src/libraries/Wire/src/Wire.o
+                0x00008296                _ZN7TwoWire4peekEv
  .text._ZN7TwoWire5flushEv
-                0x000082bc        0x2 src/libraries/Wire/src/Wire.o
-                0x000082bc                _ZN7TwoWire5flushEv
+                0x000082b4        0x2 src/libraries/Wire/src/Wire.o
+                0x000082b4                _ZN7TwoWire5flushEv
  .text._ZN7TwoWire16onReceiveServiceEPhi
-                0x000082be       0x54 src/libraries/Wire/src/Wire.o
-                0x000082be                _ZN7TwoWire16onReceiveServiceEPhi
+                0x000082b6       0x54 src/libraries/Wire/src/Wire.o
+                0x000082b6                _ZN7TwoWire16onReceiveServiceEPhi
  .text._ZN7TwoWire16onRequestServiceEv
-                0x00008312       0x18 src/libraries/Wire/src/Wire.o
-                0x00008312                _ZN7TwoWire16onRequestServiceEv
+                0x0000830a       0x18 src/libraries/Wire/src/Wire.o
+                0x0000830a                _ZN7TwoWire16onRequestServiceEv
  .text._ZN7TwoWire5writeEPKhj
-                0x0000832a       0x58 src/libraries/Wire/src/Wire.o
-                0x0000832a                _ZN7TwoWire5writeEPKhj
+                0x00008322       0x58 src/libraries/Wire/src/Wire.o
+                0x00008322                _ZN7TwoWire5writeEPKhj
  .text._ZN7TwoWire5writeEh
-                0x00008382       0x5c src/libraries/Wire/src/Wire.o
-                0x00008382                _ZN7TwoWire5writeEh
+                0x0000837a       0x5c src/libraries/Wire/src/Wire.o
+                0x0000837a                _ZN7TwoWire5writeEh
  .text._ZN7TwoWireC2Ev
-                0x000083de       0x20 src/libraries/Wire/src/Wire.o
-                0x000083de                _ZN7TwoWireC1Ev
-                0x000083de                _ZN7TwoWireC2Ev
+                0x000083d6       0x20 src/libraries/Wire/src/Wire.o
+                0x000083d6                _ZN7TwoWireC1Ev
+                0x000083d6                _ZN7TwoWireC2Ev
  .text._ZN7TwoWire5beginEv
-                0x000083fe       0x12 src/libraries/Wire/src/Wire.o
-                0x000083fe                _ZN7TwoWire5beginEv
+                0x000083f6       0x12 src/libraries/Wire/src/Wire.o
+                0x000083f6                _ZN7TwoWire5beginEv
  .text._ZN7TwoWire5beginEh
-                0x00008410       0x1e src/libraries/Wire/src/Wire.o
-                0x00008410                _ZN7TwoWire5beginEh
+                0x00008408       0x1e src/libraries/Wire/src/Wire.o
+                0x00008408                _ZN7TwoWire5beginEh
  .text._ZN7TwoWire5beginEi
-                0x0000842e        0x2 src/libraries/Wire/src/Wire.o
-                0x0000842e                _ZN7TwoWire5beginEi
+                0x00008426        0x2 src/libraries/Wire/src/Wire.o
+                0x00008426                _ZN7TwoWire5beginEi
  .text._ZN7TwoWire9onRequestEPFvvE
-                0x00008430        0xa src/libraries/Wire/src/Wire.o
-                0x00008430                _ZN7TwoWire9onRequestEPFvvE
+                0x00008428        0xa src/libraries/Wire/src/Wire.o
+                0x00008428                _ZN7TwoWire9onRequestEPFvvE
  .text.startup._GLOBAL__sub_I__ZN7TwoWire8rxBufferE
-                0x0000843a        0x6 src/libraries/Wire/src/Wire.o
+                0x00008432        0x6 src/libraries/Wire/src/Wire.o
  .text._ZN6WindowC2Ev
-                0x00008440       0x54 Window.o
-                0x00008440                _ZN6WindowC2Ev
-                0x00008440                _ZN6WindowC1Ev
+                0x00008438       0x54 Window.o
+                0x00008438                _ZN6WindowC2Ev
+                0x00008438                _ZN6WindowC1Ev
  .text.avr-libc.fplib
-                0x00008494        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
-                0x00008494                __subsf3
-                0x00008496                __addsf3
+                0x0000848c        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
+                0x0000848c                __subsf3
+                0x0000848e                __addsf3
  .text.avr-libc.fplib
-                0x0000849e       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
-                0x000084b8                __addsf3x
+                0x00008496       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
+                0x000084b0                __addsf3x
  .text.avr-libc.fplib
-                0x0000855e        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
-                0x0000855e                __nesf2
-                0x0000855e                __eqsf2
-                0x0000855e                __cmpsf2
-                0x0000855e                __ltsf2
-                0x0000855e                __lesf2
+                0x00008556        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+                0x00008556                __nesf2
+                0x00008556                __eqsf2
+                0x00008556                __cmpsf2
+                0x00008556                __ltsf2
+                0x00008556                __lesf2
  .text.avr-libc.fplib
-                0x00008566        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cos.o)
-                0x00008566                cos
+                0x0000855e        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cos.o)
+                0x0000855e                cos
  .text.avr-libc.fplib
-                0x0000856c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
-                0x0000856c                __divsf3
+                0x00008564        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
+                0x00008564                __divsf3
  .text.avr-libc.fplib
-                0x00008570       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
-                0x00008586                __divsf3x
-                0x0000858a                __divsf3_pse
+                0x00008568       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
+                0x0000857e                __divsf3x
+                0x00008582                __divsf3_pse
  .text.avr-libc.fplib
-                0x0000863c        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
-                0x0000863c                __fixsfsi
+                0x00008634        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+                0x00008634                __fixsfsi
  .text.avr-libc.fplib
-                0x00008646       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                0x00008646                __fixunssfsi
+                0x0000863e       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
+                0x0000863e                __fixunssfsi
  .text.avr-libc.fplib
-                0x0000869e       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
-                0x0000869e                __floatunsisf
-                0x000086a2                __floatsisf
+                0x00008696       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
+                0x00008696                __floatunsisf
+                0x0000869a                __floatsisf
  .text.avr-libc.fplib
-                0x00008718       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
-                0x00008718                __fp_cmp
+                0x00008710       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+                0x00008710                __fp_cmp
  .text.avr-libc.fplib
-                0x00008760        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
-                0x00008760                __fp_inf
+                0x00008758        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
+                0x00008758                __fp_inf
  .text.avr-libc.fplib
-                0x0000876c        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
-                0x0000876c                __fp_nan
+                0x00008764        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
+                0x00008764                __fp_nan
  .text.avr-libc.fplib
-                0x00008772        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
-                0x00008772                __fp_pscA
+                0x0000876a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
+                0x0000876a                __fp_pscA
  .text.avr-libc.fplib
-                0x00008780        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
-                0x00008780                __fp_pscB
+                0x00008778        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
+                0x00008778                __fp_pscB
  .text.avr-libc.fplib
-                0x0000878e       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_rempio2.o)
-                0x00008790                __fp_rempio2
+                0x00008786       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_rempio2.o)
+                0x00008788                __fp_rempio2
  .text.avr-libc.fplib
-                0x000087de       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
-                0x000087de                __fp_round
+                0x000087d6       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
+                0x000087d6                __fp_round
  .text.avr-libc.fplib
-                0x00008800       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_sinus.o)
-                0x00008800                __fp_sinus
+                0x000087f8       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_sinus.o)
+                0x000087f8                __fp_sinus
  .text.avr-libc.fplib
-                0x00008822       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
-                0x00008822                __fp_split3
-                0x00008832                __fp_splitA
+                0x0000881a       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
+                0x0000881a                __fp_split3
+                0x0000882a                __fp_splitA
  .text.avr-libc.fplib
-                0x00008866        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
-                0x00008866                __fp_zero
-                0x00008868                __fp_szero
+                0x0000885e        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
+                0x0000885e                __fp_zero
+                0x00008860                __fp_szero
  .text.avr-libc.fplib
-                0x00008874        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
-                0x00008874                __mulsf3
+                0x0000886c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
+                0x0000886c                __mulsf3
  .text.avr-libc.fplib
-                0x00008878       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
-                0x0000888c                __mulsf3x
-                0x00008890                __mulsf3_pse
+                0x00008870       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
+                0x00008884                __mulsf3x
+                0x00008888                __mulsf3_pse
  .text.avr-libc.fplib
-                0x0000893a        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(sin.o)
-                0x0000893a                sin
+                0x00008932        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(sin.o)
+                0x00008932                sin
  .text.avr-libc.fplib
-                0x00008946       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mpack.o)
-                0x00008946                __fp_mpack
-                0x0000894a                __fp_mpack_finite
+                0x0000893e       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mpack.o)
+                0x0000893e                __fp_mpack
+                0x00008942                __fp_mpack_finite
  .text.avr-libc.fplib
-                0x00008962       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powsodd.o)
-                0x00008962                __fp_powsodd
+                0x0000895a       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powsodd.o)
+                0x0000895a                __fp_powsodd
  .text.avr-libc.fplib
-                0x00008984       0x4a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
-                0x00008984                __fp_powser
- .text._ZN14HardwareSerial9availableEv
-                0x000089ce       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x000089ce                _ZN14HardwareSerial9availableEv
- .text._ZN14HardwareSerial4peekEv
-                0x000089e6       0x1c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x000089e6                _ZN14HardwareSerial4peekEv
- .text._ZN14HardwareSerial4readEv
-                0x00008a02       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00008a02                _ZN14HardwareSerial4readEv
- .text._Z14serialEventRunv
-                0x00008a2a       0x78 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00008a2a                _Z14serialEventRunv
- .text._ZN14HardwareSerial17_tx_udr_empty_irqEv
-                0x00008aa2       0x42 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00008aa2                _ZN14HardwareSerial17_tx_udr_empty_irqEv
- .text._ZN14HardwareSerial5writeEh
-                0x00008ae4       0x8c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00008ae4                _ZN14HardwareSerial5writeEh
- .text._ZN14HardwareSerial5flushEv
-                0x00008b70       0x42 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00008b70                _ZN14HardwareSerial5flushEv
- .text._ZN14HardwareSerial5beginEmh
-                0x00008bb2       0xc6 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00008bb2                _ZN14HardwareSerial5beginEmh
+                0x0000897c       0x4a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
+                0x0000897c                __fp_powser
  .text.__vector_25
-                0x00008c78       0x6c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00008c78                __vector_25
+                0x000089c6       0x6c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x000089c6                __vector_25
  .text.__vector_26
-                0x00008ce4       0x52 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00008ce4                __vector_26
+                0x00008a32       0x52 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00008a32                __vector_26
  .text._Z17Serial0_availablev
-                0x00008d36       0x12 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00008d36                _Z17Serial0_availablev
+                0x00008a84       0x12 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00008a84                _Z17Serial0_availablev
  .text.startup._GLOBAL__sub_I___vector_25
-                0x00008d48       0x5a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00008a96       0x5a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
  .text.initVariant
-                0x00008da2        0x2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
-                0x00008da2                initVariant
+                0x00008af0        0x2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+                0x00008af0                initVariant
  .text.startup.main
-                0x00008da4       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
-                0x00008da4                main
- .text._Znwj    0x00008dbc        0x2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
-                0x00008dbc                _Znwj
+                0x00008af2       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+                0x00008af2                main
+ .text._Znwj    0x00008b0a        0x2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+                0x00008b0a                _Znwj
  .text._ZN5Print5writeEPKhj
-                0x00008dbe       0x54 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00008dbe                _ZN5Print5writeEPKhj
+                0x00008b0c       0x54 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00008b0c                _ZN5Print5writeEPKhj
  .text._ZN5Print5writeEPKc
-                0x00008e12       0x2a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00008e12                _ZN5Print5writeEPKc
+                0x00008b60       0x2a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00008b60                _ZN5Print5writeEPKc
  .text._ZN5Print7printlnEv
-                0x00008e3c        0x6 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00008e3c                _ZN5Print7printlnEv
+                0x00008b8a        0x6 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00008b8a                _ZN5Print7printlnEv
  .text._ZN5Print11printNumberEmh
-                0x00008e42       0x8e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00008e42                _ZN5Print11printNumberEmh
+                0x00008b90       0x8e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00008b90                _ZN5Print11printNumberEmh
  .text._ZN5Print5printEmi
-                0x00008ed0       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00008ed0                _ZN5Print5printEmi
+                0x00008c1e       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00008c1e                _ZN5Print5printEmi
  .text._ZN5Print5printEji
-                0x00008ee8        0xa C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00008ee8                _ZN5Print5printEji
+                0x00008c36        0xa C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00008c36                _ZN5Print5printEji
  .text._ZN5Print7printlnEji
-                0x00008ef2       0x20 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00008ef2                _ZN5Print7printlnEji
+                0x00008c40       0x20 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00008c40                _ZN5Print7printlnEji
  .text.__vector_23
-                0x00008f12       0x94 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x00008f12                __vector_23
- .text.micros   0x00008fa6       0x4a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x00008fa6                micros
- .text.delay    0x00008ff0       0x72 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x00008ff0                delay
- .text.init     0x00009062       0xc4 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x00009062                init
+                0x00008c60       0x94 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x00008c60                __vector_23
+ .text.micros   0x00008cf4       0x4a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x00008cf4                micros
+ .text.delay    0x00008d3e       0x72 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x00008d3e                delay
+ .text.init     0x00008db0       0xc4 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x00008db0                init
  .text.turnOffPWM
-                0x00009126       0xaa C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .text.pinMode  0x000091d0       0x78 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000091d0                pinMode
+                0x00008e74       0xaa C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .text.pinMode  0x00008f1e       0x78 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+                0x00008f1e                pinMode
  .text.digitalWrite
-                0x00009248       0x5c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
-                0x00009248                digitalWrite
+                0x00008f96       0x5c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+                0x00008f96                digitalWrite
  .text.digitalRead
-                0x000092a4       0x50 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000092a4                digitalRead
+                0x00008ff2       0x50 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+                0x00008ff2                digitalRead
  .text._ZN6StringD2Ev
-                0x000092f4        0x8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x000092f4                _ZN6StringD2Ev
-                0x000092f4                _ZN6StringD1Ev
+                0x00009042        0x8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00009042                _ZN6StringD2Ev
+                0x00009042                _ZN6StringD1Ev
  .text._ZN6String10invalidateEv
-                0x000092fc       0x22 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x000092fc                _ZN6String10invalidateEv
+                0x0000904a       0x22 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x0000904a                _ZN6String10invalidateEv
  .text._ZN6String12changeBufferEj
-                0x0000931e       0x32 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x0000931e                _ZN6String12changeBufferEj
+                0x0000906c       0x32 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x0000906c                _ZN6String12changeBufferEj
  .text._ZN6String7reserveEj
-                0x00009350       0x36 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x00009350                _ZN6String7reserveEj
+                0x0000909e       0x36 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x0000909e                _ZN6String7reserveEj
  .text._ZN6String4copyEPKcj
-                0x00009386       0x3c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x00009386                _ZN6String4copyEPKcj
+                0x000090d4       0x3c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x000090d4                _ZN6String4copyEPKcj
  .text._ZN6StringC2EPKc
-                0x000093c2       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x000093c2                _ZN6StringC2EPKc
-                0x000093c2                _ZN6StringC1EPKc
+                0x00009110       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00009110                _ZN6StringC2EPKc
+                0x00009110                _ZN6StringC1EPKc
  .text._ZN6StringaSERKS_
-                0x000093ea       0x2a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x000093ea                _ZN6StringaSERKS_
+                0x00009138       0x2a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00009138                _ZN6StringaSERKS_
  .text._ZN6StringC2ERKS_
-                0x00009414       0x10 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x00009414                _ZN6StringC2ERKS_
-                0x00009414                _ZN6StringC1ERKS_
+                0x00009162       0x10 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00009162                _ZN6StringC2ERKS_
+                0x00009162                _ZN6StringC1ERKS_
  .text._ZNK6String8getBytesEPhjj
-                0x00009424       0x5c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x00009424                _ZNK6String8getBytesEPhjj
- .text.__empty  0x00009480        0x2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
-                0x00009480                yield
+                0x00009172       0x5c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00009172                _ZNK6String8getBytesEPhjj
+ .text._ZN14HardwareSerial9availableEv
+                0x000091ce       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x000091ce                _ZN14HardwareSerial9availableEv
+ .text._ZN14HardwareSerial4peekEv
+                0x000091e6       0x1c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x000091e6                _ZN14HardwareSerial4peekEv
+ .text._ZN14HardwareSerial4readEv
+                0x00009202       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00009202                _ZN14HardwareSerial4readEv
+ .text._Z14serialEventRunv
+                0x0000922a       0x78 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x0000922a                _Z14serialEventRunv
+ .text._ZN14HardwareSerial17_tx_udr_empty_irqEv
+                0x000092a2       0x42 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x000092a2                _ZN14HardwareSerial17_tx_udr_empty_irqEv
+ .text._ZN14HardwareSerial5writeEh
+                0x000092e4       0x8c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x000092e4                _ZN14HardwareSerial5writeEh
+ .text._ZN14HardwareSerial5flushEv
+                0x00009370       0x42 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00009370                _ZN14HardwareSerial5flushEv
+ .text.__empty  0x000093b2        0x2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+                0x000093b2                yield
  .text.libgcc.mul
-                0x00009482       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
-                0x00009482                __mulsi3
+                0x000093b4       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
+                0x000093b4                __mulsi3
  .text.libgcc.div
-                0x000094a0       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodqi4.o)
-                0x000094a0                __udivmodqi4
+                0x000093d2       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodqi4.o)
+                0x000093d2                __udivmodqi4
  .text.libgcc.div
-                0x000094b8       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodqi4.o)
-                0x000094b8                __divmodqi4
+                0x000093ea       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodqi4.o)
+                0x000093ea                __divmodqi4
  .text.libgcc.div
-                0x000094d2       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
-                0x000094d2                __udivmodhi4
+                0x00009404       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x00009404                __udivmodhi4
  .text.libgcc.div
-                0x000094fa       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
-                0x000094fa                _div
-                0x000094fa                __divmodhi4
+                0x0000942c       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000942c                _div
+                0x0000942c                __divmodhi4
  .text.libgcc.div
-                0x00009520       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
-                0x00009520                __udivmodsi4
+                0x00009452       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
+                0x00009452                __udivmodsi4
  .text.libgcc.div
-                0x00009564       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodsi4.o)
-                0x00009564                __divmodsi4
+                0x00009496       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodsi4.o)
+                0x00009496                __divmodsi4
  .text.libgcc.div
-                0x0000958c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_negsi2.o)
-                0x0000958c                __negsi2
- .text.libgcc   0x0000959c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_tablejump2.o)
-                0x0000959c                __tablejump2__
+                0x000094be       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_negsi2.o)
+                0x000094be                __negsi2
+ .text.libgcc   0x000094ce       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_tablejump2.o)
+                0x000094ce                __tablejump2__
  .text.libgcc.mul
-                0x000095ac       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
-                0x000095ac                __muluhisi3
+                0x000094de       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+                0x000094de                __muluhisi3
  .text.libgcc.mul
-                0x000095c0       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
-                0x000095c0                __umulhisi3
+                0x000094f2       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+                0x000094f2                __umulhisi3
  .text.avr-libc
-                0x000095de       0x3e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
-                0x000095de                dtostrf
+                0x00009510       0x3e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
+                0x00009510                dtostrf
  .text.avr-libc
-                0x0000961c      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
-                0x0000961c                malloc
-                0x0000974c                free
+                0x0000954e      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+                0x0000954e                malloc
+                0x0000967e                free
  .text.avr-libc
-                0x0000985e      0x1c0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
-                0x0000985e                realloc
+                0x00009790      0x1c0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
+                0x00009790                realloc
  .text.avr-libc
-                0x00009a1e       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
-                0x00009a1e                memcpy
+                0x00009950       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+                0x00009950                memcpy
  .text.avr-libc
-                0x00009a30        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
-                0x00009a30                strcpy
+                0x00009962        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
+                0x00009962                strcpy
  .text.avr-libc
-                0x00009a3e       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncpy.o)
-                0x00009a3e                strncpy
+                0x00009970       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncpy.o)
+                0x00009970                strncpy
  .text.avr-libc
-                0x00009a5c      0x2ec c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
-                0x00009a5c                dtoa_prf
+                0x0000998e      0x2ec c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
+                0x0000998e                dtoa_prf
  .text.avr-libc
-                0x00009d48      0x1b0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
-                0x00009d48                __ftoa_engine
-                0x00009ef8                . = ALIGN (0x2)
+                0x00009c7a      0x1b0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
+                0x00009c7a                __ftoa_engine
+                0x00009e2a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00009ef8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
-                0x00009ef8                _exit
-                0x00009ef8                exit
+ .fini9         0x00009e2a        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+                0x00009e2a                _exit
+                0x00009e2a                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
  *(.fini7)
  *(.fini7)
  *(.fini6)
- .fini6         0x00009ef8       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_dtors.o)
-                0x00009ef8                __do_global_dtors
+ .fini6         0x00009e2a       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_dtors.o)
+                0x00009e2a                __do_global_dtors
  *(.fini6)
  *(.fini5)
  *(.fini5)
@@ -1998,11 +1997,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00009f16        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x00009e48        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x00009f1a                _etext = .
+                0x00009e4c                _etext = .
 
-.data           0x00800200      0x19e load address 0x00009f1a
+.data           0x00800200      0x19e load address 0x00009e4c
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800200        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
@@ -2028,11 +2027,11 @@ END GROUP
  .rodata._ZTV7TwoWire
                 0x0080036e       0x10 src/libraries/Wire/src/Wire.o
                 0x0080036e                _ZTV7TwoWire
- .rodata._ZTV14HardwareSerial
-                0x0080037e       0x10 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x0080037e                _ZTV14HardwareSerial
  .rodata.str1.1
-                0x0080038e        0xf C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x0080037e        0xf C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .rodata._ZTV14HardwareSerial
+                0x0080038d       0x10 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x0080038d                _ZTV14HardwareSerial
  *(.gnu.linkonce.r*)
                 0x00800400                . = ALIGN (0x2)
  *fill*         0x0080039d        0x1 
@@ -2190,8 +2189,8 @@ END GROUP
                 0x00800a28                __brkval
                 0x00800a2a                __flp
                 0x00800a2c                PROVIDE (__bss_end, .)
-                0x00009f1a                __data_load_start = LOADADDR (.data)
-                0x0000a0b8                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00009e4c                __data_load_start = LOADADDR (.data)
+                0x00009fea                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800a2c        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -2252,7 +2251,6 @@ END GROUP
  .comment       0x00000030       0x31 src/libraries/Wire/src/utility/twi.o
  .comment       0x00000030       0x31 src/libraries/Wire/src/Wire.o
  .comment       0x00000030       0x31 Window.o
- .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
  .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
  .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
  .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
@@ -2260,6 +2258,7 @@ END GROUP
  .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
  .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
  .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
  .comment       0x00000030       0x31 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
  .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
  .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
@@ -2313,126 +2312,126 @@ END GROUP
  .debug_aranges
                 0x000005e8       0x30 Window.o
  .debug_aranges
-                0x00000618       0x68 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000618       0x38 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
  .debug_aranges
-                0x00000680       0x38 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00000650       0x30 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
  .debug_aranges
-                0x000006b8       0x30 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+                0x00000680       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
  .debug_aranges
-                0x000006e8       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+                0x000006a8       0xf0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
  .debug_aranges
-                0x00000710       0xf0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00000798       0x48 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
  .debug_aranges
-                0x00000800       0x48 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x000007e0       0x38 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
  .debug_aranges
-                0x00000848       0x38 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+                0x00000818      0x2b8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
  .debug_aranges
-                0x00000880      0x2b8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00000ad0       0x68 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
  .debug_aranges
                 0x00000b38       0x20 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x2ef31
+.debug_info     0x00000000    0x2eea3
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_info    0x00000bbc     0x3081 Control.o
  .debug_info    0x00003c3d      0xd2d EncoderHandler.o
  .debug_info    0x0000496a     0x3506 Menu.o
  .debug_info    0x00007e70     0x373b Screen.o
- .debug_info    0x0000b5ab     0x3ab2 Sketch.o
- .debug_info    0x0000f05d      0x40f src/libraries/Rotary/Rotary.o
- .debug_info    0x0000f46c      0x665 src/libraries/TimerOne/TimerOne.o
- .debug_info    0x0000fad1       0xe5 src/libraries/UTFT/DefaultFonts.o
- .debug_info    0x0000fbb6     0xf080 src/libraries/UTFT/UTFT.o
- .debug_info    0x0001ec36      0x662 src/libraries/Wire/src/utility/twi.o
- .debug_info    0x0001f298     0x2737 src/libraries/Wire/src/Wire.o
- .debug_info    0x000219cf     0x2186 Window.o
- .debug_info    0x00023b55     0x1f9f C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_info    0x00025af4     0x1af7 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_info    0x000275eb      0x295 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
- .debug_info    0x00027880      0x11c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
- .debug_info    0x0002799c     0x28bc C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_info    0x0002a258      0x329 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_info    0x0002a581      0x63a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_info    0x0002abbb     0x4338 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
- .debug_info    0x0002eef3       0x3e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+ .debug_info    0x0000b5ab     0x3a24 Sketch.o
+ .debug_info    0x0000efcf      0x40f src/libraries/Rotary/Rotary.o
+ .debug_info    0x0000f3de      0x665 src/libraries/TimerOne/TimerOne.o
+ .debug_info    0x0000fa43       0xe5 src/libraries/UTFT/DefaultFonts.o
+ .debug_info    0x0000fb28     0xf080 src/libraries/UTFT/UTFT.o
+ .debug_info    0x0001eba8      0x662 src/libraries/Wire/src/utility/twi.o
+ .debug_info    0x0001f20a     0x2737 src/libraries/Wire/src/Wire.o
+ .debug_info    0x00021941     0x2186 Window.o
+ .debug_info    0x00023ac7     0x1af7 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_info    0x000255be      0x295 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_info    0x00025853      0x11c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+ .debug_info    0x0002596f     0x28bc C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_info    0x0002822b      0x329 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_info    0x00028554      0x63a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_info    0x00028b8e     0x4338 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_info    0x0002cec6     0x1f9f C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_info    0x0002ee65       0x3e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
 
-.debug_abbrev   0x00000000     0x4808
+.debug_abbrev   0x00000000     0x47f1
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_abbrev  0x00000b1a      0x43a Control.o
  .debug_abbrev  0x00000f54      0x263 EncoderHandler.o
  .debug_abbrev  0x000011b7      0x405 Menu.o
  .debug_abbrev  0x000015bc      0x3f7 Screen.o
- .debug_abbrev  0x000019b3      0x497 Sketch.o
- .debug_abbrev  0x00001e4a      0x1e3 src/libraries/Rotary/Rotary.o
- .debug_abbrev  0x0000202d      0x1b7 src/libraries/TimerOne/TimerOne.o
- .debug_abbrev  0x000021e4       0x5d src/libraries/UTFT/DefaultFonts.o
- .debug_abbrev  0x00002241      0x548 src/libraries/UTFT/UTFT.o
- .debug_abbrev  0x00002789      0x260 src/libraries/Wire/src/utility/twi.o
- .debug_abbrev  0x000029e9      0x583 src/libraries/Wire/src/Wire.o
- .debug_abbrev  0x00002f6c      0x2d8 Window.o
- .debug_abbrev  0x00003244      0x432 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_abbrev  0x00003676      0x3a2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_abbrev  0x00003a18      0x12d C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
- .debug_abbrev  0x00003b45       0xce C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
- .debug_abbrev  0x00003c13      0x469 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_abbrev  0x0000407c      0x146 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_abbrev  0x000041c2      0x15a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_abbrev  0x0000431c      0x4c2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
- .debug_abbrev  0x000047de       0x2a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+ .debug_abbrev  0x000019b3      0x480 Sketch.o
+ .debug_abbrev  0x00001e33      0x1e3 src/libraries/Rotary/Rotary.o
+ .debug_abbrev  0x00002016      0x1b7 src/libraries/TimerOne/TimerOne.o
+ .debug_abbrev  0x000021cd       0x5d src/libraries/UTFT/DefaultFonts.o
+ .debug_abbrev  0x0000222a      0x548 src/libraries/UTFT/UTFT.o
+ .debug_abbrev  0x00002772      0x260 src/libraries/Wire/src/utility/twi.o
+ .debug_abbrev  0x000029d2      0x583 src/libraries/Wire/src/Wire.o
+ .debug_abbrev  0x00002f55      0x2d8 Window.o
+ .debug_abbrev  0x0000322d      0x3a2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_abbrev  0x000035cf      0x12d C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_abbrev  0x000036fc       0xce C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+ .debug_abbrev  0x000037ca      0x469 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_abbrev  0x00003c33      0x146 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_abbrev  0x00003d79      0x15a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_abbrev  0x00003ed3      0x4c2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_abbrev  0x00004395      0x432 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_abbrev  0x000047c7       0x2a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
 
-.debug_line     0x00000000     0x92c6
+.debug_line     0x00000000     0x92ae
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1f9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_line    0x000001f9      0x583 Control.o
  .debug_line    0x0000077c      0x44c EncoderHandler.o
  .debug_line    0x00000bc8      0x495 Menu.o
  .debug_line    0x0000105d      0x32e Screen.o
- .debug_line    0x0000138b      0x5f6 Sketch.o
- .debug_line    0x00001981      0x1b9 src/libraries/Rotary/Rotary.o
- .debug_line    0x00001b3a      0x39d src/libraries/TimerOne/TimerOne.o
- .debug_line    0x00001ed7       0xa4 src/libraries/UTFT/DefaultFonts.o
- .debug_line    0x00001f7b     0x3e82 src/libraries/UTFT/UTFT.o
- .debug_line    0x00005dfd      0x515 src/libraries/Wire/src/utility/twi.o
- .debug_line    0x00006312      0x5ad src/libraries/Wire/src/Wire.o
- .debug_line    0x000068bf      0x194 Window.o
- .debug_line    0x00006a53      0x489 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_line    0x00006edc      0x253 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_line    0x0000712f      0x161 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
- .debug_line    0x00007290      0x12f C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
- .debug_line    0x000073bf      0x622 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_line    0x000079e1      0x2cb C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_line    0x00007cac      0x284 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_line    0x00007f30     0x1355 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
- .debug_line    0x00009285       0x41 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+ .debug_line    0x0000138b      0x5de Sketch.o
+ .debug_line    0x00001969      0x1b9 src/libraries/Rotary/Rotary.o
+ .debug_line    0x00001b22      0x39d src/libraries/TimerOne/TimerOne.o
+ .debug_line    0x00001ebf       0xa4 src/libraries/UTFT/DefaultFonts.o
+ .debug_line    0x00001f63     0x3e82 src/libraries/UTFT/UTFT.o
+ .debug_line    0x00005de5      0x515 src/libraries/Wire/src/utility/twi.o
+ .debug_line    0x000062fa      0x5ad src/libraries/Wire/src/Wire.o
+ .debug_line    0x000068a7      0x194 Window.o
+ .debug_line    0x00006a3b      0x253 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_line    0x00006c8e      0x161 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_line    0x00006def      0x12f C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+ .debug_line    0x00006f1e      0x622 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_line    0x00007540      0x2cb C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_line    0x0000780b      0x284 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_line    0x00007a8f     0x1355 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_line    0x00008de4      0x489 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_line    0x0000926d       0x41 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
 
-.debug_frame    0x00000000     0x29a4
+.debug_frame    0x00000000     0x29a8
  *(.debug_frame)
  .debug_frame   0x00000000      0x13c Control.o
  .debug_frame   0x0000013c      0x168 EncoderHandler.o
  .debug_frame   0x000002a4      0x1e4 Menu.o
  .debug_frame   0x00000488       0xe4 Screen.o
- .debug_frame   0x0000056c       0x98 Sketch.o
- .debug_frame   0x00000604       0x64 src/libraries/Rotary/Rotary.o
- .debug_frame   0x00000668      0x194 src/libraries/TimerOne/TimerOne.o
- .debug_frame   0x000007fc      0xbc4 src/libraries/UTFT/UTFT.o
- .debug_frame   0x000013c0      0x134 src/libraries/Wire/src/utility/twi.o
- .debug_frame   0x000014f4      0x264 src/libraries/Wire/src/Wire.o
- .debug_frame   0x00001758       0x84 Window.o
- .debug_frame   0x000017dc      0x110 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_frame   0x000018ec       0xc0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_frame   0x000019ac       0x54 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
- .debug_frame   0x00001a00       0x54 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
- .debug_frame   0x00001a54      0x38c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_frame   0x00001de0       0xc4 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_frame   0x00001ea4       0x7c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_frame   0x00001f20      0xa60 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
- .debug_frame   0x00002980       0x24 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+ .debug_frame   0x0000056c       0x9c Sketch.o
+ .debug_frame   0x00000608       0x64 src/libraries/Rotary/Rotary.o
+ .debug_frame   0x0000066c      0x194 src/libraries/TimerOne/TimerOne.o
+ .debug_frame   0x00000800      0xbc4 src/libraries/UTFT/UTFT.o
+ .debug_frame   0x000013c4      0x134 src/libraries/Wire/src/utility/twi.o
+ .debug_frame   0x000014f8      0x264 src/libraries/Wire/src/Wire.o
+ .debug_frame   0x0000175c       0x84 Window.o
+ .debug_frame   0x000017e0       0xc0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_frame   0x000018a0       0x54 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_frame   0x000018f4       0x54 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+ .debug_frame   0x00001948      0x38c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_frame   0x00001cd4       0xc4 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_frame   0x00001d98       0x7c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_frame   0x00001e14      0xa60 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_frame   0x00002874      0x110 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_frame   0x00002984       0x24 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
 
-.debug_str      0x00000000     0x460f
+.debug_str      0x00000000     0x4617
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_str     0x000003e6     0x166c Control.o
@@ -2443,61 +2442,61 @@ END GROUP
                                0x1c7c (size before relaxing)
  .debug_str     0x0000251d      0x1bf Screen.o
                                0x230b (size before relaxing)
- .debug_str     0x000026dc      0x2f7 Sketch.o
-                               0x25ed (size before relaxing)
- .debug_str     0x000029d3       0x6b src/libraries/Rotary/Rotary.o
+ .debug_str     0x000026dc      0x2c4 Sketch.o
+                               0x25ba (size before relaxing)
+ .debug_str     0x000029a0       0x6b src/libraries/Rotary/Rotary.o
                                 0x35d (size before relaxing)
- .debug_str     0x00002a3e       0x62 src/libraries/TimerOne/TimerOne.o
+ .debug_str     0x00002a0b       0x62 src/libraries/TimerOne/TimerOne.o
                                 0x435 (size before relaxing)
- .debug_str     0x00002aa0      0x10b src/libraries/UTFT/DefaultFonts.o
+ .debug_str     0x00002a6d      0x10b src/libraries/UTFT/DefaultFonts.o
                                 0x215 (size before relaxing)
- .debug_str     0x00002bab      0x12e src/libraries/UTFT/UTFT.o
+ .debug_str     0x00002b78      0x12e src/libraries/UTFT/UTFT.o
                                0x1803 (size before relaxing)
- .debug_str     0x00002cd9      0x1ed src/libraries/Wire/src/utility/twi.o
+ .debug_str     0x00002ca6      0x1ed src/libraries/Wire/src/utility/twi.o
                                 0x401 (size before relaxing)
- .debug_str     0x00002ec6      0x920 src/libraries/Wire/src/Wire.o
+ .debug_str     0x00002e93      0x91d src/libraries/Wire/src/Wire.o
                                0x18c8 (size before relaxing)
- .debug_str     0x000037e6       0x1f Window.o
+ .debug_str     0x000037b0       0x1f Window.o
                                0x18d2 (size before relaxing)
- .debug_str     0x00003805      0x4e2 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
-                               0x1701 (size before relaxing)
- .debug_str     0x00003ce7       0x47 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_str     0x000037cf      0x1b6 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
                                0x1402 (size before relaxing)
- .debug_str     0x00003d2e       0x37 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_str     0x00003985       0x5a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
                                 0x2de (size before relaxing)
- .debug_str     0x00003d65       0x50 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+ .debug_str     0x000039df       0x50 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
                                 0x1f4 (size before relaxing)
- .debug_str     0x00003db5      0x38e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_str     0x00003a2f      0x38e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
                                0x1223 (size before relaxing)
- .debug_str     0x00004143       0x71 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_str     0x00003dbd       0x71 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
                                 0x274 (size before relaxing)
- .debug_str     0x000041b4       0x6f C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_str     0x00003e2e       0x6f C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
                                 0x2d9 (size before relaxing)
- .debug_str     0x00004223      0x3d0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_str     0x00003e9d      0x3d0 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
                                0x11bf (size before relaxing)
- .debug_str     0x000045f3       0x1c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+ .debug_str     0x0000426d      0x38e C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
+                               0x1701 (size before relaxing)
+ .debug_str     0x000045fb       0x1c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
                                 0x169 (size before relaxing)
 
-.debug_loc      0x00000000    0x10382
+.debug_loc      0x00000000    0x10386
  *(.debug_loc)
  .debug_loc     0x00000000      0x4d0 Control.o
  .debug_loc     0x000004d0      0x9d3 EncoderHandler.o
  .debug_loc     0x00000ea3      0x7a6 Menu.o
  .debug_loc     0x00001649      0x293 Screen.o
- .debug_loc     0x000018dc      0x4ca Sketch.o
- .debug_loc     0x00001da6      0x14b src/libraries/Rotary/Rotary.o
- .debug_loc     0x00001ef1      0x6e2 src/libraries/TimerOne/TimerOne.o
- .debug_loc     0x000025d3     0x60c4 src/libraries/UTFT/UTFT.o
- .debug_loc     0x00008697      0x3e6 src/libraries/Wire/src/utility/twi.o
- .debug_loc     0x00008a7d      0xbd7 src/libraries/Wire/src/Wire.o
- .debug_loc     0x00009654       0x50 Window.o
- .debug_loc     0x000096a4      0x482 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_loc     0x00009b26      0x18a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_loc     0x00009cb0       0x4c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
- .debug_loc     0x00009cfc     0x1c61 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_loc     0x0000b95d      0x28d C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_loc     0x0000bbea      0x56b C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_loc     0x0000c155     0x422d C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_loc     0x000018dc      0x4ce Sketch.o
+ .debug_loc     0x00001daa      0x14b src/libraries/Rotary/Rotary.o
+ .debug_loc     0x00001ef5      0x6e2 src/libraries/TimerOne/TimerOne.o
+ .debug_loc     0x000025d7     0x60c4 src/libraries/UTFT/UTFT.o
+ .debug_loc     0x0000869b      0x3e6 src/libraries/Wire/src/utility/twi.o
+ .debug_loc     0x00008a81      0xbd7 src/libraries/Wire/src/Wire.o
+ .debug_loc     0x00009658       0x50 Window.o
+ .debug_loc     0x000096a8      0x18a C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_loc     0x00009832       0x4c C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+ .debug_loc     0x0000987e     0x1c61 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_loc     0x0000b4df      0x28d C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_loc     0x0000b76c      0x56b C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_loc     0x0000bcd7     0x422d C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_loc     0x0000ff04      0x482 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2530,14 +2529,14 @@ END GROUP
  .debug_ranges  0x00000478       0x70 src/libraries/Wire/src/utility/twi.o
  .debug_ranges  0x000004e8       0xd8 src/libraries/Wire/src/Wire.o
  .debug_ranges  0x000005c0       0x20 Window.o
- .debug_ranges  0x000005e0       0x58 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_ranges  0x00000638       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_ranges  0x00000660       0x20 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
- .debug_ranges  0x00000680       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
- .debug_ranges  0x00000698      0x110 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_ranges  0x000007a8       0x38 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_ranges  0x000007e0       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_ranges  0x00000808      0x2f8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_ranges  0x000005e0       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_ranges  0x00000608       0x20 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_ranges  0x00000628       0x18 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(new.o)
+ .debug_ranges  0x00000640      0x110 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_ranges  0x00000750       0x38 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_ranges  0x00000788       0x28 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_ranges  0x000007b0      0x2f8 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_ranges  0x00000aa8       0x58 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(HardwareSerial.o)
  .debug_ranges  0x00000b00       0x10 C:\Users\tiago\DOCUME~1\GitHub\KIDMOD~1\OSCILL~2\OSCILL~3\OSCILL~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
 
 .debug_macro

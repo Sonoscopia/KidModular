@@ -9,7 +9,7 @@ void requestEvent();
 #include "Screen.h"
 #include "GLOBALS.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 Parameters parameters;
 Control control; 
@@ -30,6 +30,7 @@ void loop() {
 	Wire.onRequest(requestEvent); // register event
 	screen.display(); // screen must be called after i2c calls because screen resets some variables (ex. menuChanged)
 	Timer1.attachInterrupt(encoderISR);
+	//delay(45);
 }
 
 void encoderISR(){
@@ -204,7 +205,10 @@ void requestEvent(){
 		default:	
 		break;
 	}
-	Wire.write(paramAddr); // send B10000000 if nothing happens
-	Wire.write(byte1);
-	Wire.write(byte2);
+	
+	byte message[3] = {paramAddr, byte1, byte2};
+	//Wire.write(paramAddr); // send B10000000 if nothing happens
+	//Wire.write(byte1);
+	//Wire.write(byte2);
+	Wire.write(message, 3);
 }
