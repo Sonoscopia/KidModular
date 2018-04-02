@@ -2,6 +2,7 @@
 #include "TimerOne.h" // DISABLES PINS 11 & 12
 void encoderISR();
 void requestEvent();
+void setMessage(byte p, byte b1, byte b2);
 
 #include "Wire.h"
 #include "Parameters.h"
@@ -14,7 +15,7 @@ void requestEvent();
 Parameters parameters;
 Control control; 
 Screen screen; 
-
+byte message[3] = {B10000000, 0, 0};
 void setup() {
 	if(DEBUG) Serial.begin(57600);
 	Wire.begin(8); // 0~7 are reserved
@@ -48,7 +49,8 @@ void requestEvent(){
 	byte paramAddr = B10000000; // to signal no COM set first byte 8th bit high 
 	byte byte1 = 0;
 	byte byte2 = 0;
-	
+	setMessage(paramAddr, byte1, byte2);
+		
 	switch (parameters.data.menu)
 	{			
 		// Lowest nibble -> menu
@@ -60,6 +62,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (0 << 4);
 				byte1 = parameters.data.oscWave;
 			    byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}	
 			if (control.enc2h.changed)
 			{
@@ -67,6 +71,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (1 << 4);
 				byte1 = get_lowerByte(parameters.data.oscFreq);
 				byte2 = get_upperByte(parameters.data.oscFreq); 
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc3h.changed)
 			{
@@ -74,6 +80,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (2 << 4);
 				byte1 = parameters.data.lfoWave;
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc4h.changed)
 			{
@@ -81,6 +89,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (3 << 4);
 				byte1 = get_lowerByte(parameters.data.lfoFreq); // this is an integer (float * LFOMUL)
 				byte2 = get_upperByte(parameters.data.lfoFreq);
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 		break;
 		
@@ -91,6 +101,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (0 << 4);
 				byte1 = parameters.data.filType;
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc2h.changed)
 			{
@@ -98,6 +110,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (1 << 4);
 				byte1 = get_lowerByte(parameters.data.filFreq);
 				byte2 = get_upperByte(parameters.data.filFreq);
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc3h.changed)
 			{
@@ -105,6 +119,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (2 << 4);
 				byte1 = parameters.data.filRes;
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc4h.changed)
 			{
@@ -112,6 +128,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (3 << 4);
 				byte1 = get_lowerByte(parameters.data.filLfo); // this is an integer (float * LFOMUL)
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 		break;
 		
@@ -122,6 +140,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (0 << 4);
 				byte1 = get_lowerByte(parameters.data.envAtk);
 				byte2 = get_upperByte(parameters.data.envAtk);
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc2h.changed)
 			{
@@ -129,6 +149,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (1 << 4);
 				byte1 = get_lowerByte(parameters.data.envDcy);
 				byte2 = get_upperByte(parameters.data.envDcy);
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc3h.changed)
 			{
@@ -136,6 +158,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (2 << 4);
 				byte1 = parameters.data.envSus;
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc4h.changed)
 			{
@@ -143,6 +167,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (3 << 4);
 				byte1 = get_lowerByte(parameters.data.envRel); // this is an integer (float * LFOMUL)
 				byte2 = get_upperByte(parameters.data.envRel);
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 		break;
 		
@@ -153,6 +179,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (0 << 4);
 				byte1 = get_lowerByte(parameters.data.fxType);
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc2h.changed)
 			{
@@ -160,6 +188,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (1 << 4);
 				byte1 = get_lowerByte(parameters.data.fxAmt);
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc3h.changed)
 			{
@@ -167,6 +197,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (2 << 4);
 				byte1 = parameters.data.fxParam;
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc4h.changed)
 			{
@@ -174,6 +206,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (3 << 4);
 				byte1 = get_lowerByte(parameters.data.fxLfo); // this is an integer (float * LFOMUL)
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 		break;
 		
@@ -184,6 +218,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (0 << 4);
 				byte1 = get_lowerByte(parameters.data.inPitch);
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc2h.changed)
 			{
@@ -191,6 +227,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (1 << 4);
 				byte1 = get_lowerByte(parameters.data.inEnv);
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			if (control.enc3h.changed)
 			{
@@ -198,6 +236,8 @@ void requestEvent(){
 				paramAddr = parameters.data.menu | (2 << 4);
 				byte1 = parameters.data.filEnv;
 				byte2 = 0; // ensure upper byte is 00000000
+				setMessage(paramAddr, byte1, byte2);
+				Wire.write(message, 3);
 			}
 			// do not send preset variable, sending preset data on load is a different function
 		break;
@@ -206,9 +246,12 @@ void requestEvent(){
 		break;
 	}
 	
-	byte message[3] = {paramAddr, byte1, byte2};
-	//Wire.write(paramAddr); // send B10000000 if nothing happens
-	//Wire.write(byte1);
-	//Wire.write(byte2);
-	Wire.write(message, 3);
+	//byte message[3] = {paramAddr, byte1, byte2};
+	//Wire.write(message, 3);
+}
+
+void setMessage(byte p, byte b1, byte b2){
+	message[0] = p;
+	message[1] = b1;
+	message[2] = b2; 
 }
