@@ -37,15 +37,7 @@ SUBDIRS :=  \
 ../include/libraries/ \
 ../include/libraries/Mozzi/ \
 ../include/libraries/Mozzi/config/ \
-../include/libraries/Mozzi/examples/ \
-../include/libraries/Mozzi/examples/03.Sensors/ \
-../include/libraries/Mozzi/examples/03.Sensors/Piezo_SampleScrubber/ \
-../include/libraries/Mozzi/examples/08.Samples/ \
-../include/libraries/Mozzi/examples/08.Samples/SampleHuffman_Umpah/ \
 ../include/libraries/Mozzi/extras/ \
-../include/libraries/Mozzi/extras/doc/ \
-../include/libraries/Mozzi/extras/doc/html/ \
-../include/libraries/Mozzi/extras/doc/html/search/ \
 ../include/libraries/Mozzi/extras/python/ \
 ../include/libraries/Mozzi/samples/ \
 ../include/libraries/Mozzi/samples/bamboo/ \
@@ -56,9 +48,6 @@ SUBDIRS :=  \
 ../src/libraries/ \
 ../src/libraries/Mozzi/ \
 ../src/libraries/Mozzi/extras/ \
-../src/libraries/Mozzi/extras/doc/ \
-../src/libraries/Mozzi/extras/doc/html/ \
-../src/libraries/Mozzi/extras/doc/html/search/ \
 ../src/libraries/Mozzi/utility/
 
 

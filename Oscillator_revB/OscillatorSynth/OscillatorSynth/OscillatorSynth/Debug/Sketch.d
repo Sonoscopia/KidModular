@@ -35,6 +35,23 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\eightanaloginputs/pins_arduino.h \
  ..\\..\ArduinoCore\include\variants\eightanaloginputs/../standard/pins_arduino.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/MozziGuts.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/mozzi_analog.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/mozzi_config.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/AudioConfigStandardPlus.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/ADSR.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/Line.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/mozzi_fixmath.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/StateVariable.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/mozzi_utils.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/meta.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/Oscil.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/MozziGuts.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/tables/sin2048_int8.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/tables/square_no_alias_2048_int8.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/tables/triangle2048_int8.h \
+ ..\\..\ArduinoCore\include\libraries\mozzi/tables/saw2048_int8.h \
  ..\include\libraries\Mozzi/twi_nonblock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\compat\twi.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\twi.h
@@ -110,6 +127,40 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ..\\..\ArduinoCore\include\variants\eightanaloginputs/pins_arduino.h:
 
 ..\\..\ArduinoCore\include\variants\eightanaloginputs/../standard/pins_arduino.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/MozziGuts.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/mozzi_analog.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/mozzi_config.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/AudioConfigStandardPlus.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/ADSR.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/Line.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/mozzi_fixmath.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/StateVariable.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/mozzi_utils.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/meta.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/Oscil.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/MozziGuts.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/tables/sin2048_int8.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/tables/square_no_alias_2048_int8.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/tables/triangle2048_int8.h:
+
+..\\..\ArduinoCore\include\libraries\mozzi/tables/saw2048_int8.h:
 
 ..\include\libraries\Mozzi/twi_nonblock.h:
 

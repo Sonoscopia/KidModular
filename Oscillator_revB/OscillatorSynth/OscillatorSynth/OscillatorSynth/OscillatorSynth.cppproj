@@ -46,241 +46,241 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGccCpp>
-  <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p"</avrgcc.common.Device>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=10605</Value>
-      <Value>ARDUINO_AVR_PRO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-    </ListValues>
-  </avrgcc.compiler.symbols.DefSymbols>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
-      <Value>..\include\libraries\Mozzi</Value>
-      <Value>..\include\libraries\Mozzi\config</Value>
-      <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
-      <Value>..\include\libraries\Mozzi\extras\python</Value>
-      <Value>..\include\libraries\Mozzi\samples</Value>
-      <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
-      <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
-      <Value>..\include\libraries\Mozzi\tables</Value>
-      <Value>..\include\libraries\Mozzi\utility</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=10605</Value>
-      <Value>ARDUINO_AVR_PRO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-    </ListValues>
-  </avrgcccpp.compiler.symbols.DefSymbols>
-  <avrgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
-      <Value>..\include\libraries\Mozzi</Value>
-      <Value>..\include\libraries\Mozzi\config</Value>
-      <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
-      <Value>..\include\libraries\Mozzi\extras\python</Value>
-      <Value>..\include\libraries\Mozzi\samples</Value>
-      <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
-      <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
-      <Value>..\include\libraries\Mozzi\tables</Value>
-      <Value>..\include\libraries\Mozzi\utility</Value>
-    </ListValues>
-  </avrgcccpp.compiler.directories.IncludePaths>
-  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
-  <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
-  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
-  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
-  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </avrgcccpp.linker.libraries.Libraries>
-  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
-  <avrgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-    </ListValues>
-  </avrgcccpp.assembler.general.IncludePaths>
-  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
-</AvrGccCpp>
+        <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=10605</Value>
+            <Value>ARDUINO_AVR_PRO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
+            <Value>..\include\libraries\Mozzi</Value>
+            <Value>..\include\libraries\Mozzi\config</Value>
+            <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
+            <Value>..\include\libraries\Mozzi\extras\python</Value>
+            <Value>..\include\libraries\Mozzi\samples</Value>
+            <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
+            <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
+            <Value>..\include\libraries\Mozzi\tables</Value>
+            <Value>..\include\libraries\Mozzi\utility</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=10605</Value>
+            <Value>ARDUINO_AVR_PRO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
+            <Value>..\include\libraries\Mozzi</Value>
+            <Value>..\include\libraries\Mozzi\config</Value>
+            <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
+            <Value>..\include\libraries\Mozzi\extras\python</Value>
+            <Value>..\include\libraries\Mozzi\samples</Value>
+            <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
+            <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
+            <Value>..\include\libraries\Mozzi\tables</Value>
+            <Value>..\include\libraries\Mozzi\utility</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+        <avrgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
+          </ListValues>
+        </avrgcccpp.assembler.general.IncludePaths>
+        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+      </AvrGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGccCpp>
-  <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p"</avrgcc.common.Device>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=10605</Value>
-      <Value>ARDUINO_AVR_PRO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-    </ListValues>
-  </avrgcc.compiler.symbols.DefSymbols>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
-      <Value>..\include\libraries\Mozzi</Value>
-      <Value>..\include\libraries\Mozzi\config</Value>
-      <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
-      <Value>..\include\libraries\Mozzi\extras\python</Value>
-      <Value>..\include\libraries\Mozzi\samples</Value>
-      <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
-      <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
-      <Value>..\include\libraries\Mozzi\tables</Value>
-      <Value>..\include\libraries\Mozzi\utility</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=10605</Value>
-      <Value>ARDUINO_AVR_PRO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-    </ListValues>
-  </avrgcccpp.compiler.symbols.DefSymbols>
-  <avrgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
-      <Value>..\include\libraries\Mozzi</Value>
-      <Value>..\include\libraries\Mozzi\config</Value>
-      <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
-      <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
-      <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
-      <Value>..\include\libraries\Mozzi\extras\python</Value>
-      <Value>..\include\libraries\Mozzi\samples</Value>
-      <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
-      <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
-      <Value>..\include\libraries\Mozzi\tables</Value>
-      <Value>..\include\libraries\Mozzi\utility</Value>
-    </ListValues>
-  </avrgcccpp.compiler.directories.IncludePaths>
-  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
-  <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
-  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
-  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
-  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </avrgcccpp.linker.libraries.Libraries>
-  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
-  <avrgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-    </ListValues>
-  </avrgcccpp.assembler.general.IncludePaths>
-  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
-</AvrGccCpp>
+        <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega328p"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=10605</Value>
+            <Value>ARDUINO_AVR_PRO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
+            <Value>..\include\libraries\Mozzi</Value>
+            <Value>..\include\libraries\Mozzi\config</Value>
+            <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
+            <Value>..\include\libraries\Mozzi\extras\python</Value>
+            <Value>..\include\libraries\Mozzi\samples</Value>
+            <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
+            <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
+            <Value>..\include\libraries\Mozzi\tables</Value>
+            <Value>..\include\libraries\Mozzi\utility</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=10605</Value>
+            <Value>ARDUINO_AVR_PRO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\config</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\tables</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\utility</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\extras\python</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\bamboo</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\mozzi\samples\thumbpiano_huffman</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\eightanaloginputs</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
+            <Value>..\include\libraries\Mozzi</Value>
+            <Value>..\include\libraries\Mozzi\config</Value>
+            <Value>..\include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber</Value>
+            <Value>..\include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html</Value>
+            <Value>..\include\libraries\Mozzi\extras\doc\html\search</Value>
+            <Value>..\include\libraries\Mozzi\extras\python</Value>
+            <Value>..\include\libraries\Mozzi\samples</Value>
+            <Value>..\include\libraries\Mozzi\samples\bamboo</Value>
+            <Value>..\include\libraries\Mozzi\samples\thumbpiano_huffman</Value>
+            <Value>..\include\libraries\Mozzi\tables</Value>
+            <Value>..\include\libraries\Mozzi\utility</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+        <avrgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
+          </ListValues>
+        </avrgcccpp.assembler.general.IncludePaths>
+        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+      </AvrGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
@@ -333,12 +333,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\libraries\Mozzi\EventDelay.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber\blahblah4b_int8.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah\umpah_huff.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\libraries\Mozzi\extras\python\sounddata.h">
@@ -761,15 +755,7 @@
     <Folder Include="include\libraries\" />
     <Folder Include="include\libraries\Mozzi\" />
     <Folder Include="include\libraries\Mozzi\config\" />
-    <Folder Include="include\libraries\Mozzi\examples\" />
-    <Folder Include="include\libraries\Mozzi\examples\03.Sensors\" />
-    <Folder Include="include\libraries\Mozzi\examples\03.Sensors\Piezo_SampleScrubber\" />
-    <Folder Include="include\libraries\Mozzi\examples\08.Samples\" />
-    <Folder Include="include\libraries\Mozzi\examples\08.Samples\SampleHuffman_Umpah\" />
     <Folder Include="include\libraries\Mozzi\extras\" />
-    <Folder Include="include\libraries\Mozzi\extras\doc\" />
-    <Folder Include="include\libraries\Mozzi\extras\doc\html\" />
-    <Folder Include="include\libraries\Mozzi\extras\doc\html\search\" />
     <Folder Include="include\libraries\Mozzi\extras\python\" />
     <Folder Include="include\libraries\Mozzi\samples\" />
     <Folder Include="include\libraries\Mozzi\samples\bamboo\" />
@@ -780,741 +766,7 @@
     <Folder Include="src\libraries\" />
     <Folder Include="src\libraries\Mozzi\" />
     <Folder Include="src\libraries\Mozzi\extras\" />
-    <Folder Include="src\libraries\Mozzi\extras\doc\" />
-    <Folder Include="src\libraries\Mozzi\extras\doc\html\" />
-    <Folder Include="src\libraries\Mozzi\extras\doc\html\search\" />
     <Folder Include="src\libraries\Mozzi\utility\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="include\libraries\Mozzi\extras\doc\html\01_8_basics_2_vibrato_2_vibrato_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\02_8_control_2_control__echo__theremin_2_control__echo__theremin_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\02_8_control_2_control__tremelo_2_control__tremelo_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\02_8_control_2_event_delay_2_event_delay_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\02_8_control_2_metronome__sample_huffman_2_metronome__sample_huffman_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\03_8_sensors_2_knob__l_d_r_x2__wave_packet_2_knob__l_d_r_x2__wave_packet_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\05_8_control__filters_2_d_c_filter_2_d_c_filter_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\05_8_control__filters_2_smooth_2_smooth_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\05_8_control__filters_2_teensy__u_s_b__m_i_d_i_portamento_2_teensy__u_s_b__m_i_d_i_portamento_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\05_8_control__filters_2_thermistor__over_sample_2_thermistor__over_sample_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\06_8_synthesis_2_p_w_m__phasing_2_p_w_m__phasing_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\06_8_synthesis_2_wave_packet_2_wave_packet_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\06_8_synthesis_2_wave_packet__sample_2_wave_packet__sample_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\06_8_synthesis_2_wave_shaper_2_wave_shaper_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\07_8_envelopes_2_a_d_s_r__envelope_2_a_d_s_r__envelope_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\07_8_envelopes_2_ead__envelope_2_ead__envelope_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\08_8_samples_2_sample_2_sample_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\08_8_samples_2_sample_huffman__umpah_2_sample_huffman__umpah_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\09_8_delays_2_audio_delay_2_audio_delay_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\09_8_delays_2_audio_delay_feedback_2_audio_delay_feedback_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\09_8_delays_2_reverb_tank__s_t_a_n_d_a_r_d_2_reverb_tank__s_t_a_n_d_a_r_d_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\10_8_audio__filters_2_low_pass_filter_2_low_pass_filter_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\11_8_audio__filters_2_state_variable_filter_2_state_variable_filter_8ino-example.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\annotated.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\blahblah4b__int8_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\classes.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_audio_delay-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_audio_delay.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_audio_delay_feedback-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_audio_delay_feedback.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_auto_map-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_auto_map.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_auto_range-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_auto_range.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_a_d_s_r-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_a_d_s_r.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_cap_poll-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_cap_poll.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_circular_buffer-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_circular_buffer.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_control_delay-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_control_delay.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_d_cfilter-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_d_cfilter.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_ead-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_ead.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_event_delay-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_event_delay.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_int_map-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_int_map.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line_3_01unsigned_01char_01_4-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line_3_01unsigned_01char_01_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line_3_01unsigned_01int_01_4-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line_3_01unsigned_01int_01_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line_3_01unsigned_01long_01_4-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_line_3_01unsigned_01long_01_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_low_pass_filter-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_low_pass_filter.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_metronome-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_metronome.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_oscil-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_oscil.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_over_sample-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_over_sample.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_phasor-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_phasor.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_portamento-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_portamento.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_p_d_resonant-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_p_d_resonant.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_reverb_tank-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_reverb_tank.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_rolling_average-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_rolling_average.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_rolling_stat-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_rolling_stat.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_r_cpoll-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_r_cpoll.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_sample-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_sample.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_sample_huffman-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_sample_huffman.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_smooth-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_smooth.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_stack-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_stack.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_state_variable-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_state_variable.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_packet-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_packet.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_packet_sample-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_packet_sample.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_shaper.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_shaper_3_01char_01_4-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_shaper_3_01char_01_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_shaper_3_01int_01_4-members.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\class_wave_shaper_3_01int_01_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\cogl__sqrti_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\dir_0d6feda837323b0c7a50b1cca0a6cf12.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\dir_3faa5fff9e46bf8b8f48c87f683ce0e6.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\dir_9ca29615486e86932f4b900563144736.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\dir_9f351d46ce3cc29445a41dc3a31e6919.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\dir_d28a4824dc47e487b107a5db32ef43c4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\dir_da40a2d191134d083f9bacf4a8879a55.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\dir_dd81b9de5c9027a54e49f977944ecdc1.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\examples.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\files.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\functions.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\functions_func.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\group__analog.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\group__core.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\group__fixmath.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\group__midi.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\group__random.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\group__soundtables.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\group__util.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\hierarchy.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\index.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\known__16bit__timers_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\meta_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\modules.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__analog_8cpp_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__analog_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__config_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__fixmath_8cpp_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__fixmath_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__midi_8cpp_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__midi_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__rand_8cpp_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__rand_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__utils_8cpp_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mozzi__utils_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mult16x16_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mult16x8_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\mult32x16_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\primes_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_0.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_1.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_10.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_11.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_12.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_2.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_3.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_5.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_6.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_7.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_8.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_9.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_a.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_b.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_c.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_d.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_e.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\all_f.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_0.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_1.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_2.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_3.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_5.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_6.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_7.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_8.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_9.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_a.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\classes_b.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_0.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_1.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_10.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_11.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_12.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_2.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_3.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_5.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_6.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_7.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_8.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_9.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_a.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_b.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_c.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_d.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_e.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\functions_f.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\groups_0.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\groups_1.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\groups_2.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\groups_3.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\groups_4.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\groups_5.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\groups_6.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\nomatches.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\search\typedefs_0.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\sounddata_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\twi__nonblock_8cpp_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\twi__nonblock_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\umpah__huff_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_audio_config_hi_speed14bit_pwm_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_audio_config_standard9bit_pwm_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_audio_config_standard_plus_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_audio_config_teensy3__12bit_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_audio_delay_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_audio_delay_feedback_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_auto_map_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_auto_range_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_a_d_s_r_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_cap_poll_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_circular_buffer_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_control_delay_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_d_cfilter_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_ead_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_event_delay_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_int_map_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_line_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_low_pass_filter_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_metronome_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_mozzi_guts_8cpp_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_mozzi_guts_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_oscil_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_over_sample_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_phasor_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_portamento_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_p_d_resonant_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_reverb_tank_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_rolling_average_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_rolling_stat_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_r_cpoll_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_sample_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_sample_huffman_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_smooth_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_stack_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_state_variable_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_wave_packet_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_wave_packet_sample_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="include\libraries\Mozzi\extras\doc\html\_wave_shaper_8h_source.html">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\libraries\Mozzi\extras\doc\html\custom_stylesheet.css">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\libraries\Mozzi\extras\doc\html\navtree.css">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\libraries\Mozzi\extras\doc\html\search\search.css">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\libraries\Mozzi\extras\doc\html\tabs.css">
-      <SubType>compile</SubType>
-    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
